@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #t1{
+            width: 300px;
+            border-collapse: collapse;
+        }
+        #t1 th, #t1 td{
+            border: 1px solid black;
+            padding: 4px;
+        }
+        #t1 caption{
+            text-indent: -9999px;
+            height: 0;
+        }
+        #t1 thead>tr:first-child>td{
+            text-align: right;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>테이블 행추가</h2>
+    <table id="t1">
+        <caption>행추가 테이블</caption>
+        <thead>
+            <tr>
+                <td colspan="3"><input type="button" value="추가" onclick="addRow()"/></td>
+            </tr>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>연락처</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+
+        function addRow(){
+            //추가 버튼을 클릭할 때마다 호출하는 곳
+
+            // tr을 만든다.
+            let str = "<tr><td>&nbsp;</td><td></td><td></td></tr>"
+
+            //위에서 만든 tr문 즉, str을 tbody를 찾아서 innerHTML로 넣어주면 된다.
+            let table = document.getElementById("t1");
+            
+            let tbody = table.children[2]; //table의 세번째 자식요소.
+            tbody.innerHTML = str;
+        }
+    </script>
+</body>
+</html>

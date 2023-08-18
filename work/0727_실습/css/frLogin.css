@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+#contents{
+    width: 970px;
+    height: auto;
+    margin: auto;
+    padding-top: 30px;
+    /* border: 1px solid red; */
+}
+.login_area{
+    width: 750px;
+    height: 205px;
+    background: url(../img/login_bg.png) no-repeat;
+    margin: 80px auto;
+    padding: 20px 70px;
+    position: relative;
+}
+.person_login{
+    display: inline-block;
+    width: 290px; 
+}
+.group_login{
+    display: inline-block;
+    width: 290px;
+    position: absolute;
+    right: 70px;
+}
+.login{
+    padding: 15px 0;
+    position: relative;
+}
+.sub_title{
+    background: url(../img/sub_title.png) no-repeat;
+    text-indent: -9999px;
+}
+h1.tit02{
+    width: 132px;
+    height: 30px;
+    background-position: 0 -50px;
+}
+h2.title01{
+    width: 290px;
+    height: 75px;
+    background-position: 0 -80px;
+}
+h2.title01{
+    width: 290px;
+    height: 75px;
+    background-position: 0 -160px;
+}
+.login.input_area p label{
+    display: inline-block;
+    width: 55px;
+    background: url(../img/bult.png) no-repeat 0 -76px;
+    padding-left: 10px;
+}
+.login .input_area p{
+    padding: 3px 0;
+}
+.login .input_area p:first-child{
+    padding-top: 0;
+}
+.login .input_area p input{
+    width: 110px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+}
+.btnArea_right{
+    display: inline-block;
+    width: 86px;
+    height: 56px;
+    position: absolute;
+    right: 0;
+    top: 15px;
+}
+.btn{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/btn.png);
+    text-align: -9999px;
+}
+.login_search{
+    margin-top: 10px;
+    border-top: 2px solid #efefef;
+    padding: 10px 0;
+    position: relative;
+}
+.b_search{
+    width: 156px;
+    height: 27px;
+    background-position: -100px 0;
+    position: absolute;
+    right: 0;
+    top: 3px;
+}

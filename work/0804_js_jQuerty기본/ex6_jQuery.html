@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>여기는 H1요소입니다.</h1>
+    <h2>여기는 H2요소입니다.</h2>
+    <h1>여기는 H1요소입니다.</h1>
+    <h2>여기는 H2요소입니다.</h2>
+    <button type="button" id="btn1">H2 CSS변경</button>
+    <button type="button" id="btn2">H1 CSS변경</button>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+
+        //현재 문서가 준비완료되면 수행하는 부분
+        $(function(){
+            //아이디가 btn1인 요소를 클릭하는 이벤트 등록
+            $("#btn1").click(function(){    //btn1.이란 요소를 클릭했을 때 수행되는 익명함수
+                //h2요소들의 글꼴색을 빨강으로 변경한다.
+                $("h2").css("color","#ff0000");
+            })
+
+            $("#btn2").click(function(){
+                $("h1").css("color", "#00f");
+            })
+        });
+        // jQuery는 css처럼 선택자를 이용할 수 있어서 매우 편리하다고 함.
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #can1{
+            border: 3px dotted black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Canvas연습</h1>
+    <canvas id="can1" width="600" height="300">
+        현재 브라우저에서는 Canvas를 지원하지 않습니다.
+    </canvas>
+
+    <script>
+        window.onload = function(){
+            let mc = document.getElementById("can1");
+            let ctx = mc.getContext("2d");
+
+            if(ctx){
+                ctx.strokeStyle = "#00f";
+                ctx.fillStyle = "#f00";
+                ctx.lineWidth = 5;
+
+                ctx.beginPath();
+                //arc(호의 중심점 x좌표, 호의 중심점 y좌표, 반지름, 시작위치, 끝위치, 호를그리는방향(반시계Tr?시계Fal?) )
+                ctx.arc(150,150, 100, 1.5*Math.PI, 2*Math.PI, false)
+                    //일단 원의 중심은 150,150 좌표.
+                    //Math.PI = 180도.  **근데 컴퓨터에서 0도는 12시가 아니라 3시야...ㅋㅋ 수평선을 생각해봐
+                    // 1.5*Math.PI = 270도, 2*Math.PI는 360도.
+                    //따라서 3시에서부터 270도 = 12시 (시작), 3시에서부터 360도 = 3시 (도착)
+                    // false는 시계방향이므로 12시부터 3시까지 호를 그림.
+                ctx.stroke();
+
+                //각도를 직접 넣어서 할 때.
+                let degrees = 173;
+                let radians = (Math.PI /180)*degrees;
+                ctx.beginPath();
+                ctx.arc(480, 150, 100, 0, radians, true);
+                ctx.fill();
+                ctx.stroke();
+                
+            }
+        }
+    </script>
+</body>
+</html>

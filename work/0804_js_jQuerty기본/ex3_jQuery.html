@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="init()">
+    
+    <!-- jQuery 라이브러리를 쓰겠다고 말한 것. -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+        function init(){    //자바스크립트로 body의 onload이벤트에 의해 호출됨.
+            alert("^^");
+        }
+
+        // window.onload기능
+        $(document).ready(test);   //jQuery로 인해 현재 문서가 준비됐을 때 호출됨. 
+                        //현재문서가 . 준비가되면 . 괄호안의 함수를 호출한다.
+        function test(){
+            alert("*^^*");
+        }
+    </script>
+
+</body>
+</html>

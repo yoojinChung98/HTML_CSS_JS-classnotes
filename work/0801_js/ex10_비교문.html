@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 400px;
+            height: 300px;
+            border: 1px solid blue;
+            font-size: 100px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 300px;
+            color: rgb(25, 25, 141);
+        }
+    </style>
+</head>
+<body>
+    
+    <form method="post">
+        <label for="score">점수입력: </label>
+        <input type="text" id="score" name="u_score"/><br/>
+        <button type="button" onclick="test()">확인</button>
+
+    </form>
+
+    <div id="box">
+
+    </div>
+
+    <script>
+        //현재문서에서 아이디가 score인 요소의 값(value)을 얻어낸다.
+        function test(){
+            let v1 = document.getElementById("score").value;
+
+        //60 이상인지 아닌지 판별하기 위해 숫자로 바꾸는 작업.
+            let value = parseInt(v1);
+
+            //현재문서에서 아이디가 box인 요소를 검색한다
+            //검색한 결과를 변수 box에 저장하자
+            let box = document.getElementById("box");
+
+            if( value >= 60 ){  //조건에 만족 시 수행
+                //현재 문서에서 아이디가 box인 요소를 검색하여 그 안에 "합격"이라는 문자열 출력
+                box.innerText="합격";
+            }else{  //조건에 불만족 시 수행
+                box.innerText="불합격";
+            }
+  
+
+        }
+
+    </script>
+</body>
+</html>

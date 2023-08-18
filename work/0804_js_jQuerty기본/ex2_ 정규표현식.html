@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" name="frm">
+        <label for="b_year">태어난 연도</label>
+        <input type="text" id="b_year" name="birth_year"/>
+        <button type="button" onclick="exe()">확인</button>
+    </form>
+    <br/>
+    <script>
+        function exe(){
+            // let v1 = document.forms[0].birth_year.value;
+            //let v1 = document.frm.birth_year.value;
+            let v1 = document.getElementById("b_year").value;
+
+            // console.log(v1);
+            let msg = m_trim(v1);
+            document.getElementById("b_year").value = msg;
+        }
+
+        // " " 띄운 공백을 찾아서 붙힌공백(whitespace"")으로 변경하는 함수 만들기!!
+        function m_trim(str){
+            //받은 인자의 값에서 띄운 공백을 찾아 없앤다.
+            // let msg = str.replace("1","!")  //str에 "1"을 "!"로 변경해서 결과를 msg에 저장.
+
+            let msg = str.replace(/^\s+|\s+|\s+$/g,""); //a b   c ---> abc
+            /*
+                /^ \s+   |   \s+   |   \s+ $/   g
+                /^    처음 시작부분 
+                \s    띄운 공백 " " 
+                +     +기호 앞의 정규표현식과 일치한 경우가 1번 이상일 때를 의미
+                |     또는
+                &/    끝 부분
+                g     찾으면
+            */
+            return msg;
+        }
+    </script>
+</body>
+</html>

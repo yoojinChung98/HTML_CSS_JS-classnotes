@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 복습</title>
+    <style>
+        .f_title{
+            border-top: 1px solid #aaa ;
+            margin-top: 150px;
+            padding-top: 10px;
+        }
+        h3.f_title:first-child{
+            border-top: 1px solid #aaa ;
+            margin-top: 0px;
+        }
+        div{
+            position: relative;
+            margin: 20px 10px;
+        }
+        .box{
+            border: 3px solid #444;
+            width: 500px;
+            height: 300px;
+            line-height: 300px;
+            text-align: center;
+            margin: 10px 0;
+            font-size: 30px;
+        }
+        .btnF{
+            position: absolute;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- if문 연습하기 -->
+    <div> 
+        <h3 class="title">if문 활용하기</h3>
+        <form method="get">
+            <h3 class="f_title">걸을만한 거리인지 판단해드립니다.</h3>
+            <label for="distance">거리를 m로 입력해주세요.</label><br/>
+            <input type="number" id="distance" name="u_distance"/>&nbsp;m&nbsp;
+            <button type="button" onclick="put_distance()">입력하기</button>
+        </form>
+
+        <div id="box_dis" class="box"></div>
+        <button type="button" style="text-align: center;" class="btnF">다시 입력하기</button>
+    </div>
+
+    <!-- switch문 연습하기 -->
+    <div> 
+        <title class="main_title"><h3>switch문 활용하기</h3></title>
+            <form method="get">
+                <h3 class="f_title">이 요리재료는 스페인어로 뭐라고 할까?</h3>
+                <select id="fName" name="u_Fname" onchange="trans_Fname(this.selectedIndex)">
+                    <option >::무엇이 궁금한가요?</option>
+                    <option>감자</option>
+                    <option>당근</option>
+                    <option>대파</option>
+                    <option>양파</option>
+                    <option>토마토</option>
+                </select>
+            </form>
+
+        <div id="box_food" class="box"></div>
+    </div>
+
+
+
+    <script>
+        // if문 연습하기
+        function put_distance(){
+            let distance = document.getElementById("distance");
+            let v_distance = distance.value;
+            let vInt_distance = parseInt(v_distance);
+
+            let box_dis = document.getElementById("box_dis");
+            let box_food = document.getElementById("box_food");
+            let msg_dis = ""
+
+            if( v_distance.trim().length > 0){
+                if(vInt_distance <= 300){
+                    msg_dis="<span style='color:blue'>엎어지면 코 닿을 거리네요.</span>";
+                }else if(vInt_distance <= 750){
+                    msg_dis="이 정도면 걸어갈 만 하죠.";
+                }else if(vInt_distance <= 1300){
+                    msg_dis="많이 멀지만... 그래도 걸어보죠.";
+                }else if(vInt_distance <= 2000){
+                    msg_dis="이 정도면 택시를 타시는 게ㅜ";
+                }else{
+                    msg_dis="<span style='color:red'>걸어가지 마세요.</span>";
+                }
+                box_dis.innerHTML=msg_dis;
+            }else{
+                alert("빈칸에 숫자를 입력해주세요.");
+                v_distance = "";
+                v_distance.focus();
+                return;
+            }
+        }
+
+        //switch문 연습하기
+        function trans_Fname(idx_fN){
+            switch(idx_FN){
+                case 0:
+                    box_food.innerText = "";
+                case 1:
+                    box_food.innerText = "patata";
+                case 2:
+                    box_food.innerText = "cebolla china";
+                case 3:
+                    box_food.innerText = "cebolla";
+                case 4:
+                    // box_food.innerText = "patata"; 여기부터 작성하기
+                    
+            } 
+
+        }
+        
+
+
+
+    </script>
+</body>
+</html>

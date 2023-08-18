@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+        // jQuery에서 onload와 같은 것을 쓰는 방법.
+        // $(document).ready(함수명);
+        // 함수명이 들어가는 자리에 익명함수를 넣은 것.(정석)
+        // $(document).ready(function(){
+        //     alert("exe");
+        // });
+
+
+        // 위의 내용과 아래의 내용이 같은 것이다.
+        $(function(){
+           alert("exe");
+        });
+
+    </script>
+</body>
+</html>

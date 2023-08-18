@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 300px;
+            height: 160px;
+            border: 1px solid blue;
+            text-align: center;
+            line-height: 160px;
+            font-weight: bold;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <form method="post">
+        <label for="month">월 입력</label>
+        <input type="text" id="month" name="u_month"/>
+        <button type="button" onclick="test(this.form)">확인</button>
+    </form>
+
+    <div id="box"></div>
+
+    <script>
+        let box = document.getElementById("box");
+
+        let msg = "";
+
+        function test(ff){
+            // 사용자가 입력한 월의 값을 받는다.
+            let s_month = ff.u_month.value;
+            
+            switch(s_month){
+                case "1":
+                case "3":
+                case "5":
+                case "7":
+                case "8":
+                case "10":
+                case "12":
+                    msg = "월은 31일까지 입니다.";
+                    break;
+                case "2":
+                    msg = "월은 29일까지 입니다.";
+                    break;   
+                case "4":
+                case "6":
+                case "9":
+                case "11":
+                    msg = "월은 30일까지 입니다.";
+                    break;
+                default: //1~12까지의 값이 아닌 경우 수행하는 곳!
+                    msg = "월은 잘못 입력된 값 입니다."
+            }
+            // msg의 저장된 문자열을 사용자가 입력한 월의 값을 더해서.
+            // box에 표현하자!
+            box.innerText = s_month+msg;
+            
+        }
+
+    </script>
+</body>
+</html>

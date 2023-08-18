@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>할게 없어서 만들어본 유진쓰의 야심작</h3>
+    <div id="content">
+        <form>
+            <label for="s_dinner">오늘의 저녁을 추천해주세요!</label>
+            <input type="text" id="s_dinner" name="u_dinner"/><br/><br/>
+
+            <label for="s_sTime">오늘 몇시에 잘까?</label>
+            <input type="text" id="s_sTime" name="u_sTime"/>
+            <button type="button" onclick="HsTime()">어때?</button>
+            <br/><br/>
+
+            <label for="s_num">숫자를입력하다보면 내 나이를 알게될거야!</label>
+            <input type="text" id="s_num" name="u_num">
+            <button type="button" onclick="myYear()">맞지!?</button><br/><br/>
+
+
+            <input type="text" id="s_anything" name="u_anything"/><br/>
+            <label for="s_anything">^^^여기에 적으시면 됩니당!^^^</label>
+        </form>
+    </div>
+
+    <div id="btn_Area">
+        <button type="button" onclick="HomeOrRedo()">엥? 이게 끝이야?</button>
+    </div>
+
+
+
+    <script>
+        function HsTime(){
+            let VsTime = document.getElementById("s_sTime");
+            let v_VsTime = parseInt(VsTime.value);
+            if(v_VsTime <= 4){
+                alert("안돼. 너무 늦어. 다시 입력해");
+                VsTime.focus();
+            }
+            if(5 <= v_VsTime && v_VsTime<= 11){
+                alert("안돼. 너무 일러. 다시 입력해");
+                VsTime.focus();
+            }
+            if(v_VsTime == 12 || v_VsTime >=3 ){
+                alert("딱 좋네^^*");
+                VsTime.focus();
+            }
+        }
+        function HomeOrRedo(){
+            let home = document.getElementById("s_anything");
+            let home_value = s_anything.value;
+
+            if(home_value == ""){
+                alert("장난하십니까~ 진지하게 하십쇼");
+                home.focus();
+                return;
+            }
+            alert("그래서 심심하지 않게 다시 처음으로 돌려보내드려용~^^*");
+            home.focus();
+        }
+        function myYear(){
+            let myYear = document.getElementById("s_num").value;
+            let v_myYear = parseInt(myYear);
+
+            if(v_myYear != 25){
+            alert("땡!");
+            }
+        }
+    </script>
+</body>
+</html>

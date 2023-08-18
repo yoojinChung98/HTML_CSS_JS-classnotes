@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #t1{
+            width: 600px;
+            border-collapse: collapse;
+        }
+        #t1 td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>jQuery를 이용한 체크박스선택</h1>
+    <table id="t1">
+        <colgroup>
+            <col width="30px"/>
+            <col width="*"/>
+        </colgroup>
+        <thead>
+            <tr>
+                <td colspan="2">
+                    <input type="checkbox" id="all"/>
+                    <em>전체선택</em> <!-- em = emphasize. 문장 내에서 강조하고 싶을 때 사용. (i태그와 strong태그를 합친 것.)-->
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox" id="ch1" name="ch1"/></td>
+                <td>제목1</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="ch2" name="ch1"/></td>
+                <td>제목2</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="ch3" name="ch1"/></td>
+                <td>제목3</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="ch4" name="ch1"/></td>
+                <td>제목4</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="ch5" name="ch1"/></td>
+                <td>제목5</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="ch6" name="ch1"/></td>
+                <td>제목6</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+
+
+
+
+
+            //tbody 에 있는 모~~~~든 체크박스들을 가져온다.
+            let ar = $("#t1>tbody").find(":checkbox");
+
+            //아이디가 all인 요소를 클릭할 때마다 수행하는 이벤트
+            $("#all").click(function(){
+                //아이디가 all인 요소를 클릭할 때마다 수행하는 이벤트
+                // alert(this.checked);
+                
+                ar.prop("checked", this.checked);
+            });
+
+            // all이 체크가 된 상태일 때는 em태그의 내용을 "전체헤제",
+            // 만약 체크가 선택되지 않은 상태일 때는 "전체선택"
+            let str = ""
+            if(this.checked)
+                str = "전체해제"
+            else
+                str = "전체선택"
+
+            $(this).next().text(str);
+
+
+            // let allbox = document.getElementById("all");
+            // let ar = $("#t1>tbody").find(":checkbox");
+
+            // $("#all").click(function(){
+            //     ar.prop("checked", this.checked);
+            //     // console.log(0);
+
+
+            //     if(this.checked == true){
+            //         $(this).next().text("전체해제");
+            //         // console.log(1);
+            //     }else{
+            //         $(this).next().text("전체선택");
+            //         // console.log(2);
+            //     }
+            // });
+
+
+        });
+    </script>
+</body>
+</html>

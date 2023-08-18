@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 배열 선언, 생성, 초기화를 한번에 수행
+        let ar1 = ["자바","스프링","파이썬"];
+
+        for(let i=0; i<ar1.length; i++){
+            console.log(ar1[i]);
+        }
+
+        console.log("------------------");
+
+        let ar2 = new Array(4); //선언. 괄호 안은 생성 갯수. 키워드new=새롭게 만들어주세요.
+        for(let i=0; i<ar2.length;i++){
+            ar2[i] = (i+1)*100; //초기화
+            console.log(ar2[i]); //출력해서 확인.
+        }
+    </script>
+</body>
+</html>

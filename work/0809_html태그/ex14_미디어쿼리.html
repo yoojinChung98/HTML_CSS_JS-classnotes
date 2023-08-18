@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        nav{
+            height: 40px;
+            font-weight: bold;
+        }
+        nav ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        nav ul li{
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        @media all and (min-width: 800px) {
+            article{ width: 100%}
+            nav{
+                border: 2px solid #f00;
+                width: 100%;
+            }
+            section{
+                display: inline-block;
+                width: 60%;
+                border: 2px solid #0f0;
+            }
+            aside{
+                display: inline-block;
+                width: 20%;
+                border: 2px solid blue;
+            }
+        }
+
+        @media all and (min-width: 400px) and (max-width: 800px) {
+            article{ width: 800px;}
+            nav{
+                border: 2px solid #f00;
+                width: 80%;
+                margin: auto;
+                display: flex;
+                justify-content: space-around;
+            }
+            section{
+                display: inline-block;
+                width: 596px;
+                border: 2px solid #0f0;
+            }
+            aside{
+                display: inline-block;
+                width: 596px;
+                border: 2px solid blue;
+                background-color: #898989;
+                color: white;
+            }
+            nav ul li{
+                margin: auto;
+                width: 150px;
+                text-align: center;
+            }
+        }
+
+        @media all and (max-width: 400px) {
+            article{ width: 320px}
+            nav{
+                width: 316px;
+            }
+            section{
+                display: inline-block;
+                width: 316px;
+                border: 2px solid #0f0;
+            }
+            aside{
+                display: inline-block;
+                width: 316px;
+                border: 2px solid blue;
+            }
+            nav ul li{
+                width: 316px;
+                text-align: center;
+                background-color: thistle;
+                border-bottom: 1px solid #e3e3e3;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <nav>
+            <ul>
+                <li><a href="#">Menu01</a></li>
+                <li><a href="#">Menu02</a></li>
+                <li><a href="#">Menu03</a></li>
+                <li><a href="#">Menu04</a></li>
+                <li><a href="#">Menu05</a></li>
+                <li><a href="#">Menu06</a></li>
+            </ul>
+        </nav>
+    </section>
+    <section>
+        <header>
+            <h2>Media Queries Test</h2>
+        </header>
+        <p>
+            새만금 세계스카우트 잼버리 대회 조직위원회가 입국조차 하지 않은 예멘 대원들 숙소를 배정해 애꿎은 충남도와 홍성군이 피해를 보는 일이 발생했다고 연합뉴스가 보도했다.<br/>
+            9일 충남도와 홍성군 등에 따르면 조직위는 전날 태풍 '카눈'을 피해 잼버리 대원 5,200여 명을 충남 18곳 시설에 수용하기로 했다고 발표했다.<br/>
+            충남도와 홍선군, 혜전대는 예멘 대원들 170여 명이 온다는 통보를 받고 급하게 혜전대에 숙소를 마련하고, 출장 뷔페를 준비한 뒤 도착 시간을 물었지만, 조직위는 인솔자 연락처를 확인해 줄 수 없다는 답변만 이어갔다고 한다.<br/>
+        </p>
+    </section>
+    <aside> <!-- 서브메뉴같은게 존재할 때. 우측 메뉴... 이런 것들. -->
+        <p>sideMenue1</p>
+        <p>sideMenue2</p>
+        <p>sideMenue3</p>
+    </aside>
+</body>
+</html>

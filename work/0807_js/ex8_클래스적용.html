@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .test{
+            font-size: 20px;
+            font-weight: bold;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="적용" id="btn"/>
+    <div>
+        <p>야호</p>
+        <em>월요일</em>
+        첫번째 div
+    </div>
+    <div>
+        <p>몰디브</p>
+        <p>산토리니</p>
+        <p>그루토</p>
+    </div>
+    <p>가자~~~!</p>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            // div들 중 첫번째 div의 자식요소들의 글꼴색을 red로 변경해보자.
+
+            // let count = $("div")[0].children.length;
+            // alert(count);
+            // $("div")[0].children().css("color","#f00"); //[0] jQuery문법이 아닌 형태가 됨. 그래서 css함수를 사용할 수 없음
+            $("div").eq(0).children().css("color","#f00");
+
+            // 아이디가 btn인 요소를 클릭했을 때 이벤트 적용
+            let flag = true;
+            $("#btn").click(function(){
+                //flag가 true일 때
+                if(flag){
+                    $("div").eq(1).children().addClass("test");
+                    //클릭 이벤트를 발생시킨 버튼(this)의 value 값을 해제로 변경.
+                    // this.value = "해제"; //자바스크립트 문법
+                    $(this).val("해제"); //jQuery문법
+                }else{
+                    //두번째 div의 자식들 중 p태그들에게 적용된 test클래스를 삭제한다.
+                    $("div").eq(1).children().removeClass("test");
+                    $(this).val("적용");
+                }
+                flag = !flag;
+            });
+        });
+    </script>
+</body>
+</html>

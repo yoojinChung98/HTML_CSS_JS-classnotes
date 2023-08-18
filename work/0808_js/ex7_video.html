@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myVideo{
+            border: 4px solid black;
+            border-radius: 7px;
+            width: 610px;
+            height: 456px;
+        }
+        #video_control{
+            width: 620px;
+            height: 30px;
+            background-color: #333;
+            color: #eee;
+            font-size: 12px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-transform: uppercase; /*대문자로 설정*/
+            display: flex;
+        }
+        .player_button{
+            width: 50px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer; /*커서가 화살표가 손가락모양으로 변함*/
+        }
+        #video_control>div{
+            height: 30px;
+            line-height: 30px;
+        }
+        #progress{
+            position: relative;
+            width: 475px;
+            background-color: #555;
+            margin-right: 5px;
+        }
+        #play_progress{
+            position: absolute;
+            background-color: #6c3;
+            width: 100%;
+            height: 100%;
+
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>비디오 도구제작</h1>
+    </header>
+    <div id="contents">
+        <video id="myVideo" poster="asset/images/Step1.png">
+            <!-- 재생할 비디오파일의 경로 , 상단의 너비높이는 굳이 안줘도 상관ㄴㄴ-->
+            <source src="asset/media/Falls.mp4"/>   <!-- 왜 소스가 속성으로 들어가 있지 않고 자식태그로 덜렁 달려있냐구..? 뭐 속성으로 넣을수도 있긴 한데 그냥 비디오태그가 이렇게 생긴거야...-->
+        </video>
+        <div id="video_control">
+            <div id="play_toggle" class="player_button">play</div>
+            <div id="progress">
+                <div id="play_progress"></div>
+            </div>
+            <div id="time">
+                <span id="current_time">00:00</span>
+                /
+                <span id="duration">00:00</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            // 만약! 브라우저가 video태그를 지원하지 않는다면...(HTML5를 지원하지 않는 브라우저)
+            // video태그와 video_control이라는 div태그가 의미가 없으므로 숨겨야 함
+            if(!document.createElement("video").canPlayType){ // .canPlayType -> 너 이거 할수 있어? boolean형
+                $("#video_control").hide();
+                return; //제어권 반환! 이후는 수행하지 않음.
+            }
+
+
+
+            //제어가 현재 영역에 도달했다는 것은 HTML5를 지원하는 경우
+
+
+
+// ****************버튼*********************
+
+            //video요소를 미리 찾아놓고, 나중에 사용자가 play버튼을 클릭하면 실행시켜야 함.
+            let video = document.getElementById("myVideo");
+
+            $("#play_toggle").click(function(){
+                // 현재 비디오가 정지된 상태일 때만 실행.
+                if(video.paused){
+                    //비디오가 정지된 상태일 때 play 해준다.
+                    video.play();
+
+                    //현재 플레이가 되면서 play라는 문자열을 pause로 변경
+                    $(this).text("pause");
+                }else{
+                    // play가 되고있는 상태라면 정지.
+                    video.pause();
+                    $(this).text("play");
+                }
+            });
+
+            // 비디오가 끝까지 실행된 후 멈췄을 때 이벤트 적용.
+            $(video).bind("ended", function(){
+                // this.play(); // 다시 재생
+                $("#play_toggle").text("play");
+            });
+
+
+//******************시간표기**************
+
+            // 비디오태그 안에 source에 연결된 파일이 load가 완료될 때, 비디오태그가 기억하고있는 종료시간이 수정된다.
+            $(video).bind("durationchange", function(){
+                // alert(this.duration);   //13.2565...
+                // alert(formatTime(this.duration));
+                let str = formatTime(this.duration);
+                $("#duration").text(str);
+            });
+
+            //비디오가 실행될 때(실행시간이 변경될 때)
+            $(video).bind("timeupdate", function(){
+                // console.log("current:"+this.currentTime); // 현재 실행시간 보여줌
+                let c_time = formatTime(this.currentTime);   //00:02;
+                $("#current_time").text(c_time);
+            
+
+
+            //진행바(ply_progress)를 현재 시간과 총 시간(duration)을 100%로 두고 연산하여 너비를 구한다.
+            let timePercent = (this.currentTime/this.duration)*100;
+            console.log(timePercent);
+            //위에서 구한 백분율을 play_progress의 너비로 지정한다.
+            $("#play_progress").css("width",timePercent+"%");
+            
+            });
+
+
+        });
+
+        function formatTime(time){  // 73.212를 받으면 -> 01:13으로 표현
+            let second = Math.round(time);  //반올림.
+            let minute = Math.floor(second/60); // 소숫점이하가 생기면 절사해버림.
+
+            // time의 값이 73.212이라고 가정하면 second에는 73, minute에는 1이 저장되어 있다.
+            // 즉 second의 값이 정확한 초의 값이 아니다.
+            // 이제 분을 가려냈으니 정확한 초의 값을 연산하여 넣어야 한다.
+            second = second%60; // 13
+
+            // 이후의 second는 13, 분의 값은 1. 실제 화면에 표현하는 문장은 01:13
+            // 표현할 값이 한자리면 앞에 0을 붙여야 함.
+
+            // minute = (minute<10)? "0"+minute:minute ; // ?를 중심으로 앞에있는 조건식이 참일 경우 콜론을 기준으로 앞을 수행, 아니면 뒤를 수행
+            if(minute<10)
+                minute = "0"+minute;
+
+            second = (second<10)? "0"+second:second;
+
+            return minute+":"+second; // "01:13" 반환값
+
+        }
+    </script>
+</body>
+</html>

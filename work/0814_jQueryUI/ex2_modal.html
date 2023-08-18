@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+</head>
+<body>
+    <button type="button" id="btn1">연습1</button>
+    <button type="button" id="btn2">연습2</button>
+    <button type="button" id="btn3">연습3</button>
+
+    <div id="dialog" title="ICT인재개발원">
+        공지합니다.<br/>
+        ICT인재개발원은 IT전문가들을 위한 교육시스템을 기반으로 하는 온/오프라인 교육기술 협회인 ICT기술협회 산하<br/>
+        인재개발원입니다.
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+
+        $(function(){
+
+            // 우선 dialog 의 기능들을 하나씩 모아둘 것. 그리고 한꺼번에 dialog()에 넣을 것임.(이런 방식을 주로 씀)
+            let option ={
+                modal: true,  //해당 dialog를 닫기 전에는 다른 것을 할 수 없게 막음(모달)
+                // autoOpen: false, // 호출되는 즉시 자동으로 대화상자 표시.
+                position: {my: "left top", at: "right bottom", of: "#btn3" } ,
+                    // my: 자신의 위치(left center right top bottom). 
+                    // at: 기점이 되는 요소 상의 위치(left center right top bottom).
+                    // of: 기점이 되는 요소.(각 선택자들로 적용. 주로 window를 기준으로 넣어줌)
+                    // -> btn3를 기준으로 btn3의 오른쪽하단에 dialog의 왼쪽 상단을    위치하라.(약간 dialog객체와 기점객체의 어떤 점을 설정해서 두 점을 겹쳐 위치하는 그런 느낌인 듯 함.)
+                    // 포지션 굳이 적용하지 않으면 가운데에 설정됨.
+                    // 어떤 내용은 가리지 않게.... 요런 느낌으로 설정하고 싶을 때 필요할 듯?
+
+                // title: "<a href='https://ictedu.co.kr'>인재개발원</a>", // a태그는 9버전에서 지원
+                resizable: false, 
+
+            };
+
+            $("#dialog").dialog(option);
+        })
+
+    </script>
+</body>
+</html>

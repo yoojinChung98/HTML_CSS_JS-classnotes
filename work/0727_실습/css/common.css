@@ -1,0 +1,161 @@
+@charset "UTF-8";
+@import "reset.css";
+/******************************
+기본레이아웃
+******************************/
+#wrap{
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+/****** 상단영역 ******/
+#header{
+    width: 970px;
+    height: 140px;
+    margin: auto;
+}
+#header>h1{
+    width: 181px;
+    height: 59px;
+    background: url(../img/logo.png) no-repeat;
+    font-size: 0;
+    text-indent: -9999px;
+}
+/**** 메뉴작업 ****/
+#header>ul.gnb{ /* ul태그에 클래스가 gnb인 요소 */
+    width: 100%;
+    height: 50px;
+    font-size: 0;
+    word-spacing: 0;
+    overflow: hidden;
+}
+#header>ul.gnb>li{
+    display: inline-block;
+    width: 194px;
+    height: 100%; /* 50px */
+    background-color: #ff5001;
+}
+
+#header>ul.gnb>li a{
+    display: block;
+    width: 194px;
+    height: 100%;
+    text-align: center;
+}
+#header>ul.gnb>li a>span.menu{
+    display: inline-block;
+    height: 20px;
+    /* border: 1px solid #fff; */
+    margin-top: 15px;
+    line-height: 20px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    padding-left: 30px;/* text-indent: 30px; */
+    background: url(../img/gnb_bult.png) no-repeat;
+}
+#header>ul.gnb>li>a>span.m01{ background-position: 0 0; }
+#header>ul.gnb>li>a>span.m02{ background-position: 0 -22px; }
+#header>ul.gnb>li>a>span.m03{ background-position: 0 -44px; }
+#header>ul.gnb>li>a>span.m04{ background-position: 0 -66px; }
+#header>ul.gnb>li>a>span.m05{ background-position: 0 -88px; }
+#header>ul.gnb>li:hover{
+    background-color: #e24c09;
+}
+
+/**** 푸터영역 ****/
+#footer{
+    width: auto;
+    background: #eee;
+    margin-top: 80px;
+    padding: 40px 0px 50px;/* 위   좌/우   아래 */
+}
+#footer .foot_guide{
+    width: 900px;
+    margin: auto;
+}
+#footer .foot_menu{
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+#footer .foot_menu li{
+    display: inline-block;
+    padding: 0 10px;
+    border-left: 1px solid #999;
+}
+
+/** li태그들 중 가장 첫번째 li요소 선택법 **/
+#footer .foot_menu li:first-child{
+    border-left: none;
+    padding-left: 0;
+}
+#footer .foot_menu li a{
+    color: #777;
+    font-size: 12px;
+    font-weight: bold;
+}
+#footer .foot_menu li a:hover{
+    color: #ff4f00
+}
+
+#footer address{
+    font-size: 12px;
+    color:#777;
+    padding-bottom: 7px;
+}
+#footer .copyright{ font-size:  11px; }
+
+/***********************
+버튼 스타일
+*********************/
+.btn{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background: url(../img/btn.png) no-repeat;
+    text-indent: -9999px;
+}
+.btn_center{
+    text-align: center;
+}
+.btn a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/********************
+타이틀 스타일
+**********************/
+
+h1.title01{
+    /* border: 1px solid red; */
+    height: 30px;
+}
+p.title_src{ /* p태그 중 클래스가 title_src인 요소 */
+    padding: 20px 0 30px 5px;
+    font-size: 12px ;
+    font-weight: bold;;
+    /* 글꼴 바꾸고 싶은뎁 : font-family
+    문장 간격 : line-height*/
+    color: #222;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 20px;
+}
+.sub_title{
+    background: url(../img/sub_title.png) no-repeat;
+    text-indent: -9999px;
+}
+
+/***********************
+기타 스타일
+*********************/
+.ellip{ /* 문자열을 공간에 맞도록 표현 및 줄임표 */
+    display: inline-block;
+    width: 97%; /* px을 쓰기엔 각 상황마다 총 너비가 다를 수 있으니 상대크기로 넣어주기*/
+    white-space: nowrap;/* 스페이스바, 탭, 줄바꿈 등을 공백 1칸으로 표시하라.*/
+    overflow: hidden;
+    text-overflow: ellipsis; /*말줄임표*/
+    /*여기서 포인트는 너비지정과 말줄임표설정임.*/
+}
+

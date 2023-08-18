@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #header{
+            height: 80px;
+            /* border: 1px solid red; */
+            background-color: #2d2d2d;
+            color: #000;
+            margin: 0;
+        }
+        #nav{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font: 22px Arial;
+            line-height: 80px;
+            /* border: 1px solid blue; */
+        }
+        #nav>li{
+            display: inline-block;
+            margin-left:20px;
+            border: 1px solid violet;
+            
+        }
+        #nav>li>a{
+            color: #fff;
+            text-decoration: none;
+        }
+        .selected{
+            color: #ff8000 !important;
+            border-bottom: 4px solid #ff8000;
+        }
+        #nav>li>a:hover{
+            color: #00bfff;
+        }
+        body{
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <header id="header">
+            <ul id="nav">
+                <li><a href="">Home</a></li>
+                <li><a href="" class="selected">iPhone</a></li>
+                <li><a href="">iPad</a></li>
+                <li><a href="">iPod</a></li>
+                <li><a href="">About</a></li>
+            </ul>
+        </header>
+    </div>
+</body>
+</html>

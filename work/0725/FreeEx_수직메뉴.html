@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수직메뉴 연습</title>
+    <style>
+        #menu{
+            list-style: none;
+            padding-left: 0px;
+            border: 2px solid rgb(102, 0, 88);
+            border-radius: 5px;
+            width: 130px;
+            height: 345px;
+            background-color: #b191af;
+            text-align: center;
+        }
+
+        #menu>li>a[href*="https://"]{ 
+            border: none;
+            display: block;
+            height: 60px;
+            text-align: center;
+            line-height: 60px;
+            font-size: 18px;
+            font-weight: bold;
+            color: rgb(255, 253, 255);
+            text-decoration: none;
+        }
+        /* #menu>li>img{} */
+
+        #m_li{
+            display: inline-block;
+            line-height: 70px;
+            width: 100%;
+            text-align: center;
+            
+         }
+        img{ width: 40px; height: 40px; }
+
+        #menu>button{ border: 0px; border-radius: 3px; width: 40px; height: 40px;}
+
+        #kkao{
+            background: url(./images/kakao.png) no-repeat left top;
+        }
+        #whatsapp{
+            background: url(./images/whtsapp.png) no-repeat left top;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <header style="width: 130px; text-align: center;"><h2>수직메뉴</h2></header>
+
+        <ul id="menu">
+            <li><a href="https://">회사소개</a></li>
+            <li><a href="https://">공지사항</a></li>
+            <li><a href="https://">수주상담</a></li>
+            <li><a href="https://">주문조회</a></li>
+            <li><a href="https://">FQ&A</a></li>
+            <!-- <li id="m_li"><a href=""><img src="images/kakao.png"/></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href=""><img src="images/whtsapp.png"></a></li> -->
+            <button id="kkao" type="button" value="카카오톡으로 전화하기" onclick="location.href='https://www.kakaocorp.com/page/service/service/KakaoTalk'"></button>
+            <button id="whatsapp" type="button" value="왓츠앱으로 전화하기" onclick="location.href='https://www.whatsapp.com/?lang=ko'"></button>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여기예요여기!</title>
+    <style>
+        #t1{
+            border-collapse: collapse;
+            width: 300px;
+        }
+        #t1 th, #t1 td{
+            border: 1px solid black;
+            padding: 4px;
+        }
+        #t1 thead>tr:first-child>td{
+            border: none;
+            text-align: right;
+        }
+        #t1 caption{
+            text-indent: -9999px;
+            font-size: 0px;
+        }
+    </style>
+</head>
+<body>
+    <h2>테이블 행 추가와 삭제</h2>
+    <form>
+        <label for="s_name">이름</label>
+        <input type="text" id="s_name" name="u_name"/><br/>
+        <label for="s_phone">전화번호</label>
+        <input type="text" id="s_phone" name="u_phone"/>
+    </form>
+
+    <table id="t1">
+        <caption>테이블 행 추가와 삭제 연습</caption>
+        <thead>
+            <tr>
+                <td colspan="4"><button type="button" onclick="addRow()">추가</button></td>
+            </tr>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>연락처</th>
+                <th>삭제</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        
+        let frm = document.forms[0].elements;
+        let table = document.getElementById("t1");
+        let tbody = table.children[2];
+
+        let idx = 0;
+
+        function addRow(){
+            ++idx;
+
+            //번호는 1부터 차례대로 생성
+            let td1 = document.createElement("td");
+            td1.innerText = idx;
+
+            //이름과 연락처 생성
+            let td2 = document.createElement("td");
+            td2.innerText = frm[0].value;
+            let td3 = document.createElement("td");
+            td3.innerText = frm[1].value;
+
+            //삭제버튼 생성
+            let td4 = document.createElement("td");
+            let btn = document.createElement("input");
+            btn.type = "button";
+            btn.value = "삭제";
+            btn.id = "btn_"+idx;
+            td4.appendChild(btn);
+
+            //행 생성 후 만들어놓은 열 넣기
+            let tr = document.createElement("tr");
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+
+            //tbody에 tr행 넣기.
+            tbody.appendChild(tr);
+        
+            //입력칸 초기화
+            frm[0].value="";
+            frm[1].value="";
+
+            //삭제버튼 이벤트 생성하기
+            tr.onmouseover = function(){
+                table.t_rowIdx = this.rowIndex;
+            }
+            btn.onclick = function(){
+                table.deleteRow(table.t_rowIdx);
+            }
+
+        }
+    </script>
+</body>
+</html>

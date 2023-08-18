@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/reg2.css"/>
+</head>
+<body>
+    <div id="wrap">
+        <!--  상단영역  -->
+        <header id="header">
+            <h1>SK Together</h1>
+            <ul class="gnb">
+                <li><a href=""><span class="menu m01">기브유</span></a></li>
+                <li><a href=""><span class="menu m02">위드유</span></a></li>
+                <li><a href=""><span class="menu m03">스마트 전통시장</span></a></li>
+                <li><a href=""><span class="menu m04">BRAVO!</span></a></li>
+                <li><a href=""><span class="menu m05">SKT와 사회공헌</span></a></li>
+            </ul>
+        </header>
+        <!--  상단영역 끝  -->
+
+
+        <!--  콘텐츠영역  -->
+        <div id="contents">
+            <h1 class="sub_title title01">일반 개인회원가입</h1>
+            <p class="title_src">
+                    사회공헌 포탈 서비스인 T-together는 누구나 참여할 수 있으며 가입하시면
+                    GiveU(기부)나 자원봉사 참여 등 다양한 서비스이용이 가능합니다.<br/>
+                    이용 프로그램에 따라 필요한 추가정보를 요청할 수 있습니다.
+            </p>
+            <p class="guide_txt">
+                기본회원정보를 입력해주세요.
+                <span class="txt_r"> <span class="req"></span> 표시 필수입력사항</span>
+            </p>
+            <br/>
+            <form action="" method="post">
+                <table class="table_type">
+                    <colgroup>
+                        <col width="130px"/>
+                        <col width="*"/>
+                    </colgroup>
+                    <tbody>
+                        <!-- <tr>
+                            <th>이름</th>
+                            <td>마루치</td>
+                        </tr> -->
+                        <tr>
+                            <th>
+                                <span class="req"></span>
+                                <label for="s_name">이름</label>
+                            </th>
+                            <td>
+                                <input type="text" id="s_name" name="u_name" class="join"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <span class="req"></span>
+                                <label for="s_id">아이디</label>
+                            </th>
+                            <td>
+                                <p class="guide_txt">6~12자리의 영문, 숫자(혼용 가능)을 입력해주세요.</p>
+                               <input type="text" id="s_id" name="u_id" class="join"/>
+                               <span class="btn b_bdcheck"><a href="#">중복확인</a></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <span class="req"></span>
+                                <label for="s_pw">비밀번호</label>
+                            </th>
+                            <td>
+                                <p class="guide_txt">안전을 위해 10개 이상의 문자조합(영문 대소문자+숫자 또는 기호)를 입력해 주세요.</p>
+                               <input type="password" id="s_pw" name="u_pw" class="join"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <span class="req"></span>
+                                <label for="s_pw2">비밀번호 확인</label>
+                            </th>
+                            <td>
+                                <p class="guide_txt">입력하신 비밀번호 확인을 위해 다시 한번 입력해 주세요.</p>
+                               <input type="password" id="s_pw2" name="u_pw2" class="join"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <span class="req"></span>
+                                <label for="s_nickname">닉네임</label>
+                            </th>
+                            <td>
+                                <p class="guide_txt">닉네임은 한글 1~6자, 영문 대소문자 2~12자, 숫자 사용이 가능하며, 욕설이나 비속어는 닉네임으로 사용 불가합니다.</p>
+                               <input type="text" id="s_nickname" name="u_nickname" class="join"/>
+                               <span class="btn b_bdcheck"><a href="#">중복확인</a></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <span class="req"></span>
+                                <label for="s_addr">주소</label>
+                            </th>
+
+                            <!--테이블 안에 테이블은 오류가 난 적이 있다고 하심-->
+                            <!-- <td>
+                                <table class="address">
+                                    <colgroup>
+                                    <col width="100px"/>
+                                    <col width="*"/>
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th><span class="btn fn_address"><a href="#">우편번호찾기</a></span></th>
+                                            <td><input type="text" id="s_addr" name="u_address" class="join fn_addnum"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th><label for="s_baseAdd">기본 주소</label></th>
+                                            <td><input type="text" id="s_baseAdd" name="u_baseAdd" class="join"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th><label for="s_detailAdd">상세 주소</label></th>
+                                            <td><input type="text" id="s_detailAdd" name="u_detailAdd" class="join"/></td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </td> -->
+
+
+                            <!-- 그냥 하나하나 위치 잡은거, 아이디랑 클래스랑 다 뒤죽박죽이니 잘 맞춰놓쟈 -->
+                            <!-- <td class="find_addr">
+                                <label for="s_addr"><span class="btn post_num"><a href="#">중복확인</a></span></label>
+                                <input type="text" id="s_addr" name="u_addr" class="join box_addrnum"/><br/>
+                                <label for="s_addr2" class="addr">기본주소</label>
+                                <input type="text" id="s_addr2" name="u_addr2" class="join box_add"/><br/>
+                                <label for="s_baseAdd" class="addr3">상세주소</label>
+                                <input type="text" id="s_addr3" name="u_addr3" class="join box_addr"/>    
+                            </td> -->
+
+                            <!--dl태그-->
+                            <td>
+                                <dl>
+                                    <dt><span class="btn post_num"><a href="#">우편번호찾기</a></span></dt>
+                                    <dd><input type="text" id="s_addr" name="u_addr" class="join"/></dd>
+                                </dl>
+                                <dl>
+                                    <dt class="fr"><label for="s_addr2" class="address">기본주소</label></dt>
+                                    <dd><input type="text" id="s_addr2" name="u_addr2" class="join" style="width: 450px;"/></dd>
+                                </dl>
+                                <dl>
+                                    <dt class="fr"><label for="s_addr3" class="address">상세주소</label></dt>
+                                    <dd><input type="text" id="s_addr3" name="u_addr3" class="join" style="width: 450px;"/></dd>
+                                </dl>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                <span class="req"></span>
+                                <label for="s_bday">생년월일</label>
+                            </th>
+                            <td>
+                                <p class="guide_txt">양력/음력 선택 후, YYYY/MM/DD 형식으로 입력해주세요 예)19980326</p>
+                                <select class="select_optionS">
+                                     <option>양력</option>
+                                     <option>음력</option>
+                                </select>
+                               <input type="text" id="s_bday" name="u_bday" class="join"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <span class="req"></span>
+                                <label for="s_gender">성별</label>
+                            </th>
+                            <td>
+                                <select class="select_optionS">
+                                     <option>남성</option>
+                                     <option>여성</option>
+                                </select>
+                               <input type="text" id="s_bday" name="u_bday" class="join"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <span class="req"></span>
+                                <label for="s_pnum">휴대전화번호</label>
+                            </th>
+                            <td>
+                                <select class="select_optionS">
+                                    <option>010</option>
+                                    <option>016</option>
+                                    <option>011</option>
+                                </select>-
+                                <input type="text" id="s_pnum" name="u_pnum" class="join"/>-
+                                <input type="text" id="s_pnum2" name="u_pnum2" class="join"/>
+                                <p class="guide_txt">양력/음력 선택 후, YYYY/MM/DD 형식으로 입력해주세요 예)19980326</p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                <label for="s_give">관심기부대상</label>
+                            </th>
+                            <td>
+                                <input type="checkbox" id="s_give" name="u_give" value="아동"/> <lable for="s_give">아동</lable>&nbsp;&nbsp;
+                                <input type="checkbox" id="s_give2" name="u_give2" value="노인"/> <lable for="s_give2">노인</lable>&nbsp;&nbsp;
+                                <input type="checkbox" id="s_give3" name="u_give3" value="의료"/> <lable for="s_give3">의료</lable>&nbsp;&nbsp;
+                                <input type="checkbox" id="s_give4" name="u_give4" value="해외"/> <lable for="s_give4">해외</lable>&nbsp;&nbsp;
+                                <input type="checkbox" id="s_give5" name="u_give5" value="긴급"/> <lable for="s_give5">긴급</lable>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+
+                <div class="btn_area">
+                    <span class="btn b_ok"><a href="#">확인</a></span>
+                    <span class="btn b_cancel"><a href="#">취소</a></span>
+                </div>
+            </form>
+            
+
+
+
+
+
+        </div>
+        <!--  콘텐츠영역 끝 -->
+    
+         
+        <!--  하단영역  -->
+        <footer id="footer">
+            <div class="foot_guide">
+                <ul class="foot_menu">
+                    <li><a href="">개인정보취급방침</a></li>
+                    <li><a href="">웹회원 이용약관</a></li>
+                    <li><a href="">책임한계와 법적고지</a></li>
+                    <li><a href="">이메일 무단수집 거부</a></li>
+                </ul>
+                <address>
+                    서울특별시 중구 을지로 몇가 몇번지
+                    대표이사: 마루치
+                    고객상담: 국번없이 114 혹은
+                    02-1234-5678 (평일 09:00~17:00)
+                </address>
+                <p class="copyright">
+                    Copyright (c) 2023 SK Telecom. All rights reserved
+                </p>
+            </div>
+        </footer>
+        <!--  하단영역 끝 -->
+    </div>
+</body>
+</html>

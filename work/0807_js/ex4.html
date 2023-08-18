@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #t1{
+            border-collapse: collapse;
+            width: 300px;
+        }
+        #t1 td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table id="t1">
+        <tbody>
+            <colgroup>
+                <col width="200px"/>
+                <col width="*"/>
+            </colgroup>
+            <tr>
+                <td>항목1</td>
+                <td>비고1</td>
+            </tr>
+            <tr>
+                <td>항목1</td>
+                <td>비고1</td>
+            </tr>
+            <tr>
+                <td>항목1</td>
+                <td>비고1</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+
+        $(function(){   //jQuery 도입부(무조건 수행하는 공간)
+
+            //이때, 아이디가 t1인 요소의 자식들 중 tbody에 있는 tr들에게 이벤트를 부여.
+            // $("#t1>tbody>tr").bind("mouseover",overTr);
+            $("#t1>tbody>tr").bind("mouseover", function(){
+                // this.style.backgroundColor="#aceeee";
+                $(this).css("backgroundColor","#aceeee");
+            });
+
+            $("#t1>tbody>tr").bind("mouseout", function(){
+                // this.style.backgroundColor="#ffffff";
+                $(this).css("backgroundColor","#ffffff");
+            });
+        });
+
+    </script>
+</body>
+</html>

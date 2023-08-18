@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 500px;
+            height: 160px;
+            border: 1px solid blue;
+            text-align: center;
+            line-height: 160px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form method="post">
+        <label for="su">수:</label>
+        <input type="number" id="su" name="u_su"/>
+        <button type="button" onclick="exe(this.form)">확인</button>
+    </form>
+
+    <div id="box"></div>
+
+    <script>
+        let box = document.getElementById("box");
+        //box 안에 inner을 사용하여 입력한 숫자까지 자연수로 가로로 출력하기
+        //inner자체가 내용을 지우고 새로 입력하는 것이므로, 변수 하나에 내용물을 축적한 뒤 한 번에 출력해야 함.
+        function exe(frm){
+            let  num = parseInt(frm.u_su.value);
+
+            let msg = "";
+
+            for(let i=1; i <= num; i++){
+                msg = msg + i + "&nbsp"; // msg += i+"&nbsp"
+            }
+            
+            box.innerHTML = msg; //출력은 for문 밖에서 해야함.
+
+        }
+    </script>
+</body>
+</html>

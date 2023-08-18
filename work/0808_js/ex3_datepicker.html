@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+</head>
+<body>
+    <form >
+        <label for="b_date">생일</label>
+        <input type="text" id="b_date" name="b_date"/>
+    </form>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $(function(){
+
+                $("#b_date").datepicker({
+                    dateFormat: "yy-mm-dd",
+                    // defaultDate: new Date("2000/08/15"),
+                    dayNamesMin: ["일","월","화","수","목","금","토"],
+                    monthNames: [ "1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월" ],
+                    showMonthAfterYear: true
+                });
+           
+
+        });
+
+    </script>
+</body>
+</html>

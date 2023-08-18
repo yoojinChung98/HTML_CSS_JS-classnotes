@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #menu{
+            padding: 0; /* ol태그 안의 안쪽여백 모두를 없애기 */
+            width: 300px;
+            list-style: none;
+        }
+        #menu>li{
+            width: 300px;
+            height: 100px;
+        }
+        #menu a{
+            display: block; /* a태그는 인라인레벨이므로 크기변경을 하지 못함 
+                                그래서 잠시 블록레벨로 변경하여 크기를 변경하자 */
+            width: 100%;
+            height: 100%;
+            text-indent: -9999px;
+        }
+        #mail>a{
+            background-image: url(./images/mail.gif);
+            background-repeat: no-repeat; /* 반복적으로 채우기 금지! */
+            background-position: left top ; /* 기준점을 왼쪽 상단 으로 지정(기본값임ㅋㅋ) */
+        }
+
+        #cafe>a{ background: url(./images/cafe.gif) no-repeat; }
+        
+
+        #blog>a{ background: url(./images/blog.gif) no-repeat; }
+        
+
+        #kin>a{ background: url(./images/kin.gif) no-repeat; }
+        
+        
+        /* id가 mail인 요소의 자식들 중 a태그에 마우스가 올라갔을 때 */
+/*        #mail>a:hover{
+            background-position: right top;
+        }
+        #cafe>a:hover{
+            background-position: right top;
+        }
+        #blog>a:hover{
+            background-position: right top;
+        }
+        #kin>a:hover{
+            background-position: right top;
+        } */
+
+        #menu>li>a:hover{
+            background-position: right top;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <header>
+            <h1>수직메뉴</h1>
+        </header>
+        <ol id="menu">
+            <li id="mail"><a href="">메&nbsp;&nbsp;일</a></li>
+            <li id="cafe"><a href="">카&nbsp;&nbsp;페</a></li>
+            <li id="blog"><a href="">블로그</a></li>
+            <li id="kin"><a href="">지식in</a></li>
+        </ol>
+    </div>
+</body>
+</html>

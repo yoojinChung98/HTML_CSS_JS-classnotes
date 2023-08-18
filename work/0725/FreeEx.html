@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자유연습</title>
+    <style>
+        fieldset{ width: 320px;}
+        tbody th{
+            text-align: right;
+            padding-right: 13px;
+        }
+        tr{
+            /* margin: 100px; */
+            line-height: 25px;
+        }
+        input[type=text]{ width: 210px; }
+        input[name=u_idnum]{ width: 92px; }
+        input[name=u_email]{ width: 92px; }
+        select{ width: 100px; }
+        td{ font-size: 13px; }
+        button{ margin-right: 20px;
+        margin-left: 20px;}
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <form action="" method="">
+            <fieldset>
+                <legend>방문신청폼</legend>
+                <table summery="방문신청을 위한 정규폼">
+                    <colgroup id="w_formtable">
+                        <col width="80px">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th><label for="s_name">이름</label></th>
+                            <td>
+                                <input type="text" id="s_name" name="u_name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="s_gender">성별</label></th>
+                            <td>
+                                <input type="radio" id="s_gender" name="u_gender" value="1"/>남성
+                                <input type="radio" id="s-gender2" name="u_gender" value="2"/>여성
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="s_idnum">주민번호</label></th>
+                            <td>
+                                <input type="text" id="s_idnum" name="u_idnum"/>
+                                &nbsp;-&nbsp;
+                                <input type="password" id="s_idum2" name="u_idnum"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="s_email">이메일</label></th>
+                            <td>
+                                <input type="text" id="s_email" name="u_email"/>
+                                @
+                                <select>
+                                    <option>선택하세요</option>
+                                    <option value="naver.com">naver.com</option>
+                                    <option value="daum.net">daum.net</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="s_time">희망시간</label></th>
+                            <td>
+                                <input type="radio" value="8" id="s_time" name="u_time"/>오전8시
+                                <input type="radio" value="12" id="s_time2" name="u_time"/>오후12시
+                                <input type="radio" value="16" id="s_time3" name="u_time"/>오후4시
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="s_reason">방문사유</label></th>
+                            <td>
+                                <input type="checkbox" id="s_reason" name="u_reason" value="tooth"/>치통
+                                <input type="checkbox" id="s_reason2" name="u_reason" value="head"/>두통
+                                <input type="checkbox" id="s_reason3" name="u_reason" value="waist"/>요통
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="s_memo">메모</label></th>
+                            <td>
+                                <textarea id="s_memo" name="u_memo" rows="10" cols="25" placeholder="기타 전달내용"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align: center;">
+                                <button type="button">등록</button>
+                                <button type="reset">취소</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
+
+
+<!-- 스타일적용하기! -->

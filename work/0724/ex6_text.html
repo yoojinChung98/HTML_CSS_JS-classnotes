@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* CSS 주석
+            period(점)는 CSS클래스를 의미함!
+            클래스는 하나의 틀을 의미함
+        */
+        .txt_r{
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    
+    <form action="login.jsp" method="post">
+        <table width="300px">
+            <colgroup>
+                <col width="80px"/>
+                <col width="*"/>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td class="txt_r"><label for="s_id">아이디:</label></td>
+                    <td><input type="text" id="s_id" name="u_id"/></td>
+                </tr>
+                <tr>
+                    <td class="txt_r"><label for="s_pw">비밀번호:</label></td>
+                    <td> <input type="password" id="s_pw" name="u_pw"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <input type="button" value="로그인"/>
+                        <button type="button">회원가입</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+
+</body>
+</html>

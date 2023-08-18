@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #t1{
+            border-collapse: collapse;
+            width: 300px;
+        }
+        #t1 td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table id="t1">
+        <tbody>
+            <colgroup>
+                <col width="200px"/>
+                <col width="*"/>
+            </colgroup>
+            <tr onmouseover="overTr(this)" onmouseout="outTr(this)">
+                <td>항목1</td>
+                <td>비고1</td>
+            </tr>
+            <tr onmouseover="overTr(this)" onmouseout="outTr(this)">
+                <td>항목1</td>
+                <td>비고1</td>
+            </tr>
+            <tr onmouseover="overTr(this)" onmouseout="outTr(this)">
+                <td>항목1</td>
+                <td>비고1</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function overTr(c_tr){
+            // 해당 행(tr)에 배경색을 변경하고자 한다.
+            c_tr.style.backgroundColor = "#aceeee";
+        }
+        function outTr(c_tr){
+            c_tr.style.backgroundColor = "#ffffff";
+        }
+    </script>
+</body>
+</html>

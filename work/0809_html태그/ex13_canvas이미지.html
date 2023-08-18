@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #can1{
+            border: 3px dotted black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Canvas연습</h1>
+    <canvas id="can1" width="600" height="300">
+        현재 브라우저에서는 Canvas를 지원하지 않습니다.
+    </canvas>
+    <img id="img1" src="images/Step1.png" width="204" height="204" style="display:none;"/>
+
+    <script>
+        window.onload = function(){
+            let mc = document.getElementById("can1");
+            let ctx = mc.getContext("2d");
+
+            if(ctx){
+                //문서 내에 아이디가 img1인 요소를 검색한다.
+                let img1 = document.getElementById("img1");
+
+                //검색된 이미지를 x좌표 0, y좌표 0에 그린다.
+                ctx.drawImage(img1,-30,0);
+                // 일단 이미지 태그로 애를 가져와야지 넣을 수 있음.
+               
+                
+            }
+        }
+    </script>
+</body>
+</html>

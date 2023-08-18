@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 300px;
+            height: 160px;
+            border: 1px solid blue;
+            text-align: center;
+            line-height: 160px;
+            font-weight: bold;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <form method="post">
+        <label for="v1">1~5사이의 값을 입력:</label>
+        <input type="text" id="v1" name="type"/>
+        <button type="button" onclick="exe(this.form)">확인</button>
+    </form>
+
+    <div id="box"></div>
+
+    <script>
+        let box = document.getElementById("box");
+
+        function exe(ff){
+            // 인자로 전달된 form은 ff란 변수에 저장된다.
+            let value = parseInt(ff.type.value);
+
+            if(value < 1 || value > 5){
+                //1~5사이의 값이 아닌 경우!
+                alert("잘못된 값이 입력되었습니다.");
+                retrun; //멈춰버리고 호출한 곳으로 보내버리고 더 이상 수행하지 않게 된다.
+            }else if(value >= 1 && value <= 5){
+                /*
+                if(value == 1)
+                    box.innerText = "1억입니다.";
+                else if(value == 2)
+                    box.innerText = "8천입니다.";
+                else if(value == 3)
+                    box.innerText = "6천입니다.";
+                else if(value == 4)
+                    box.innerText = "4천입니다.";
+                else
+                    box.innerText = "2천입니다.";
+                */
+
+                /*
+                switch문의 구성
+                switch(값){
+                    case 비교값1 :
+                        수행할 구문1;
+                        수행할 구문2;
+                        break;
+
+                    case 비교값2 :
+                        수행할 구문3;
+                        break;
+                        ...
+                    case 비교값n :
+                        수행할 구문4;
+                        break;
+                }
+                */
+               switch(value){
+                    case 1:
+                        box.innerText = "1억입니다.";
+                        break;
+                    case 4:
+                        box.innerText = "4천입니다.";
+                        break;
+                    case 2 :
+                        box.innerText = "8천입니다.";
+                        break;
+                    case 5 :
+                        box.innerText = "2천입니다.";
+                        break;
+                    case 3 :
+                        box.innerText = "6천입니다."; //마지막 case는 굳이  break;가 없어도 된다고 함.
+               }//switch 문의 끝.
+
+            }else
+                alert("뭘 입력하셨죠?");
+        }
+    </script>
+</body>
+</html>

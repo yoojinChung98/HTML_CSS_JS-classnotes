@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* img태그들 모두에게 적용*/
+        img{
+            width: 170px;
+            height: 100px;
+        }
+        td, th, .text{ /*td 또는 th 태그 모두 적용*/
+            width: 200px;
+            height: 150px;
+            text-align: center;
+            border: 1px solid black;
+        }
+        table{
+            /*border-spacing: 0px;
+            border: 0px;*/
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td><img src="images/orora1.png"/></td>
+            <td>항목1</td>
+            <td><img src="images/orora2.jpg"/></td>
+        </tr>
+        <tr>
+            <td>항목2</td>
+            <td><img src="images/orora3.jpg"/></td>
+            <td>항목3</td>
+        </tr>
+        <tr>
+            <td><img src="images/orora4.jpg"/></td>
+            <td>항목4</td>
+            <td><img src="images/orora5.jpg"/></td>
+        </tr>
+    </table>
+</body>
+</html>

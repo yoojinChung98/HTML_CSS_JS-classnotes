@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+</head>
+<body>
+    <button type="button" id="btn1">MyButton</button>
+    <button type="button" id="btn2">MyButton</button>
+    <button type="button" id="btn3">MyButton</button>
+
+
+    
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $(function(){
+            // $("#btn1, #btn2, #btn3").button();
+            $("button").button();   //button이라는 태그를 만나면 button();해주세요
+
+            $("#btn1, #btn2, #btn3").click(function(){
+                let id = this.id;
+                // console.log(id);
+                switch(id){
+                    case "btn1":
+                        $(this).css("backgroundColor","#00bfff")
+                        break;
+                    case "btn2":
+                        $(this).css("backgroundColor","#932866")
+                        break;
+                    case "btn3":
+                        $(this).css("backgroundColor","#3aa9a3")
+                        break;
+                }
+            });
+
+        });
+
+    </script>
+</body>
+</html>

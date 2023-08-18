@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>File API연습</h1>
+    </header>
+    <article>
+        <p>
+            <h2>File API는</h2>
+            <section>
+                HTML5에서 제공하는 기능 중 로컬에 저장된 파일을 읽을 때 사용하는 API이다.
+            </section>
+        </p>
+        <form>
+            <input type="file" id="s_file" multiple/>
+
+            <select id="enc">
+                <option value="UTF-8">UTF-8</option>
+                <option>8859_1</option>
+                <!-- 옵션에 value값을 넣지 않으면 알아서 태그안에 있는 내용을 값으로 가져옴. -->
+            </select>
+
+            <button type="button" onclick="readFile()">읽기</button>
+            <div>
+                <span id="fileName">File Name</span>
+                <span id="fileSize">File Size</span>
+                <!-- 오늘 수업에서는 서버로 보내지 않을 거니까 name이 굳이 필요하지 않습니다. -->
+            </div>
+            <textarea id="content" style="width: 600px; height: 400px;" disabled="disabled" ></textarea>
+        </form>
+    </article>
+    <script>
+        function readFile(){
+            //사용자가 선택한 파일 가져오기
+                // type="file"형태는 보안상 value로 값을 지정할 수 없음. 
+                // document.getElementById("s_file").value = "tttt.java";
+                // 위와 같이 value를 지정할 수 없다. 위와 같은 식은 제대로 성립하지 않음. (보안문제로 인한 조치. 악성코드를 심을까봐)
+
+            // file타입은 '파일을 여러 개 선택할 수 있는' 옵션을 갖고있으므로/ 파일들을 가져올 때 배열로 받는다!(로 받을 수 있다.)
+            let file = document.getElementById("s_file").files[0];
+                //files라는 예약어는 해당 객체의 진짜 그 파일들을 받아오는 배열임.
+                //위는 file태그를 가져온 것이 아니라 실제 사용자가 지정한 파일객체를 가져온 것이다.
+            document.getElementById("fileName").innerText = file.name;
+            document.getElementById("fileSize").textContent = "("+file.size+")";
+
+            // 파일 내용을 읽기 하기위해 Reader객체 사용
+            // Reader는 '문자기반의 파일들만 읽기'하는 객체.(이미지파일은 안됨.)
+            let reader = new FileReader();  // FileReader은 내장스트림객체! 이미 만들어진 아이야!
+                            //근데 내장 스트림 객체는 깨지기 쉬우므로 조심히 써야함!(try-catch문 같은 것을 쓰면 좋겠지)
+
+                            // 자바로 설명해드려요
+                            // 자바에서 데이터는 스트림을 통해 입출력됨. 따라서 프로그램이 네트워크상 타프로그램과 데이터를 교환하기 위해선 양쪽 모두 입출력스트림이 따로 필요함.
+                            // Stream = 단방향(출발지에서 도착지)으로 연속적으로 흘러간다는 개념
+
+                            // 스트림클래스의 종류
+                            // 1. 바이트 기반 스트림 : 모든 것을 1Byte 씩 입출력. 음원/그림 같은 자료를 읽을 때 사용(문자 섞여있어도 o)/ 데이터 유실이 상대적으로 적음
+                            // 프로그램을 기준으로 데이터가 들어옴=입력스트림(~inputStream) 데이터가 나감=출력스트림(~outputStream)
+
+                            // 2. 문자기반 스트림 : 모든 문자열을 2Byte 씩 입출력. 문자를 읽을 때 사용
+                            // 입력스트림(~Reader). 출력스트림(~Writer)
+
+                            
+                            
+            // reader로부터 자원들이 읽기가 끝나면 이벤트를 감지하는  이벤트 감지자 등록!(예, onload)
+            reader.onload = function(){
+                // 파일 자원들을 읽었으면 현재 문서에서 아이디가 content(textarea)인 객체를 가져옴. 왜냐면 그곳에 내용을 출력해야 하니까.
+                let ta = document.getElementById("content");
+
+                ta.textContent = reader.result;
+                // result라는 property. FileReader는 파일로부터 데이터를 받아서 결과를 result안에 넣어놓음.
+                // reader의 result를 textarea에 표현.
+            };
+
+            //reader에서 오류가 발생했을 때를 감지하는 이벤트(이벤트감지자 등록)
+            reader.onerror = function(ev){
+                alert(ev.target.error.code);
+                // 정상적으로 처리되면 200
+                // 404 파일경로 오류. 이름이 잘못되었거나 중간에 경로가 잘못되었거나...이런 것이 400번대
+                // 500 번대 오류. 클라이언트는 문제가 없으나 서버오류! 서버의 신텍스 오류같은!
+            }
+
+            // 선택된 파일을 읽기 하기 전에 인코딩을 지정한다.
+            // UTF-8 = 유니코드 인코딩. 비영어권 문자도 표현 문자하나당 2byte(1/0)씩 차지.
+            // 비트(0/1)가 8개면 8bit. 8bit = 1byte. 즉 문자하나를 표현하는데 16bit 씩 사용한다는 뜻.
+            // 알파벳 같은 경우는 
+            // 유니코드 안에 아스키코드가 있는데 아스키코드가 한byte 짜리임. 따라서 A=65 = 0000001, a=97 = 01100001.
+            // 한글같은 문자가 처리되길 원한다면 유니코드를 사용해야죠.
+            let enc = document.getElementById("enc");
+
+            //enc에 선택된 index값을 가지고 여러 option들을 배열로 관리하여 접근하는 값을 사용.
+            //그니까 교수님은 그냥 enc.value를 써도 상관없지만, 옵션들을 배열로 관리하는 방법을 알려주고 싶어서 하단의 방법을 사용함.
+            // 접근된 option요소의 문자열 값(value)을 얻어내자!
+            let encoding = enc.options[enc.selectedIndex].value;
+            //enc에서 선택된 인덱스번호 (숫자! enc.selectedIndex). 이 숫자와 동일한 
+
+            //파일의 문자열 자원들을 읽기 수행. *** 파일을 지정하여 읽기 시작!
+            reader.readAsText(file, encoding);
+            // ASText = 텍스트파일 아니면 안돼~ 인자=(실제파일, 파일을 어떤 인코딩으로 읽어올 것인가);
+
+        }
+    </script>
+</body>
+</html>

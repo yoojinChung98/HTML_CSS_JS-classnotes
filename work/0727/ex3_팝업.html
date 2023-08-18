@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 외부 CSS파일 연결법 -->
+    <link rel="stylesheet" type="text/css" href="./css/ex3.css"/>
+</head>
+<body onload="init()">
+        <div id="wrap>">
+            <header>
+                <!--메뉴가 있다고 생각하쟝 -->
+                <input type="button" value="팝업1"/>
+                <button type="button" onclick="exe()">팝업2</button>
+            </header>
+
+
+            <!--=========================보여질 팝업창=============================-->
+            <div id="popup">
+                <div id="title_bar">
+                    <div id="exit_area">
+                        <a href="javascript:closed()">닫기</a>
+                    </div>
+                </div>
+                <div id="content">
+                    <p>안녕하세요 저는 팝업입니다 ^0^*</p>
+                </div>
+            </div>
+            <!--==================================================================-->
+
+        </div>
+
+        <script>
+            function init(){
+                console.log("init함수");
+            }
+
+            function closed(){
+                let obj2 = document.getElementById("popup");
+                obj2.style.display = "none"; /* 숨긴다 */
+            }
+
+            /* 자바스크립트 주석
+                함수를 정의할 대는 반드시 function이라는 키워드를 사용해야 함.
+            */
+            function exe(){
+                //alert("^^");
+                //현재문서(document=body태그 속)에서 id가 popup인 요소(태그)를 찾아
+                //display라는 style 속성을 block으로 지정하면 화면에 보이게 됨
+
+                //1. 현재문서(document)에서 id가 popup인 객체(요소,태그)를 찾는다.
+                //그리고 그것을 변수obj(=프로그래밍동안 값이 변할 수 있는 기억공간)에 저장한다.
+                let obj = document.getElementById("popup");
+
+                //찾은 객체의 display라는 style속성의 값을 "block"을 지정한다.
+                obj.style.display = "block";
+
+            }
+        </script>
+</body>
+</html>

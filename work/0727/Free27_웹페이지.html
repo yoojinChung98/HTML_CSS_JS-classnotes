@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습연습연습</title>
+    <link rel="stylesheet" type="text/css" href="./css/fr3.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/fr3_menu.css"/>
+</head>
+<body>
+        <div id="wrap>">
+            <header id="header">
+                <!--메뉴가 있다고 생각하쟝 -->
+                <ul id="menu">
+                    <li id="apple"><a href="">&nbsp;</a></li>
+                    <li id="store"><a href="">store</a></li>
+                    <li id="mac"><a href="">mac</a></li>
+                    <li id="ipod"><a href="">ipod</a></li>
+                    <li id="download"><a href="">download</a></li>
+                    <li id="support"><a href="">support</a></li>
+                </ul>
+                
+                
+            </header>
+            <input type="button" value="팝업1"/>
+            <button type="button" onclick="exe()">팝업2</button>
+
+            
+
+            <!--=========================보여질 팝업창=============================-->
+            <div id="popup">
+                <div id="title_bar">
+                    <div id="exit_area">
+                        <a href="">닫기</a>
+                    </div>
+                </div>
+                <div id="content">
+                    <p>안녕하세요 저는 팝업입니다 ^0^*</p>
+                </div>
+            </div>
+            <!--==================================================================-->
+        </div>
+
+    <script>
+        function exe(){
+            let obj = document.getElementById("popup");
+            obj.style.display = "block";
+        }
+    </script>
+</body>
+</html>

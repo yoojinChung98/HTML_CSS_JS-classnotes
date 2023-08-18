@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>File API연습</h1>
+    </header>
+    <article>
+        <p>
+            <h2>Fiel API는</h2>
+            <section>
+                HTML5 에서 제공하는 기능 중 로컬에 저장된 파일을 읽을 때 사용하는 API이다.
+            </section>
+        </p>
+        <form>
+            <input type="file" id="s_file" multiple/>
+
+            <select id="enc`">
+                <option value="UTF-8">UTF-8</option>
+                <option value="8859_1">8859_1</option>
+            </select>
+
+            <button type="button" onclick="readFile()">읽기</button>
+            <div>
+                <span id="fileName">File Name</span>
+                <span id="fileSize">File Size</span>
+            </div>
+            <textarea id="content" style="width: 600px; height: 400px;" readonly="readonly"></textarea>
+        </form>
+    </article>
+
+    <script>
+        function readFile(){
+            let file =document.getElementById("s_file").files[0];
+
+            document.getElementById("fileName").textContent = file.name+"<br/>";
+            document.getElementById("fileSize").textContent = file.size;
+
+            let reader = new FileReader();
+
+            reader.onload = function(){
+                let ta = document.getElementById("content");
+                ta.textcontent = reader.result;
+            }
+
+            reader.onerror = function(ev){
+                alert(ev.target.error.code);
+            }
+
+            let enc = document.getElementById("enc");
+            let encoding = enc.options[enc.selectedeIndex].value;
+
+            reader.readAsText(file, encoding);
+
+
+
+        }
+    </script>
+</body>
+</html>

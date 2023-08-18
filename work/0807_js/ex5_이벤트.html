@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #t1{
+            border-collapse: collapse;
+            width: 300px;
+        }
+        #t1 td, th{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table id="t1">
+        <colgroup>
+                <col width="150px"/>
+                <col width="*"/>
+                <col width="50ㅔㅌ"/>
+            </colgroup>
+        <thead>
+            <tr>
+                <th>제목1</th>
+                <th>제목2</th>
+                <th>제목3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>항목1</td>
+                <td>비고1</td>
+                <td><button type="button">삭제</button></td>
+            </tr>
+            <tr>
+                <td>항목2</td>
+                <td>비고2</td>
+                <td><button type="button">삭제</button></td>
+            </tr>
+            <tr>
+                <td>항목3</td>
+                <td>비고3</td>
+                <td><button type="button">삭제</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+
+        $(function(){   //jQuery 도입부(무조건 수행하는 공간)
+
+            let table = document.getElementById("t1");
+
+            $("#t1>tbody>tr").bind("mouseover", function(){
+                //해당 행(tr)의 배경색을 변경하고자 한다.
+                $(this).css("backgroundColor","#aceeee");
+
+                //현재 행의 번호를 알아내자!
+                //각 행의 번호(rowIndex)는 해당 행객체(this)가 이미 알고 있다!
+                let rowIdx = this.rowIndex;
+                console.log(rowIdx);
+                table.rowIdx = rowIdx; //table에 rowIdx란 속성으로 rowIdx값을 저장해주쎄요
+            });
+
+            $("#t1>tbody>tr").bind("mouseout", function(){
+                $(this).css("backgroundColor","#ffffff");
+            });
+
+            $("#t1>tbody>tr>td>:button").bind("click",function(){
+                // 이미 table이라는 곳에 rowIdx라는 속성으로 저장된 행번호 값을 얻어내자.
+                // let rowNum = table.rowIdx;  //mouseover시 저장했던 행번호 가져오기
+                table.deleteRow(table.rowIdx);
+            });
+
+        });
+
+    </script>
+</body>
+</html>

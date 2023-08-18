@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <<form action="" method="post">
+        <table>
+            <colgroup>
+                <col width="80px"/>
+                <col width="320px"/>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td><label for="s_name">이름</label></td>
+                    <td><input type="text" id="s_name" name="u_name"></td>
+                </tr>
+                <tr>
+                    <td><label for="s_id">아이디</label></td>
+                    <td><input type="text" id="s_id" name="u_id"></td>
+                </tr>
+                <tr>
+                    <td><label for="s_pw">비밀번호</label></td>
+                    <td><input type="password" id="s_pw" name="u_pw"></td>
+                </tr>
+                <tr>
+                    <td><label for="s_email">이메일</label></td>
+                    <td><input type="text" id="s_email" name="u_email"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="button" name="btn" onclick="exe()">확인</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+
+
+
+    <script>
+        let exe = function(){
+            let ar = document.forms[0].elements;
+
+            for(let i=0; i<ar.length -1; i++){
+                console.log(ar[i].name);
+            }
+
+            console.log(ar['u_email'].name);
+        }
+    </script>
+</body>
+</html>

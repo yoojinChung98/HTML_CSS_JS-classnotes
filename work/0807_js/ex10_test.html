@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #t1{
+            width: 520px;
+            border-collapse: collapse;
+        }
+        #t1 td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>jQuery를 이용한 체크박스선택</h1>
+    <table id="t1">
+        <colgroup>
+            <col width="30px"/>
+            <col width="100px"/>
+            <col width="30px"/>
+            <col width="100px"/>
+            <col width="30px"/>
+            <col width="100px"/>
+            <col width="30px"/>
+            <col width="100px"/>
+        </colgroup>
+        <thead>
+            <tr>
+                <td colspan="2">
+                    <input type="checkbox"/>
+                    <em>전체선택</em> <!-- em = emphasize. 문장 내에서 강조하고 싶을 때 사용. (i태그와 strong태그를 합친 것.)-->
+                </td>
+                <td colspan="2">
+                    <input type="checkbox"/>
+                    <em>전체선택</em>
+                </td>
+                <td colspan="2">
+                    <input type="checkbox"/>
+                    <em>전체선택</em>
+                </td>
+                <td colspan="2">
+                    <input type="checkbox"/>
+                    <em>전체선택</em>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td>제목1</td>
+                <td><input type="checkbox"/></td>
+                <td>제목1-2</td>
+                <td><input type="checkbox"/></td>
+                <td>제목1-3</td>
+                <td><input type="checkbox"/></td>
+                <td>제목1-4</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td>제목2</td>
+                <td><input type="checkbox"/></td>
+                <td>제목2-2</td>
+                <td><input type="checkbox"/></td>
+                <td>제목2-3</td>
+                <td><input type="checkbox"/></td>
+                <td>제목2-4</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td>제목3</td>
+                <td><input type="checkbox"/></td>
+                <td>제목3-2</td>
+                <td><input type="checkbox"/></td>
+                <td>제목3-3</td>
+                <td><input type="checkbox"/></td>
+                <td>제목3-4</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td>제목4</td>
+                <td><input type="checkbox"/></td>
+                <td>제목4-2</td>
+                <td><input type="checkbox"/></td>
+                <td>제목4-3</td>
+                <td><input type="checkbox"/></td>
+                <td>제목4-4</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td>제목5</td>
+                <td><input type="checkbox"/></td>
+                <td>제목5-2</td>
+                <td><input type="checkbox"/></td>
+                <td>제목5-3</td>
+                <td><input type="checkbox"/></td>
+                <td>제목5-4</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            //우선 이 모든 이벤트는 내가 전체(thead의 :(타입이)checkbox)를 클릭했을 때 발생.
+            //따라서 전체에 해당하는 애들을 모아서 클릭이벤트 설정.
+
+            $("#t1>thead :checkbox").click(function(){      
+                // 그런데 배열화시켜서 받아야 함. 왜냐면 위 전체와 아래 칸들의 공통점은 배열로 묶으면 보이기 때문.(배열 위치가 동일)
+                // 배열화 시켰으면 인덱스 값을 받아내야함.
+
+                //따라서 클릭한 친구의 idx값을 변수로 만들어서 저장
+                // let idx = $("#t1> thead :checkbox").index(this); //로써도 되고, 배열로 받아내서 좀더 깔끔하게 쓰면
+                let ar = $("#t1>thead :checkbox");
+                let idx = ar.index(this);
+
+                //결국엔 tbody의 tr을 반복적으로 수행할 것(tr을 만날때마다). 왜냐면 한행 한행 한행 모두! tr을 만날 때마다 체크를 하나씩 하나씩 찍을거니까!
+                //여기서 중요한 것은 클릭한 체크박스와 같은 순서의 배열을 가진 애들을 찍을 것이라는 것!
+                let chk = this.checked;     //자바스크립트 문법.(사용자가 클릭한 체크박스의 상태) **********************중요!!!
+                $("#t1>tbody>tr").each(function(){ //  -> tbody에 있는 tr들을 만날 때마다 수행하는 곳.
+                    //각 행에 존재하는 checkbox들을 배열로 받아내기.
+                    let c_ar = $(this).find(":checkbox");   //tbody에 있는 tr들은 각각 자손으로 체크박스들을 갖고있음. .find("조건?")는 앞서 선택한 객체의 조건에 맞는 자손요소들을 찾아서 선택해줌.
+                    c_ar.eq(idx).prop("checked",chk);
+                });
+                // 어떤 상태에 따라 변화하는 값은 변수에 담아 놓는게 좋을 것 같아! 귀찮아서 뿐만이 아니라 활용하기 편하잖아!
+            });
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+/* 이 파일의 모든 내용이 common.css파일의 @import "reset.css" 에 모두 담기는 것.*/
+
+@charset "UTF-8";
+/**********************
+웹폰트
+같은걸 가져다 놓고 쓸 수 있게 해주는 것
+************************/
+
+/**********************
+기본적으로 초기화 할 내용들
+************************/
+*{ /*  *은 모든이란 의미. 모든 태그에 적용되니 따로 적어주지 않아도 됨*/
+    margin: 0;
+    padding: 0;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+html, body, div, span, em/*배수지정태그*/, p, address/*주소지정태그*/, pre,
+h1, h2, h3, h4, h5, h6,
+ul, ol, li, dl, dt, dd,
+form, fieldset, legend, label, table, caption, thead, tfoot, tbody, tr, th, td, a, img, article, section{
+    /* 혹시나 위에서 체크되지 않은 애들이 있을까봐!! */
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent; /* 투명 */
+    font-size: 13px; /* 보통 안넣는데 교수님 취향임 */
+    line-height: 1;
+    font-family: 굴림, gulim, sans-serif;/* 만일 위에 웹폰트가 있었다면 여기서 지정하면 됨, 굴림, 없으면 산세리프체 */
+    color: #555;
+    text-align: left;
+    text-decoration: none; /* 우리가 맨ㄴㄴㄴㄴ날 쓰던 것 */
+    font-weight: normal;
+    font-style: normal;
+    /* 대부분 노말인 값! 이렇게 보여주는 이유는, 내가 현재 화면을 만드는 데 있어서 기본적으로 이게 셋팅되어있으면 좋을 것 같아!를 이런 식으로 다 명시해놓으면 좋음*/
+}
+ul, ol, li{
+    list-style: none;
+}
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed; /* 테이블 원래 초기값이래염 신경 안써도 될 듯*/
+}
+caption, legend { display: none; } /* 이런 애들은 원래 안보이는게 좋으니까~ */
+pre{
+    line-height: 1.5em; /* 부모태그의 1.5배*/
+}
+/* 
+기본적인 링크(a태그) 스타일변경! 원래는 파랗고 들어갔던데는 자주색으로 나옴.
+*/
+a:link{ color: #555; text-decoration: none; } /* 방문하지 않은 링크일 때*/
+a:visited{ color: #555; text-decoration: none; } /* 한 번 방문한 링크일 때*/
+a:hover{ color: #555; text-decoration: none; } /* 대상 위로 커서가 올라왔을 때*/
+a:focus{ color: #555; text-decoration: none; } /*포인터 초점이 맞춰졌을 때*/
+a:active{ color: #555; text-decoration: none; } /*클릭하고 있을 때*/

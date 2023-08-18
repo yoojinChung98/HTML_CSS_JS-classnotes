@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+        <table>
+            <colgroup>
+                <col width="80px"/>
+                <col width="320px"/>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td><label for="s_name">이름</label></td>
+                    <td><input type="text" id="s_name" name="u_name" data-tag-name="이름"></td>
+                </tr>
+                <tr>
+                    <td><label for="s_id">아이디</label></td>
+                    <td><input type="text" id="s_id" name="u_id" data-tag-name="아이디"></td>
+                </tr>
+                <tr>
+                    <td><label for="s_pw">비밀번호</label></td>
+                    <td><input type="password" id="s_pw" name="u_pw"data-tag-name="비밀번호"></td>
+                </tr>
+                <tr>
+                    <td><label for="s_email">이메일</label></td>
+                    <td><input type="text" id="s_email" name="u_email" data-tag-name="이메일"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <!-- <button type="button" name="btn" onclick="exe()" value="1">확인</button> -->
+                        <input type="button" value="확인" onclick="exe()"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <script>
+        // function exe(){
+        let exe = function(){ //라고 적어도 괜찮아요.
+            // 폼의 요소들을 얻어낸다.
+            let ar = document.forms[0].elements;
+            // alert(ar.length);
+
+            //모두 수행 했는지? 안했는지?의 여부를 결정하는 변수
+            let chk = true;
+
+            // 얻어낸 폼의 요소들을 모두 반복수행하자!(배열의 수만큼)
+            for(let i=0; i<ar.length; i++){
+                // alert(ar[i].name);
+
+                if(ar[i].value.trim().length == 0){ //공백만 입력했거나 아무것도 입력하지 않은 경우
+                    alert(ar[i].dataset.tagName + "을(를) 입력하세요.")
+                    
+                    ar[i].focus();  //해당 요소에 커서 놓기
+                    chk = false;
+                    break; //가장 가까운 반복문 탈출
+                }
+            }   
+
+            // 제어가 여기 왔을 때는 두가지 상황 중 하나. break를 걸려서 나온경우/ 반복문 전부 수행 후 나온 경우
+            // if(chk == true)
+            if(chk){ //이렇게 써도 됨.
+                //if문은 ()괄호 안에 조건식이 들어감. 조건식의 결과 = true/false인지 판단... chk자체가 true이므로 상관없음.
+                alert("서버로 보낸다."); // document.forms[0].submit();
+            }
+        }
+    </script>
+</body>
+</html>

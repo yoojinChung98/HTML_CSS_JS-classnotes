@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 400px;
+            height: 450px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="post">
+        <label for="dan">단</label>
+        <input type="text" id="dan" name="dan"/>
+        <input type="button" value="확인" onclick="exe()"/>
+    </form>
+    <div id="box"></div>
+
+    <script>
+        let box = document.getElementById("box");
+
+        function exe(){
+            // 현재문서의 아이디가 dan인 요소의 값을 얻어내기
+            let dan = document.getElementById("dan");
+            let value = parseInt(dan.value)
+
+            let msg = "";
+            let i = 1;
+            while(i<10){
+                msg += value+"*"+i+"="+(value*i)+"<br/>";
+                i++;
+            }//while의 끝
+
+            box.innerHTML = msg;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form action="" method="post" class="form">
+            <label for="s_id">아이디</label>
+            <input type="text" id="s_id" name="u_id" value=""/>
+            <label for="s_pw">비밀번호</label>
+            <input type="password" id="s_pw" name="u_pw" value=""/>
+            <label for="s_name">이름</label>
+            <input type="text" id="s_name" name="u_name" value=""/>
+            <label for="s_email">이메일</label>
+            <input type="text" id="s_email" name="u_email" value=""/>
+
+            <button type="button" onclick="exe(this.form)">확인</button>
+
+        </form>
+
+    </div>
+
+    <script>
+        function exe(frm){
+            let msg = "";
+            
+            for(let i=0; i<frm.elements.length-1 ; i++){
+                if( frm.elements[i].value == "" )
+                    msg += frm.elements[i].name + "    "; //이부분 라벨로 선택해서 출력 못하나?
+
+            }
+            if( msg != ""){
+                let alertMsg = "이 페이지 내용:  " + msg +"의 값이 없습니다.";
+                alert(alertMsg);
+            }
+        }
+    </script>
+
+</body>
+</html>

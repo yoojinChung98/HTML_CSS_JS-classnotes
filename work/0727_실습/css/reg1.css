@@ -1,0 +1,68 @@
+@charset "UTF-8";
+@import "reset.css";
+
+#contents{
+    width: 900px;
+    height: auto; /* 안의 내용물들의 높이에 알아서 맞추겠다. */
+    margin: auto;
+    /* position: relative; */
+}
+div#contents>div>span{
+    /* border: 1px solid red; */
+    /* display: inline-block; */
+    width: 910px;
+    word-spacing:0; margin: 0;
+    padding: 0 0 6px 0;
+    font-size: 11px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    line-height: px;
+    border-bottom: 2px solid #bbb;
+    
+}
+h2.title03{
+    /* border: 1px solid red; */
+    /* display: inline-block; */
+    width: 55px;
+    height: 18px;
+    background-position: 0px -30px;
+    /* padding-bottom: 1px; */
+    border-bottom: 2px solid #777;
+    word-spacing: 0; margin: 0; padding: 0 0 1px 0;
+}
+h2.title04{
+    /* border: 1px solid red; */
+    /* display: inline-block; */
+    width: 100px;
+    height: 18px;
+    background-position: -55px -30px;
+}
+p.chk_area{
+    /* border:1px solid red ; */
+    margin-top: 13px;
+    /* position: absolute;
+    right: 0px;
+    굳이 포지션으로 잡지 말고 p속의 내용물을 오른쪽으로 보내버려!
+    이때 두 요소를 쪼개고 싶으면 하나는 text-align으로 정렬, 하나는 position으로 정렬*/
+    text-align: right;
+}
+textarea{
+    display: inline-block;
+    margin-top: 10px;
+}
+textarea.noresize{
+    resize: none;
+    background-color: #ddd;
+    pointer-events: none; /*비활성화*/
+}
+/***********하단 버튼영역*************/
+
+
+.b_agree{
+    width: 100px;
+    height: 30px;
+    background-position: 0 -70px;
+}
+.b_noagree{
+    width: 130px;
+    height: 30px;
+    background-position: -100px -70px;}

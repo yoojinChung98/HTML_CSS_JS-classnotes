@@ -1,0 +1,155 @@
+7_25 2일차
+
+오늘의 명언: 아 중복된 건 줄이라고~~~~
+
+수업목표: 선택자! 종류 다양하게 외워두기
+
+태그 및 css__________________________________
+
+<button type="button">버튼속글자</button> : 버튼 만드는 다른 태그(input으로도 가능)
+<button type="button">회원가입</button>
+->그냥<button>만 적고도 만들 수 있지만, 유효성검사를 할 수 없기 때문에 타입 적어야함.
+->취소 버튼의 type 은  reset
+->button의 type기본값 = submit
+
+
+
+
+
+<style>
+선택자{
+	적용할 내용
+}
+</style>
+선택자로 고른 모든 것에 해당 내용을 적용함
+
+선택자의 종류:
+아무것도 입력x = 요소(태그)선택자
+.(period) = 클래스 선택자
+# = id 선택자
+> = 자식 선택자(바로 직계로 와야함)
+(space) = 자손 선택자
+[ (예시: type=password) ] : 속성선택자
+
+<td style="txt_r"></td>
+클래스를 만들 경우 나중에 style로 불러올 수 있음(스타일태그에 만들었으니까?)
+
+
+table #t1 : 자손 선택자
+table태그 속안에(감싸고)  있는 것 중에 id가 t1인 요소에 적용.
+
+table#t1 : 자식선택자 ( > )
+table태그들 중에 id가 t1인 요소에 적용.
+#t1>thead>tr>th
+
+
+
+
+
+
+colspan : 셀을 열방향(가로)으로 병합하는 속성
+rowspan : 셀을 행방향(세로)으로 병합하는 속성. thead에 넣으면 테이블이 뒤틀릴 가능성이 있으므로 셀단위에 사용 추천.
+<tr>
+	<td rowspan="2">행병합</td>
+	<td>데이터</td>
+</tr>
+<tr>
+	<td>데이터</td>
+</tr>
+행이 병합되어 2번째 행에는 사실상 새로 넣을 셀이 1개 밖에 없으므로 데이터는 하나만 추가해야함.
+
+
+
+border-spacing: 0xp; : 각 셀 사이의 공간 이야기하는 속성
+border-collapse: collapse; : 테이블이 원래 갖고있던 보더에 대한 속성을 모두 무너뜨려(무시해)라.(깔끔한 실선 만들때 사용)
+border-radious: 5px; : 모서리 깎기
+background-color: 배경색;
+rgba = 농도까지 포함한! 투명도!
+
+
+
+<fieldset> : 테두리를 감싸는 네모세팅
+<legend>제목</legend> : 제목이 원래 라인보다 위로 쬐꼼 올라와서 필드세트 가운데에 박힘
+
+
+ctrl + / = 커서가 있는 행 주석처리 및 해제
+
+<stirke> : 취소선
+
+, = or 의미.
+
+
+<select> 드롭다운 목록 태그.
+<select id="s_loc">
+	<option>::선택하세요</option>
+	<option value="seoul">서울시</option>
+</select>
+
+
+<input type="text" id="s_name" name="u_name" value="" placeholder="이름을 입력하세요"/>
+value는 값을 넣어주는 것(입력시 지워야함). placeholder가 표시되고 선택시 사라지는 것
+
+<textarea>: 메모칸. 설명칸 등등
+<textarea id="s_desc" name="u_desc" rows="10" cols="30"></textarea>
+!주의할점! 클로징태그를 줄바꿔버리면 그 사이의 모든 공백이 칸 속에 입력되므로 안됨!
+
+
+
+
+선을 중심으로 4방향의 여백을 바깥쪽=margin 안쪽=padding 줌.
+
+
+
+수업 노트 __________________________________
+
+
+/*  */ : CSS의 주석
+<!-- --> : html의 주석
+
+유효성검사(html) : 서버로 데이터를 제출하기 전, 포함되어야 할 정보의 형식과 입력조건이 올바른지 확인하는 것.
+
+NTT코드 : 특수문자 표현방법
+ex) < =  $lt;  공백 =  &nbsp;  & = amp;
+
+
+
+
+
+
+이론 수업_____________________________________
+
+웹표준의 정의: 웹표준이란 웹사이트에 접속한 사용자는 어떠한 운영체제나 브라우저를 사용하더라도 웹 페이지가 동일하게 보이고 정상적으로 동일한 동작을 하게 함을 의미함. 웹표준은 아래의 세가지 문서로 나눠짐.
+HTML: 표현할 데이터와 구조 / CSS: 화면의 표현력 / Javascript : 동작(.js)
+
+
+
+
+메뉴만들기____________________________________
+<ul id="menu">
+	<li><a href="">메&nbsp;&nbsp;일</a></li>
+	<li><a href="">지식in</a></li>
+</ul>
+메뉴는 항상 링크가 걸리므로 li태그 뒤에 a태그+href는 자동!
+list-style: none; = ul의 스타일(앞 점)을 없애주는 속성
+
+display: block; = 보여달라는 뜻 + 인라인레벨을 블록레벨로 변경 
+
+text-decoration: none; 밑줄 등 없애기
+text-indent: 0px;  =만큼 들여쓰기 (안보이게 하려면 -9999px)
+overflow: hidden;  = 넘치면 안보이게 해주세용
+
+
+
+
+수업 중 노트_______________________
+
+border-top: none; 과  collapse의 차이...?
+
+
+
+
+
+
+
+
+

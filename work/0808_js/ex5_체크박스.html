@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #table{
+            border-collapse: collapse;
+            width: 1000px;
+        }
+        #table th, #table td{
+            border: 1px solid black;
+            padding: 4px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <h1>Group Checkbox연습</h1>
+        </header>
+        <article>
+            <table id="table">
+				<colgroup>
+					<col width="80px"/>
+					<col width="200px"/>
+					<col width="120px"/>
+					<col width="120px"/>
+					<col width="120px"/>
+					<col width="120px"/>
+					<col width="120px"/>
+					<col width="*"/>
+				</colgroup>
+				<thead>
+					<tr>
+						<th>번호</th>
+						<th>이름</th>
+						<th><input type="checkbox" id="r0"/><span>그룹1</span></th>
+						<th><input type="checkbox" id="r1"/><span>그룹2</span></th>
+						<th><input type="checkbox" id="r2"/><span>그룹3</span></th>
+						<th><input type="checkbox" id="r3"/><span>그룹4</span></th>
+						<th><input type="checkbox" id="r4"/><span>그룹5</span></th>
+						<th>비고</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>마루치</td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>이도</td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>일지매</td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>을불</td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>창조리</td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>6</td>
+						<td>아라치</td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>7</td>
+						<td>이순신</td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td><input type="checkbox" value="1"/></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+        </article>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+        // 클릭한 체크박스에 가장 가까이에 있는 요소 = th
+        // 한 줄의 열을 구함.
+
+        $(function(){ 
+            // 아이디가 table인 요소안에 thead에 존재하는 모든 체크박스에 클릭 이벤트 적용
+            $("#table>thead input:checkbox").click(function(){
+                // 클릭한 checkbox의 상위의 요소를 얻어낸다.
+                // let n = $(this).parent();  // th가 n에 담김
+                let n = $(this).closest("th");  //부모들 중 원하는 요소 검색
+
+                //지금 찾은 부모인 th가 th들 중 몇번째 요소인지 index값을 알아내자.
+                let th_ar = $("#table>thead th");
+                let idx = th_ar.index(n);
+
+                // console.log(n.prop("tagName")+":"+idx);
+
+                //tbody에 있는 td들 중 idx번째에 있는 td들 안에 존재하는 체크박스 모두 가져오기
+                let chk_ar = $("#table>tbody td:nth-child("+(idx+1)+") :checkbox");
+                chk_ar.prop("checked",this.checked);
+
+            }); 
+        }); 
+    </script>
+
+</body>
+</html>

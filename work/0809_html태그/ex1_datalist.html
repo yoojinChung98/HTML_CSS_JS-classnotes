@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>datalist연습</h1>
+    </header>
+    <form action="test.jsp" method="post">
+        <fieldset>
+            <legend>datalist연습</legend>
+            <label for="ss">Homepage:</label>
+            <input type="url" id="ss" name="u_ss" required list="s_list"/>
+            <!--required = 필수입력항목임을 의미.(안그러면 하단 서브밋버튼을 눌렀을 때 알림창 뜸.)-->
+            <button type="submit">보내기</button>   <!--스스로 action으로 가려고 할 것.-->
+
+            <datalist id="s_list">
+                <option value="https://www.google.com" label="Google"></option>
+                <option value="https://www.naver.com" label="Naver"></option>
+                <option value="https://www.daum.net" label="Daum"></option>
+            </datalist>
+
+        </fieldset>
+    </form>
+</body>
+</html>

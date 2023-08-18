@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        //논리연산자는 &&(그리고),  ||(또는),  !(부정Not) 이 있다.
+        let a = 10;
+        let b = 8;
+
+        let d = 1;
+        let e = 2;
+
+
+        let c = (a > b && b != 0);
+        document.write(c); // true
+
+        c = (++a < b-- && ++a != 0);
+        document.write("<br/>");
+        document.write(a);  //11
+        document.write("<br/>");
+        document.write(b); //7
+        document.write("<br/>");
+        document.write(c); //false
+        document.write("<br/>");
+
+        
+        c = (++a < b-- || ++a != 0);
+        document.write(a); // 13
+        document.write("<br/>");
+        document.write(b); // 6
+        document.write("<br/>");
+        document.write(c); // true
+        document.write("<br/>");
+        
+
+    </script>
+</body>
+</html>

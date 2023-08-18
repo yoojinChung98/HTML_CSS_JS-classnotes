@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #results{
+            border-top: 2px solid #ababab;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Session Storage 예제</h1>
+    </header>
+    <div id="form">
+        <form id="travelForm">
+            <table class="form">
+                <tfoot>
+                    <tr>
+                        <td colspan="2" class="button">
+                            <input type="button" value="Go" onclick="addData()"/>
+                            <input type="button" value="Clear Storage" onclick="clearStorage()"/>
+                        </td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <td class="label">Traveler</td>
+                        <td>
+                            <input type="text" name="traveler" id="traveler"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Destination</td>
+                        <td>
+                            <input type="text" name="destination" id="destination"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Transportation</td>
+                        <td>
+                            <input type="text" name="transportation" id="transportation"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+    <div id="results">
+        <!-- 저장된 storage값을 표현 -->
+    </div>
+
+
+    <script>
+        let db = getStorage(); // localStorage를 받는다.
+        let result; //결과를 저장할 변수
+        let res; // results라는 아이디를 가진 요소를 저장할 곳.
+
+        //현재 창이 로드될 때 무조건 수행하는 곳
+        window.onload = function(){
+            // 현재 문서에서 아이디가 results라는 요소 검색하여 res에 저장.
+            res = document.getElementById("results");
+
+            viewData();
+        }
+
+        function viewData(){
+            // 만약! 저장소(db)에 저장된 값이 있을 때, results라는 아이디를 가진 요소에 표현.
+            result = "";
+
+            //저장소에 저장된 key와 Value를 얻어내어 result에 적재. (이런 경우는 키를 모를 때 사용하는 법.)
+            for(let i=0; i<db.length; i++){
+                let key = db.key(i) // db에 있는 애들 중에 i번째 정보의 키를 얻어냄. length가 3이라면 3개 저장되어있음.
+                    // db 즉, LocalStorage는 Key와 Value가 하나의 쌍을 이루어 저장됨. 
+
+                    // 키를 통해 연결된 Value를 얻어낼 수 있음.
+                let value = db.getItem(key);
+
+                result += key + ":" + value + "<br/>"
+            }
+
+            //현재문서안에 아이디가 results인 div요소에 HTML로 표현
+            res.innerHTML = result;
+        }
+
+        function getStorage(){
+            try{
+                //예외가 발생가능한 코드들을 기술하는 곳. 예외가 발생하는 순간! catch로 이동.(하위수행식 아무것도 안함)
+                if(window.sessionStorage)
+                    return window.sessionStorage; // 수행이 된다면 db라는 변수에 localStorage가 저장됨.
+                //여기 if 부분의 localStorage를 세션스토리지로 변경해주면 세션스토리지로 변하는 것.
+
+            }catch(e){
+                //try영역에서 예외가 발생했을 때만 수행하는 곳.
+                return undefined;   // 자바스크립트 예약어. 모르는거야! 사용할 수 없어!
+            }
+
+        }
+
+        //저장소에 자원을 저장하는 함수
+        function addData(){
+            // 먼저 사용자가 입력한 값들(traveler, destination, transportation)을 가져와야함.
+            let v1 = document.getElementById("traveler").value;
+            let v2 = document.getElementById("destination").value;
+            let v3 = document.getElementById("transportation").value;
+
+            // 가져온 값들에 대한 유효성검사 해야 하지만 패스~
+            // if(v1.trim().length>0) 같은거... 생략!
+            // 키와 함께 저장소에 저장하자.
+            db.setItem("transportation", v3);   // key는 transportation. 키에 대응되는 value과 함께 저장
+            db.setItem("traveler", v1); 
+            db.setItem("destination", v2); 
+
+            // 화면에 표현.
+            viewData();
+        }
+
+        function clearStorage(){
+            // 저장소 삭제
+            db.clear();
+        }
+    </script>
+</body>
+</html>

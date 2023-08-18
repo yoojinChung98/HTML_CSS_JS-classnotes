@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 2px dotted #555;
+        }
+        ::-webkit-progress-value {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="" oninput="res_vol.value=vol.value">
+        <article>
+            <fieldset>
+                <legend><h3>예약폼</h3></legend>
+
+                <canvas id="MyCanvas" name="MyCanvas" width="400px" height="250px">이 브라우저는 Canvas를 지원하지 않습니다.</canvas>
+                <br/><br/>
+
+                <img src="images/Step1.png" id="img1" style="display: none;">
+
+                <label for="tFood">예약메뉴</label>
+                <input type="text" id="tFood" name="u_tFood" required list="fList"/>
+                <datalist id="fList">
+                    <option value="단무지와 잘 어울리는 한국인의 얼큰하고 시원한 김치사발면" label="김치사발면"></option>
+                    <option value="한식은 이제 그만! 이국적인 알싸한 향기로 지루했던 밥상을 새로고침" label="오뚜기카레"></option>
+                    <option value="오늘만큼은 내 식탁이 바로 향긋한 꽃향기가 풍겨오는 버킹엄궁전의 테라스" label="트레이더스모닝빵"></option>
+                </datalist>
+                <br/>
+
+                <label for="r_date">예약날짜:</label>
+                <input type="date" id="r_date" name="r_date" required/><br/>
+                <label for="r_time">예약시간:</label>
+                <input type="time" id="r_time" name="r_time" required/><br/>
+                <label for="r_week">예약 주:</label>
+                <input type="week" id="r_week" name="r_week" required/><br/>
+                <label for="r_email">이메일주소:</label>
+                <input type="email" id="r_email" name="r_email" required/><br/>
+                <label for="r_color">선호하는 색상:</label>
+                <input type="color" id="r_color" name="r_color" required/><br/>
+                
+                <label for="vol">맵기정도</label>
+                <input type="range" id="vol" name="vol" min="0" max="100" value="50" step="1"/>
+                <output name="res_vol" for="vol">50</output><br/>
+
+
+                <label for="pro_id">이벤트 예약 현황</label>
+                <progress id="pro_id" name="pro_name" value="0.05" max="1" > 이 브라우저는 Progress를 지원하지 않습니다.</progress>
+                <span>10%</span>
+
+                <br/><br/>
+                <button>예약</button>
+            
+            </fieldset>
+        </article>
+    </form>
+
+    <script>
+        
+        let inter = null;
+        window.onload = function(){
+            inter = setInterval("tGo()",1000);
+
+            let can = document.getElementById("MyCanvas");
+            let str = can.getContext("2d");
+
+            if(str){
+                str.fillStyle = "rgba(250,200,200,0.7)"
+                str.strokeStyle="#a77"
+                str.lineWidth = 4;
+                str.font = "25px Georgia";
+
+                str.save();
+                str.restore();
+
+                str.beginPath();
+                str.moveTo(20,60);
+                str.lineTo(60,110);
+                str.lineTo(100,60);
+                str.arc(80,60,20,0,1*Math.PI,true);
+                str.arc(40,60,20,0,1*Math.PI,true);
+                str.closePath();
+                str.stroke();
+                str.fill();
+
+                str.shadowColor = "#000";
+                str.shadowOffsetX = 3;
+                str.shadowOffsetY = 3;
+                str.shadowBlur = 10;
+                
+                str.strokeRect(110,40,70,70);
+
+                str.fillStyle="#a77"
+                str.fillText("^_^",120,80);
+
+                let img1 = document.getElementById("img1");
+                str.shadowColor="#fff" ;
+                str.drawImage(img1,200,25,100,100);
+
+
+            }
+        }
+
+        function tGo(){
+            let progress = document.getElementById("pro_id");
+            let p_span = document.querySelector("form fieldset span");
+            progress.value += +0.05;
+            p_span.innerText = parseInt(progress.value*100)+"%";
+            if(progress.value >=1){
+                clearInterval(inter);
+                setTimeout(function(){alert("이벤트가 종료되었습니다.")},100);
+            }
+        }
+
+    </script>
+</body>
+</html>

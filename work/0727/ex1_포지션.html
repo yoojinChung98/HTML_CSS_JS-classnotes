@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포지션 relative</title>
+    <style>
+        div#wrap{
+            border: 2px solid red;
+            width: 600px;
+            height: 350px;
+            margin: 30px auto;
+            padding: 10px;
+        }
+        div#wrap>div{
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+            position: relative; /* 상대적 위치(좌표) 객층적인 구조에 의존성을 받음 
+            = box 1 2 3들은 바로 상위태그의 wrap을 기준으로 잡고 움직임.
+            근데 겹쳐지지 않도록 가장 가까운 곳으로
+            즉, 앞에서 놓여진 아이의 위치를 무시하지 못함! 그걸 피해서 포지셔닝!*/
+        }
+        div#box1{
+            background-color: #f00;
+            top: 60px;
+            left: 20px;
+        }
+        div#box2{
+            background-color: #0f0;
+            top: 20px;
+            left: 20px;
+        }
+        div#box3{
+            background-color: #00f;
+            top: 20px;
+            left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="box1"></div>
+        <div id="box2"></div>
+        <div id="box3"></div>
+    </div>
+</body>
+</html>

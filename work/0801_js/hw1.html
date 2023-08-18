@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 400px;
+            height: 300px;
+            border: 1px solid black;
+            font-size: 100px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 300px;
+            color: black;
+            margin: 10px auto 0px;
+        }
+        form{
+            width: 400px;
+            margin: 0px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    
+    <form method="post">
+        <label for="score">점수입력: </label>
+        <input type="text" id="score" name="u_score"/>
+        <button type="button" onclick="test()">확인</button>
+
+    </form>
+
+    <div id="box">
+
+    </div>
+
+    <script>
+       
+        function test(){
+            let v1 = document.getElementById("score").value;
+            let value = parseInt(v1);
+     
+            let box = document.getElementById("box");
+          
+            if( value >= 95 && value <= 100){
+                box.innerHTML="<span style='color:blue'>a+</span>";
+            }else if(value >= 90 && value < 95){
+                box.innerHTML="<span style='color:blue'>a-</span>";
+            }else if(value >= 85 && value < 90){
+                box.innerText="b+";
+            }else if(value >= 80 && value < 85){
+                box.innerText="b-";
+            }else if(value >= 75 && value < 80){
+                box.innerText="c+";
+            }else if(value >= 70 && value < 75){
+                box.innerText="c-";
+            }else if(value >= 60 && value < 70){
+                box.innerText="d";
+            }else{
+                box.innerHTML="<span style='color:red'>나가</span>";
+            }
+  
+
+        }
+
+    </script>
+</body>
+</html>

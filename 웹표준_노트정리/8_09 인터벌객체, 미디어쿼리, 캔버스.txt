@@ -1,0 +1,241 @@
+8-09 수업준빙
+
+________________________________________
+
+●Html 5 에서 제공하는 요소
+
+◇ 시멘틱 요소
+video, section, article 등은 div와 흡사한 기능이지만, 이름을 보고 어떤 내용일지 직관할 수 있도록 도움.
+
+◇ 자체유효성검사
+input에 required 입력.
+input이 입력되지 않으면 제출되지 않음.
+
+
+
+
+
+●datalist와 input에 연결하기.
+input 밑에 select처럼 콤보박스가 뜨게 하려면 input에 datalist를 연결하면 됨.
+<input type="url" id="ss" name="u_ss" list="s_list"/>
+
+<datalist id="s_list">
+	<option value="https://www.google.com" label="Google"></option>
+</datalist>
+
+
+
+●특정 작업의 진행 상태를 나타내기 위한 태그.
+◇progress	진행상황을 그래픽으로 표현. 주로 파일 다운로드의 진척도를 알려줄 때 사용.
+◇meter		일정 범위 안의 측정 값이나 비율 등 표현. 주로 정적인 진행상황 표현
+
+●인터벌객체와 progress이용해보기
+<body onload="init()">
+<form>
+	<label for="s1">Progress:</label>
+	<progress value="0.05" max="1" id="s1" name="u_s1">
+		브라우저가 progress를 지원하지 않습니다.
+	</progress>
+	<span>5</span>%
+</form>
+<script>
+	let inter = null;
+	function init(){
+		inter = setInterval("pGo()",500);
+	}
+	function pGo(){
+	let pp = document.getElmentedById("s1")
+	let pspan = document.querySelector("form fieldset span");
+	pp.value += 0.05;
+	pspan.innerHTML = parseInt(pp.value*100);
+
+	if(pp.value >=1)
+		clearInterval(inter);
+	}
+</script>
+	◆setInterval(함수,시간간격) : 시간 간격마다 함수를 부르겠다.
+		참고로 1초 =1000. 0.5초 = 500
+	◆clearInterval(인터벌객체); : 인터벌 객체 소멸.
+	◆document.querySelector() : css선택자를 사용하여 요소 찾기.(위의 경우 자손선택자 사용)
+
+
+●인터벌객체 ->자바의 스레드 개념과 유사
+  -인터벌 객체란 지정한 시간만큼 간격을 두고 지정한 함수를 지속적으로 호출하는 객체.
+    ◆setInterval(함수,시간)  인터벌객체를 만들어주는 자바스크립트의 내장함수
+   ◆clearInterval(인터벌객체) 인터벌객체를 소멸시켜주는 자바스크립트의 내장함수
+   -인터벌객체 사용예시는 위의 인터벌객체 이용해보기 소스코드 참조.
+   ◇setTimeout : 인터벌과 유사하지만 단 한번만 수행한다는 것이 차이점. 잠깐 멈췄다가 진행하고 싶을 때 사용하면 유용함
+	
+
+
+●oninput 이벤트
+<form oninput=""> : onchange와 유사한 이벤트. input태그 안의 ☆값들이 변경☆된 직후 발생
+	◇output태그는 oninput 이벤트를 이용. 폼태그 안에서 사용?
+●onchange 이벤트 : ☆포커스를 벗어났을 때☆(입력이 끝났을 때) 발생.
+
+
+
+●input type:range :볼륨조절바 같은 조절바가 등장@
+<form oninput="result.value=parseInt(s3.value)">
+	<label for="s3">Range:</label>
+	<input type="range" id="s3" name="s3" min="0" max="100" value="90" step="10"/>
+            <output name="result" for="s3">90</output>
+        </fieldset>
+    </form>
+	◇Range는 어디부터 어디까지이고 어디인지 알 수 없으므로 항상 min max값을 줘야함.
+	->폼에서 input 의 값이 변경될 때마다 result의 값은 s3의 값과 동일해짐.
+	output 에 s3라는 요소가 영항을 미치므로 for로 묶음.
+
+
+
+●Canvas : 해당 영역에서 그림을 그릴 수 있음.
+<canvas id="myCanvas" width="400px" height="250px">
+	브라우저가 canvas를 지원하지 않습니다.
+</canvas>
+
+<script>
+window.onload = function(){  //window.onload는 body onload="init()"과 유사
+	let can = document.getElementById("MyCanvas")
+	let str = can.getContext("2d")
+
+	if(str){
+		str.fillStyle = "rgba(250,0,0,0.7)"  //채우기스타일
+                str.strokeStyle="#a77"  //선스타일
+                str.lineWidth = 4;  //선두께
+		str.lineCap = "round";  //선 끝을 둥글게
+                str.font = "25px Georgia";
+
+                str.save(); //툴속성 저장
+                str.restore();  //툴속성 불러오기
+
+		str.shadowColor = "#000"; //그림자색
+                str.shadowOffsetX = 3;  //그림자 x축으로 얼마나 이동
+                str.shadowOffsetY = 3;  //그림자 y축으로 얼마나 이동
+                str.shadowBlur = 5;   //그림자 얼마나 뿌옇게
+                
+		str.strokeRect(110,40,70,70); //직사각형그리기
+
+                str.beginPath();  //그리기 준비
+                str.moveTo(20,60);  //시작점 설정
+                str.lineTo(60,110);  //이전 위치(시작점)에서 해당위치로 선긋기
+                str.lineTo(100,60);  //이전 위치에서  해당위치로 선긋기
+                str.arc(80,60,20,0,1*Math.PI,true); //호그리기
+                str.arc(40,60,20,0,1*Math.PI,true);  //x좌표,y좌표,반지름,시작지점(3시방향 = 0도), 끝나는지점, 반시계Tr/시게Fal)
+                str.closePath();  //그리기 완료
+                str.stroke();  //그린선에 물감붓기
+                str.fill();  //채우기
+
+                str.fillText("HI",120,80);  //텍스트넣기
+
+                let img1 = document.getElementById("img1"); //이미지파일 객체저장
+                str.drawImage(img1,200,25,100,100);  //이미지 넣기
+	}
+
+	◇str은 그림을 그리기위한 붓과 같은 객체임.2d형식으로 그릴 것.(3d도 있음)
+	◇조건식에서 문자열은 null이 아니면 true/ 위의 예시에서는 해당 브라우저에서 canvas를 지원하여 str에 뭔가가 들어가면~ 을 의미.
+	
+
+○canvas에서 아이폰 그리기(quadraticCurveTo(), 그라데이션 그리기, 이미지 만들어서 넣기.)
+window.onload = function(){
+            let canvas = document.getElementById("myCanvas");
+            let ctx = canvas.getContext("2d");
+            if(ctx){
+                ctx.beginPath();
+                ctx.moveTo(100,40);
+                ctx.quadraticCurveTo(100, 20, 120, 20);
+	// quadraticCurveTo(당김점 x좌표, 당김점 y좌표, 끝점 x좌표, 끝점 y좌표)
+                	.
+			.
+	//원형 그라데이션을 이용한 빛받음 효과
+                let rg = ctx.createRadialGradient(120,20,0, 120,20,120);
+			//인자(x1,y1,r1, x2,y2,r2) 1xy중심,반지름r인 원에서 2번 원으로 색 변화. 
+                rg.addColorStop(0.0,"#555");
+			// 각 지점의 색을 지정. 0.0=시작점의 색. (두 원 사이의 지점을 0~1로 표현)
+                rg.addColorStop(1, "#000");
+			// 1.0=끝점의 색. 
+                ctx.fillStyle = rgt;
+		ctx.fill();
+
+	//선형 그라데이션(버튼의 내부)
+                let lg = ctx.createLinearGradient(0, 342, 0, 358);
+			//인자(x좌표,y좌표,너비,높이)
+                lg.addColorStop(0, "#999");
+                lg.addColorStop(0.4, "#555");
+                lg.addColorStop(1, "#888");
+                ctx.fillStyle = lg;
+                ctx.fill();
+
+
+	// 액정부분 그리기.
+                let img = document.createElement("img"); //img태그 생성
+                img.src = "images/tree.jpg";  //img태그에 src 속성 추가
+
+	//시계표현(초마다 바뀜=인터벌객체). img에 연결한 이미지가 로드될 때...이벤트 적용
+                img.onload = function(){
+                    // img요소를 가리키는 this를 미리 저장해 놓는다.
+                    let img_Elem = this;
+                     
+                    setInterval(function(){
+                        ctx.drawImage(img_Elem, 110, 80, 180, 240);  
+                        // img를 인터벌안에서 그리는 이유: 네모가 매번 img 위에 재생성되어 새카매짐.
+                        
+		//현재 날짜정보를 얻어내어 시/분/초 를 각각 가져와야 함.
+                        let currentTime = new Date();
+                        let hours = currentTime.getHours();
+                        let minutes = currentTime.getMinutes();
+                        let months = currentTime.getMonth()+1; //1월이 0.
+                        let dates = currentTime.getDate();
+                        let weeks = currentTime.getDay();
+                        let weekSet = ["일요일","월요일","화요일","수요일","목요일","금요일","토요일"]
+
+                        // 위의 시/분/초 정보들을 "11:19"형태의 문자열을 만들자
+                        //분과 초가 한자리수이면 앞에 "0"을 붙여준다.
+                        hours = (hours<10)?"0" + hours:hours;
+                        minutes = (hours<10)?"0" + minutes:minutes;
+                        let msg = hours + ":" + minutes
+                        ctx.fillText(msg,200,120);
+
+                        // 몇월며칠 만들기 (띄어쓰기도 넣어보자)
+                        msg = months+"월 "+ + dates + "일 " + weekSet[weeks];
+                        ctx.font = "13px arial";
+                        ctx.fillText(msg,200,137);
+
+                    },1000);
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+●미디어쿼리
+  :동일한 웹사이트를 접속한 사용자의 시스템에 따라 어떤 화면을 보여줄 지 동적으로 결정하는 것.
+
+예시)
+<style>
+@media all and (min-width: 400px) and (max-width: 800px) {
+	->모든화면인데 너비가 400-800픽셀인 화면들!
+            nav{
+                border: 2px solid #f00;
+                width: 100%;
+            }
+            section{
+                display: inline-block;
+                width: 60%;
+                border: 2px solid #0f0;
+            }
+            aside{
+                display: inline-block;
+                width: 20%;
+                border: 2px solid blue;
+            }
+        }
+</style>
+
+	◇flex가 유용하게 사용됨!
+	◇@media (all모든 환경/ screen PC ....) 주로 PC,태블릿,핸드폰 세가지를 만듦.

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let a = 10;
+        let b = 7;
+
+        // 증감연산자는 ++, --만 존재한다.
+        // ++ : 1씩 증가
+        // -- : 1씩 감소
+        document.write(++a); // 11
+        document.write("<br/>");
+        document.write(--b); // 6
+        document.write("<br/>");
+        document.write(a++); // 11 !! write를 수행한 뒤에 a값 증가. 출력 후 행이 바뀔 때 증가.
+        document.write("<br/>");
+        document.write(a); // 12
+        document.write("<br/>");
+        document.write(++a + ++b); // 20
+        document.write("<br/>");
+        document.write(a++ + ++b); // 21 이지만 행이 바뀔 때 a의 값이 증가하여 14
+        document.write("<br/>");
+        document.write(a);document.write(b); // 14 8
+    </script>
+</body>
+</html>

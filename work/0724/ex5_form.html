@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예제5</title>
+</head>
+<body>
+    <div>
+        <header>
+            <h1>폼태그 연습</h1>
+        </header>
+        <p>
+            <!--form태그의 method는 전송방식(get/post)
+                action은 서버의 경로가 들어가야 함
+                각 태그의 id는 현재 문서상에서 해당 id를 가진 태그를 접근하고자 할 때 필요한 속성
+                name속성은 서버로 전송되는 파라미터(서버로 전달되는 값=인자)의 이름이므로 서버에서 값을 받을 때 사용함.    
+            -->
+            <form method="get" action="요청할서버의경로">
+                <!--아래의 레이블은 아이디가 s_id인 태그의 레이블이다.-->
+                <label for="s_id">아이디:</label>
+                <input type="text" id="s_id" name="u_id"/><br/>
+
+                <label for="s_pw">비밀번호:</label>
+                <input type="password" id="s_pw" name="u_pw"/><br/>
+
+                <label for="s_hobby">취미:</label>
+                <input type="checkbox" id="s_hobby" name="u_hobby" value="독서"/>독서 &nbsp;&nbsp;&nbsp;
+                <input type="checkbox" id="s_hobby2" name="u_hobby" value="영화감상"/>영화감상 &nbsp;&nbsp;&nbsp;
+                <input type="checkbox" id="s_hobby3" name="u_hobby" value="음악감상"/>음악감상 &nbsp;&nbsp;&nbsp;
+                <input type="checkbox" id="s_hobby4" name="u_hobby" value="게임"/>게임 &nbsp;&nbsp;&nbsp;
+                <br/>
+
+                <input type="button" value="가입하기"/>
+
+            </form>
+        </p>
+    </div>
+</body>
+</html>

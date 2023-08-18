@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 400px;
+            height: 300px;
+            border: 1px solid blue;
+            font-size: 100px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 300px;
+            color: rgb(25, 25, 141);
+        }
+    </style>
+</head>
+<body>
+    
+    <form method="post">
+        <label for="score">점수입력: </label>
+        <input type="text" id="score" name="u_score"/><br/>
+        <button type="button" onclick="test()">확인</button>
+
+    </form>
+
+    <div id="box">
+
+    </div>
+
+    <script>
+        //현재문서에서 아이디가 score인 요소의 값(value)을 얻어낸다.
+        function test(){
+            let v1 = document.getElementById("score").value;
+
+        //60 이상인지 아닌지 판별하기 위해 숫자로 바꾸는 작업.
+            let value = parseInt(v1);
+
+            //현재문서에서 아이디가 box인 요소를 검색한다
+            //검색한 결과를 변수 box에 저장하자
+            let box = document.getElementById("box");
+
+            //점수가 90점 이상 = 우수 (value >= 90 )
+            // 60~89점 = 보통 (value >= 60 && value <=89 )
+            // 60점 미만 = 노력 (생략 / value < 60 ) box에 출력.
+
+            if( value >= 90 ){
+                box.innerText="우수";
+            }else if(value >= 60 && value <= 89){
+                box.innerText="보통";
+            }else{
+                box.innerHTML="<span style='color:red'>노력</span>";
+            }
+  
+
+        }
+
+    </script>
+</body>
+</html>

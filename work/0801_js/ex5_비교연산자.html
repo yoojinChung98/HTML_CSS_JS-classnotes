@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for=" v1">값1:</label>
+    <input type="text" id="v1" name="val1"/><br/>
+    <label for=" v2">값2:</label>
+    <input type="number" id="v2" name="val2"/><br/>
+    <button type="button" onclick="exe()">확인</button>
+
+    <script>
+        function exe(){
+            // 아이디가 v1인 요소 그리고 v2인 요소를 검색하자
+            let m1 = document.getElementById("v1");//숫자열이 있어도 문자열로 인식함.
+            let m2 = document.getElementById("v2");//number역시 문자열로 인식됨.
+
+            let m1_value = parseInt(m1.value);
+            let m2_value = parseInt(m2.value);
+
+            // m1_value가 기억하고 있는 값이 m2_value가 기억하고 있는 값보다 크면 true.
+            document.write(m1_value > m2_value);
+            document.write("<br/>");
+            document.write(m1_value < m2_value);
+            document.write("<br/>");
+            document.write(m1_value >= m2_value);
+            document.write("<br/>");
+            document.write(m1_value <= m2_value);
+            document.write("<br/>");
+            document.write(m1_value != m2_value); //같지않다면 true
+            document.write("<br/>");
+            document.write(m1_value == m2_value); //같다면 true
+
+    
+
+
+        }
+    </script>
+</body>
+</html>

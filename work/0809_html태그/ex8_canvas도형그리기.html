@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #can1{
+            border: 3px dotted black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Canvas연습</h1>
+    <canvas id="can1" width="600" height="300">
+        현재 브라우저에서는 Canvas를 지원하지 않습니다.
+    </canvas>
+
+    <script>
+        window.onload = function(){
+            let mc = document.getElementById("can1");
+            let ctx = mc.getContext("2d");
+
+            if(ctx){
+                ctx.strokeStyle = "#00f";
+                ctx.fillStyle = "#f00";
+                ctx.lineWidth = 5;
+
+                // 점들의 집합인 path(선)를 시작한다.
+                ctx.beginPath();
+                ctx.moveTo(25, 175);    //선을 긋기 위해 시작점으로 이동한다. (x좌표, y좌표)
+                ctx.lineTo(50, 25);    // 선을 그린다.
+                ctx.lineTo(125, 50);
+                ctx.lineTo(175,175);
+                ctx.stroke();           //모든 것을 셋팅한 후 물감을 넣는다고 생각해!
+                // path 의 시작은 있었지만 닫지는 않았다.
+
+                ctx.beginPath();
+                ctx.moveTo(225, 175);
+                ctx.lineTo(250, 25);
+                ctx.lineTo(325, 50);
+                ctx.lineTo(375, 175);
+                ctx.closePath();
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.moveTo(425,175);
+                ctx.lineTo(450,25);
+                ctx.lineTo(525,50);
+                ctx.lineTo(575,175);
+                ctx.closePath();
+                ctx.fill()
+                ctx.stroke();
+                
+            }
+        }
+    </script>
+</body>
+</html>

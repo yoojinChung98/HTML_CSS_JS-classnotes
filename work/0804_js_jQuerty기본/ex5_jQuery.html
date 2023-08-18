@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label for="v1"> 값1 </label>
+        <input type="text" id="v1" name="u_v1"/>
+        <button type="button" onclick="exe()">확인</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+        
+        function exe(){
+            // 현재문서에서 아이디가 v1인 요소의 값(value)을 가져오자!
+            // let val = document.getElementById("v1").value;  // 자바스크립트의 문법
+            let val = $("#v1").val();
+            alert(val);
+            /*
+                주의)
+                한 문장안에서 jQuery문법과 javascript문법을 혼합하여 사용불가.
+                예를 들어,
+                let v1 = $("#v1").value;    //value는 자바스크립트 문법이므로 오류.
+            */
+        }
+    </script>
+</body>
+</html>

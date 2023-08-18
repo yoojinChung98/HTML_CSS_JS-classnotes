@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #dan_box{
+            border: 2px solid #777;
+            width: 175px;
+            height: 250px;
+            text-align: center;
+            line-height: 25px;
+            vertical-align: middle;
+            font-size: 18px;
+            position: absolute;
+            padding-top: 20px;
+       }
+       #btn_lin{
+        padding: 3px 0px 10px 0px;
+        width: 175px;
+        text-align: center;
+        line-height: 30px;
+       }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div id="btn_lin">
+            <button type="button" class="dan_btn" onclick="dan(2)">2단</button>&nbsp;
+            <button type="button" class="dan_btn" onclick="dan(3)">3단</button>&nbsp;
+            <button type="button" class="dan_btn" onclick="dan(4)">4단</button>&nbsp;
+            <button type="button" class="dan_btn" onclick="dan(5)">5단</button>&nbsp;
+            <button type="button" class="dan_btn" onclick="dan(6)">6단</button>&nbsp;
+            <button type="button" class="dan_btn" onclick="dan(7)">7단</button>&nbsp;
+            <button type="button" class="dan_btn" onclick="dan(8)">8단</button>&nbsp;
+            <button type="button" class="dan_btn" onclick="dan(9)">9단</button>&nbsp;
+        </div>
+
+        <div id="dan_box"></div>
+
+
+        <script>
+                let dan_box = document.getElementById("dan_box");
+            function dan(num){
+                let dan_list = "";
+
+                for(let i=1; i<=9; i++){
+                    dan_list += num+"*"+i+"="+num*i+"<br/>";
+                }
+                dan_box.innerHTML = dan_list;
+            }
+        </script>
+    </div>
+</body>
+</html>

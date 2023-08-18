@@ -1,0 +1,79 @@
+2_26 3일차
+수업내용: 메뉴만들기
+padding과 margin구분, 영역에 대한 인지.배경화면 설정.
+
+오늘의 중요한 속성값
+!important = 지시 충돌 시 이 속성값이 붙은 곳이 발현됨.
+
+스타일 속성값_________________________________
+
+
+: =  조건...반응...같은 건가?
+#cafe>a:hover{ background-position: ; }
+:hover =커서가 지점 위로 올라왔을 때
+:active = 클릭했을 때
+: =가상 클래스. 어떠한 요소에 특정한 동작이 이루어질 때 스타일이 바뀌도록 만들어 주는 것
+a:link{ color: #555; } /* 방문하지 않은 링크일 때*/
+a:visited{ color: #555; } /* 한 번 방문한 링크일 때*/
+a:hover{ color: #555; } /* 대상 위로 커서가 올라왔을 때*/
+a:focus{ color: #555; } /*포인터 초점이 맞춰졌을 때*/
+a:active{ color: #555; } /*클릭하고 있을 때*/
+
+
+접근 우선순위는 id가 가장 높음!
+
+z-index = 수평상에 겹쳐있는 것들의 순서를 바꿔주는 것. 뒤에 가려진 것을 보이게 할 수 있나 봄.(xyz좌표)
+
+margin:  12시 3시 6시 9시방향 / 좌 위아래 우  /   위아래  좌우 ;
+margin: 50px auto;  -> 위아래50px 좌우는 창크기에 따라 알아서 가운데정렬.
+
+
+인라인블록 사이사이 애매한 공간이 남을 때!!
+font-size: 0;
+word-spacing: 0;
+
+
+메뉴배경을 이미지로 바꾸기_________________________________
+
+background-image: url( 경로 );
+배경이미지 설정
+
+background-repeat: no-repeat;
+무한반복 채우기 금지!
+
+background-position: x좌표 y좌표 (혹은 left bottom..);
+*이미지파일을* 움직이는 것이므로 이미지의 아랫부분을 보여주려면 y좌표값을 -음수로 줘야함. (이미지 자체가 마이너스의 좌표로 이동하는 것 상상)
+
+background: url(./images/blog.gif) no-repeat right top; = 통합배경속성(이미지, repeat, position 통합)
+
+text-indent: ; = 들여쓰기!(메뉴글씨)
+메뉴에서 글씨 안보이게 할 때 -9999px로 창 밖으로 보내버림.
+
+overflow: hidden;
+범위에서 벗어나면 안보이게 함.
+
+
+
+기타 속성 값_______________________________
+
+onclick = "location.href = '#'    = 버튼에 링크 넣기
+<button type="button" onclick="location.href='joinUs.jsp' ">회원가입</button>
+
+
+질문__________________________
+
+table 태그에서 tr 간격 넓히는 방법
+:걍 text-height 늘려주면 됨.
+
+
+
+
+
+
+
+
+
+
+
+
+

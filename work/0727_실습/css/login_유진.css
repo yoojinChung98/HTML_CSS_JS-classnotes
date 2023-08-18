@@ -1,0 +1,112 @@
+@charset "UTF-8";
+@import "reset.css";
+
+div#contents{
+    width: 970px;
+    height: auto;
+    margin: auto;
+}
+h1.tit02{
+    display: inline-block;
+    width: 292px;
+    height: 34px;
+    background: url(../img/sub_title.png) no-repeat;
+    background-position: 0px -46px;
+    text-indent: -9999px;
+}
+div.login_area{
+    width: 750px;
+    height: 205px;
+    margin: 80px auto;
+    padding: 20px 70px;
+    position: relative;
+    background: url(../img/login_bg.png) no-repeat;
+}
+
+/******개인회원 폼**********/
+div.person_login{
+    display: inline-block;
+    width: 290px;
+    height: 150px;
+}
+div.group_login{
+    display: inline-block;
+    width: 290px;
+    position: absolute;
+    right: 70px;
+}
+
+
+h2.title01{
+    /* border: 1px solid pink; */
+    text-indent: -9999px;
+    display: inline-block;
+    width: 292px;
+    height: 75px;
+    background: url(../img/sub_title.png) no-repeat;
+    background-position: 0 -79px;
+}
+h2.title02{
+    /* border: 1px solid pink; */
+    text-indent: -9999px;
+    display: inline-block;
+    width: 292px;
+    height: 75px;
+    background: url(../img/sub_title.png) no-repeat;
+    background-position: 0 -159px;
+}
+
+div.login{
+    width:280px;
+    height: 130px;
+}
+
+div.input_area{
+    border-bottom: 1px solid #e2e2e2;
+    width: 300px;
+    height: 80px;
+    padding-bottom: 8px;
+    margin-left: 5px;
+    position: relative;
+}
+
+input[type="text"]{
+    width: 130px; height: 20px;
+    margin: 11px 0px 5px 13px;
+}
+input[type="password"]{
+    width: 130px; height: 20px;
+    margin: 0px 0px 0px 0px;
+}
+div.btnArea_right{
+    background: url(../img/btn.png);
+    position: relative;
+    width: 86px; height: 56px;
+    top: -80px;
+    right: -205px;
+    text-indent: -9999px;
+}
+
+div.btnArea_right a{
+    display: block;
+    width:100% ; height: 100%;
+}
+p.login_search{
+    width: 300px;
+    position: relative;
+    top:-40px;
+}
+span.b_search{
+    display: inline-block;
+    position: absolute;
+    right: 0px; top: -6px;
+    text-indent: -9999px;
+
+    width: 156px; height: 24px;
+    background: url(../img/btn.png) no-repeat;
+    background-position: -100px -3px;
+}
+span.b_search a{
+    display: block;
+    width:100% ; height: 100%;
+}

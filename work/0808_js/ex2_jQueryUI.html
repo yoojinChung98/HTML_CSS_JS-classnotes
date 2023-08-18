@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <style>
+        .btn_area{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- 대화상자로 보여질 DIV  -->
+    <div id="m_dialog">
+        <p>와! jQueryUI에서 지원하는 <br/>
+            대화상자!    
+        </p>
+        <div class="btn_area">
+            <button type="button" id="ok_btn">확인</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $(function(){
+            $("#m_dialog").dialog({title:"MyDialog", resizable:"false"});
+            $("#ok_btn").click(function(){
+                // $("#m_dialog").css("display", "none");   //내용만 안보인다.
+                $("#m_dialog").dialog("close");
+            });
+
+
+        });
+
+    </script>
+</body>
+</html>

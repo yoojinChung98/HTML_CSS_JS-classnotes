@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 170px;
+            height: 150px;
+            padding: 10px;
+            border: 1px solid #000;
+            position: absolute;
+            top: 120px;
+            left: 300px;
+            display: none; /* 안보이게 함. */
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="창!" id="btn"/>
+    <br/>
+    <img src="asset/images/Step1.png" id="img1"/>
+
+    <div id="box">
+        <header>
+            <h2>제목입니다.</h2>
+        </header>
+        <div class="content">
+            <input type="button" value="닫기" id="close_btn"/>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $(function(){
+            //아이디가 img1인 애를 선택해서 드래거블draggable()(드래그허용) 시킬것.
+            $("#img1").draggable({axis:"x"});
+                // json표기법 속성을 중괄호로 묶어서 표기하는 것.
+                //axis: x (x축 수평으로만 이동하는 속성!)
+            $("#box").draggable();
+
+            $("#btn").click(function(){
+                // $("#box").css("display","block");
+                // $("#box").css("backgroundColor","#caffff");
+                $("#box").css({backgroundColor: "#dff" , display: "block"});
+            });
+            $("#close_btn").click(function(){
+                $("#box").css("display","none");
+            });
+        });
+
+    </script>
+</body>
+</html>

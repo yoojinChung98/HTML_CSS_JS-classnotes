@@ -1,0 +1,241 @@
+8_08 입추*
+
+console.log(n.prop("tagName"));
+// jQuery태그 확인하기. (n이라는 변수의 태그가 뭐임?)
+
+
+jQuery UI
+항상 jQuery, juqeryUI, jQueryUICSS(이친구는 title 밑에 link로 stylesheet href 되어있음.)까지 다 가져와야 모양까지 가져올 수 있음
+________________________________________
+
+●jQueryUI 사용하기
+
+① jqueryui.com 에서 좌측 메뉴바에서 원하는 것 선택.
+본문의 view source를 보고 필요한 소스가 있다면 복붙해오고 활용하면 됌!!
+
+상단의 jQueryUICSS를 가져오고 나서는
+항상 // 앞에 https:를 추가해 줄 것!!
+<link rel="stylesheet" href="https://code.jquery.com/u....
+
+
+② 본문 살짝 아랫쪽을 보면 api documentation.
+속성들을 약간 변경하고 싶을 때 해당 문서를 참고하여 변경.
+	보통 적는 위치는 해당 함수에 인자로 JSON표기법을 이용하여 기입.
+
+<div id="m_dialog" title="MyDialog">	==
+$("#m_dialog").dialog({title:"MyDialog", resizable:"flase"});
+	=> 둘은 동일한 속성을 부여한 것.
+
+
+
+_________________________________
+
+jQueryUI 함..수..?
+
+●드래그 허용 함수. 
+.draggable( {} );
+$("#img1").draggable({axis:x});
+	-> 아이디가 img1인 객체를 x축선상으로만 이동 가능하게 해줌. 
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+^jquery + 해당 소스가 필요했음.
+
+
+●대화상자 함수(창 같은거)
+.dialog( { 여러 속성 지정 } );
+
+
+●달력창 띄우기
+.datepicker({ 여기서 여러 속성 지정 });
+	dateFormat: "yy-mm-dd",
+        // defaultDate: new Date("2000/08/15"),
+        dayNamesMin: ["일","월","화","수","목","금","토"],
+        monthNames: [ "1월", "2월", ... , "11월", "12월" ],
+        showMonthAfterYear: true	//2023 August
+	numberOfMonths: [3,1]		//한번에 달력을 3행에 1열씩 보여줌
+
+
+●jQuery 기본버튼으로 만들기 (jQueryUICSS필수)
+.button();
+
+
+●.parent()	앞에서 고른 선택자의 부모요소를 선택.
+let n = $(td).parent();		//n에는 tr태그가 담길 것.
+
+
+●.closest("원하는 태그")
+et n = $(this).closest("태그"); 가장 근처에 있는 상위 태그(부모,할부지.. 중) 선택.
+	몇단계 위에 있는 태그 찾을 때 편하대욥
+
+●어떤 변수에 어떤 태그가 들어갔는지 확인하려고  콘솔로 찍어내고 싶을 때
+console.log(n.prop("tagName"));
+	n이라는 변수에 어떤 태그가 들어갔는지 콘솔로 확인할 수 있음.
+
+
+
+
+
+
+
+●axis : 축. n차원 배열을 구성하는 요소. 횡(가로),종,연직 방향으로 대응됨.
+수업시간에 이용한 부분.
+$("#img1").draggable({axis:"x"});
+아이디가 img1인 객체를 횡축으로만 드래그할 수 있도록 허용.
+
+
+●css선택자, nth-child(n) : 노드 차일드. 내가 몇번째 자식인지!
+td:nth-child(2)
+td인데 두번째 자식인 td.를 선택함
+
+
+●//tbody에 있는 td들 중 idx번째에 있는 td들 안에 존재하는 체크박스 모두 가져오기
+     let chk_ar = $("#table>tbody td:nth-child("+(idx+1)+") :checkbox");
+★★★★★ 여기서 중요한 점은, $("")속에서 의도적으로 문자열을 끊고(" ") 그 사이에 연산자를 ++로 휘리릭 넣어서 연결시켜버린 것!
+
+
+
+●JSON 표기법 : 자바스크립트 언어에서 객체를 표현하는 표기법(어디서나 사용 가능한 개방형 표준 데이터 포맷(형식)).
+서로 다른 프로그래밍 언어 간에 데이터를 교환하기 위한 표기법으로서 사용됨.
+
+◇JSON 문법
+객체는 {중괄호} 으로 표기.
+배열은 [대괄호 블록] 으로 표기.
+속성(Key)과 값(Value) 은 쌍으로 이뤄짐.
+한 쌍인      속성: 값       은  콜론으로 구분
+속성은   "쌍따옴표"  로 묶어 표기.
+값은 자료형에 따라 표기 방법이 달라짐.
+ex) "age" : 3    ,   "뭐시기속성" ; 2
+
+◇속성을 (속성이 여러개일 때) {}중괄호로 표기하는 방법.
+// $("#box").css("backgroundColor","#caffff");
+// $("#box").css("border","1px solid red");
+  =>     $("#box").css({backgroundColor: "#dff" , border: "1px solid red"});
+
+우선 모두 {}로 묶고. 속성은 그대로 쓰고 속성값은 ""로 묶어서 표현. 각 속성들은 ,로 구분!
+ 
+
+
+
+
+
+
+https://m.blog.naver.com/PostView.naver?blogId=wind_s01&logNo=222012100077&categoryNo=0&proxyReferer=
+여기 정리 잘 되어 있다.
+비디오 도구 제작_________________________________________
+
+1. 비디오의 영역과 컨트롤러의 영역 생성
+
+2-1. 비디오 영역에 비디오 경로 넣기.
+	<video id="myVideo" poster="asset/images/Step1.png">
+            <source src="asset/media/Falls.mp4"/>
+        </video>
+
+
+2-2. 컨트롤러 영역에 플레이토글, 프로그레스바, 시간 영역 넣기.
+	<div id="video_control">
+            <div id="play_toggle" class="player_button">play</div>
+            <div id="progress">
+                <div id="play_progress"></div>
+            </div>
+            <div id="time">
+                <span id="current_time">00:00</span>
+                /
+                <span id="duration">00:00</span>
+            </div>
+        </div>
+
+
+3. 브라우저가 html5를 지원하는지 체크 먼저하기
+jQuery도입부
+	if(!document.createElement("video").canPlayType){
+                $("#video_control").hide();
+                return; // 이 후는 수행하지 않고 반환되어 돌아감.
+            }
+
+	◇.canPlayType : boolean형.
+		브라우저가 지정된 오/비디오 형식을 재생할 수 있는지 여부를 묻는 메소드.
+
+
+4. 앞으로 사용할 video요소 변수에 담아놓기. 플레이토글 설정.
+	let video = document.getElementById("myVideo");
+
+
+4-1. 비디오가 정지된 상태일때 -> 플레이 / 반대경우
+	$("#play_toggle").click(function(){
+                if(video.paused){
+                    video.play();
+                    $(this).text("pause");
+
+                }else{
+                    video.pause();
+                    $(this).text("play");
+                }
+            });
+
+	◇비디오변수.paused : boolean형. 멈춰있다면  속성값은 true
+	◇비디오변수.pause();	: 동영상 일시정지 메서드.
+	◇비디오변수.play();	: 동영상 재생 메서드.
+
+
+4-2. 비디오가 끝까지 재생됐을 때 토글이 play로 변하는 이벤트 적용.
+            $(video).bind("ended", function(){
+                $("#play_toggle").text("play");
+            });
+
+	◇ended : 엘리먼트가 play이후  재생이 종료되었을 때 발생하는 이벤트
+	
+5. 시간 표기하기
+5-1. 비디오의 지속시간을 우선 구해야 한다.
+	//우선. 비디오태그가 기억하고 있는 종료시간은 해당 태그의 경로, source에 연결된 파일의 load가 완료될 때 수정된다. 따라서. 비디오객체에서 durationchange라는 이벤트가 발생하면 다음과 같은 함수를 시행하라!
+
+	$(video).bind("durationchange", function(){
+                let str = formatTime(this.duration);		
+                $("#duration").text(str);
+            });
+
+	◇duration : 비디오의 지속시간 값. 숫자로나옴.
+	
+this비디오객체의 지속시간을 formatTime 이란 함수에 담아 받은 반환값을  str에 담음 //13.455...이렇게 나옴
+그 str을 아이디가 duration인 태그 사이에 입력함.
+
+5-2. 비디오와 관련된 시간을 "00:00" 형태로 변형하여 반환하는 함수 만들기
+jQuery 도입부 외부에 만듬
+	function formatTime(time){
+		let second = Math.round(time);
+		let minute = Math.floor(second/60);
+		second = second%60;
+
+		if(minute<10)
+			minute = "0"+minute;
+		second = (second<10)? "0"+second:second;
+
+		return minute+":"+second;
+	}
+
+	◇Math.round(값); : 값을 반올림해줌.
+	◇Math.floor(값);  :  값 절사(내림).
+	◆삼항연산자 (=조건연산자. if문을 간단하게 표현한 것.)
+	?를 기준으로 앞에 있는 것이 조건식.
+	조건식 참 -> 콜론 앞을 수행 / 조건식 거짓 -> 콜론 뒤를 수행
+
+5-3. 비디오의 현재 시간(?)을 "00:00" 형태로 받아낸다
+	$(video).bind("timeupdate", function(){
+		let c_time = formatTime(this.currentTime)
+		$("#current_time").text(c_time);
+	});
+
+	◇timeupadate : 재생 위치가 이동할 때 발생하는 이벤트;
+	◇currentTime : 현재시간의 값을 담은 속성. 숫자로나옴.
+
+
+6. 실시간 프로그레스바 너비 변경하기
+5-3의 영역 안에 작성.(왜냐면 video의 시간값이 업뎃될때마다 얘도 같이 적용될거니까)
+	let timePercent = (this.currentTime/this.duration)*100;
+	$("play_progress").css("width",timePercent+"%");
+
+_________________________________
+★<video id="myVideo" controls> controls해도 재생 되긴 함.
+
+
+
+●text-transform: uppercase;	//대문자로 변환해주세욥
+

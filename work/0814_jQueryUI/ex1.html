@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    
+</head>
+<body>
+    
+    <div id="myTab">
+        <ul>
+            <li><a href="#tab1"> Tab1</a></li>
+            <li><a href="#tab2"> Tab2</a></li>
+        </ul>
+        <div id="tab1">Tab1의 내용입니다.</div>
+        <div id="tab2">Tab2의 내용입니다.</div>
+
+    </div>
+        <button type="button" id="enable">사용가능</button>
+        <button type="button" id="disable">사용불가능</button>
+        <hr/>
+        <!-- 버튼을 눌렀을 때 탭이 추가삭제되도록 해보자 -->
+        <button type="button" id="addTab"> 탭추가</button><br/>
+
+        <!-- 삭제하고 싶은 탭을 선택할 수 있도록 -->
+        <label for="idx">인덱스:</label>
+        <input type="text" id="idx"/>
+        <button type="button" id="delTab"> 탭삭제</button>
+    
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script>
+
+        $(function(){
+            $("#myTab").tabs(
+                // {disabled:[1]}  두번째 탭 비활성화
+            );
+
+            //이벤트 등록
+            $("#enable").click(function(){
+                $("#myTab").tabs("enable",1); 
+            }) // 아이디가 enable인 애를 클릭하면 활성화시키겠다.
+            $("#disable").click(function(){
+                $("#myTab").tabs("disable",1); // 두번째 탭을 비활성화
+            })
+
+            // // 탭추가 삭제 이벤트 등록: jQuery-UI .1.9.2버전에서 확인할 수 있다.(현버전13 지원 안함.)
+            // let count = 0
+            // $("#addTab").click(function(){
+            //     $("#myTab").tabs("add","#tab2","NewTab"+(++count)) //tab2의 내용을 NewTab$이라는 이름으로 탭을 추가한다. 
+            // });
+
+            // $("#delTab").click(function(){
+            //     $("#myTab").tabs("remove", parseInt($("#idx").val()))
+            // })
+        });
+
+        
+    </script>
+</body>
+</html>

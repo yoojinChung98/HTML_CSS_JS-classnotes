@@ -1,0 +1,274 @@
+7_24
+
+1일차 목표: html 파일을 만들기 위한 구성
+
+
+
+각 태그의 의미 및 역할___________________________
+
+<!DOCTYPE html> : 문서의 형식을 결정하는 문구. 하단에 바로
+<html>	</html> 태그와 와야함!
+html파일에서 빈 공간에서 !+tab을 누르면 알아서 입력해줌
+
+<html> </html>영역 내에는 head 와 body의 영역으로 구분됨
+
+<head></head> : 브라우저에서 탭표시줄 위치를 의미
+
+<body></body> : 브라우저정보 및 메뉴탭 하단의 하얀 모든 부분
+
+<title>탭제목</title> : 헤드에 넣어야 겠쥬
+
+<h1>헤더내용</h1> : 굵고 큰 글꼴(헤더) 1이 가장 크고 굵은 값 6이 가장 작은 값.
+
+<> : 태그. 엘리먼트와 태그는 열면 반드시 닫아야함
+<오픈태그>와 </클로즈태그>
+mt태그 =열고닫는건 한번에 하는 태그, /(슬래시)는 mt 엘리먼트 중 하나
+
+
+"viewport" : 이 화면은 휴대폰 화면이다~ pc화면이다 등등 의미. 
+"UTF-8" : 못들음 뭐 깨지지 않는 것.
+
+
+<p>
+ </p> :p태그(paragraph) 하나의 문단을 만들 때 사용. 문단의 정렬, 배경색 등을 적용하거나 변경할 때 사용. 블록레벨태그
+
+
+<br/> :비알태그 줄바꿈태그. /는 mt엘리먼트.블록레벨태그
+
+
+<strong>강조할내용</strong> : 강조표현.굵게
+<b>굵게할내용</b> : 체태그(bold). 그냥 글씨크기 굵게
+
+<i>와 <em> 은 b와 strong과 같은 관계의 이탤릭체
+
+<b style="color: red;">
+<div style="border: 5px dotted #0f0;">
+한칸 띄고 적는 것을 속성이라고 함.
+style 속성:
+	1. border: 선굵기(px), 형태(solid, dotted), 색상(red,#f00)
+	2. width: 너비(px), *=all
+	3. text-align: center  텍스트정렬, 가운데로
+style="text-align: center;"
+
+
+
+디지털삼원색 #RGB / #RRGGBB(더세밀)
+ 16진수로써 0부터 15까지 표현.
+10=a b=11 c=12 d=13 e=4 f=15
+#f00 =  (red=15, green=0, blue=0) / #000 검정 , #fff 흰색
+
+href : 하이퍼레퍼런스 속성. 인라인레벨태그
+<a href="">네이버</a>
+밑줄 쳐질 내용 모두 포함하여 끝에서 닫아주면 됨.
+
+https : 보안유지를 위한 인터넷경로 프로토콜.
+프로토콜 = 통신규약. 일상 속 수신호같은 것.
+
+<div>
+</div> : 영역구별을 위한 태그. 블록레벨태그
+<div style="border: 5px dotted #0f0; width: 500px">
+너비: 화면속 전체 너비 / 높이 : 내용물의 높이(여러줄이 필요하면 딱 그만큼)
+
+
+<article></article> 문단태그 중 하나.포럼,블로그포스트,보도기사 등을 넣는다고 함
+
+
+
+<ul>내용</ul> : 목록태그(unorder list.순번x)
+항상  <li></li>태그를 가짐(실제 목록)
+<ul> 오늘 할 일
+	<li>과제</li><li>운동</li><li>항목3</li>
+</ul>
+
+<ol>내용</ol> :순번을 갖는 목록태그 (order list.시작번호 등을 조정 가능)
+
+ul 과 ol은 메뉴구성(내비게이션)에 가장 많이 사용
+
+
+
+제목 쓸 때
+<header>
+	<h2>폼태그 연습</h2>
+</header>
+
+
+
+폼태그 : 사용자로부터 입력받아 서버를 보낼 때 사용.
+<form method="get" action="요청할서버의경로">
+	<!--아래의 레이블은 아이디가 s_id인 태그의 레이블이다.-->
+	<label for="s_id">아이디:</label>
+	<input type="text" id="s_id" name="u_id"/><br/>
+</form>
+
+메소드 속성: 서버에 '이 방식으로' 보낼거야 (get, post)
+get 속성: 속도빠름, 보안x(입력받은 내용이 주소창에 모두 나타남)(메소드 생략시 get으로 설정)
+post 속성: 속도느림, 보안o(안보임)
+
+
+●<input>타입속성: 
+1. text
+2. password(화면에 가려져서 표현)
+3. Checkbox(id로 태그를 찾기 때문에 모든 id의 값은 달라야 함)
+4. button
+name은 서버를 보낼 때 이용하는 이름. 즉 '파라메터' 이름임.
+0808 수업내용
+5. url : http://a  |  https://a 이상 입력해야 함.
+6. date : 달력에서 날짜 선택 박스
+7. time : 시간 선택 박스
+8. email : a@a 형식을 입력해야 submit가능
+9. color : 색상팔레트 박스
+10. range : 볼륨바 같은 조절바가 생성됨.
+◇input의 속성 required : 자체적 유효성검사로 입력하지 않을 시 정보가 제출되지 않음.
+
+
+
+&nbsp; 하나당 스페이스바 하:줄바꿈이 되고 화면 속 한 행의 모든 너비를 모두 차지함.
+
+* 은 all을 의미
+
+src : 소스
+<td><img src="출처"/></td>
+
+절대경로  file:///C:/MyWork/HTML_Study/work/0724/ex3.html
+다른 웹사이트에 있는 그림을 웹 문서에 연겨ㄹ할 때는 절대 경로를 이용.
+상대경로 : 파일을 기준으로 가까운 폴더부터 검색
+내 웹사이트 내의 그림이나 html파일을 이용할 때 이용.
+
+../ 상위폴더 의미
+
+시멘틱요소: 태그만 읽어도 어떤 내용인지 직감적으로 알게 해주는 요소. html5에 와서 생김.
+
+
+vscode 단축키___________________________________
+
+ctrl + ,  -> 세팅 단축키
+
+ctrl + s : 저장
+
+F5 : 리프레쉬
+
+shift + Alt + 아래키/위키 : 당행 복붙
+
+End : 커서를 행 제일 뒤로 이동
+Home: 커서를 행 제일 앞으로 이동
+PgUp / PgDn : 커서를 젤 위 아래로 이동
+
+블록된 상태에서 " 치면 양옆으로 생겨욧
+
+<!--  HTML주석  -->
+
+shift + 방향키(4방향 모두가능): 블록하기 (방향키대신 마우스클릭도 가능)
+
+ctrl + x : 잘라내기
+
+ctrl + z : 실행취소
+ctrl + shift + z : 실행취소취소
+
+alt + 클릭 : 커서 여러개 만들기
+
+window + shift + s : 윈도우 화면캡쳐
+
+
+
+
+
+
+html 테이블 작성시********________________________________
+
+필수요소------------------------
+tr :table row
+td : td 테이블데이터 셀
+thead : 테이블 제목행
+tbody : 실제 데이터
+tfoot : 출처 등 (각 머리몸발은 자리가 잇어서 순서바꿔도 머리몸발 순으로 나옴)
+colspan="4" : 열합치기 속성
+caption : 제목
+summery="요약" :요약설명 속성 (화면에 출력x)
+
+
+선택요소-------------------
+colgroup
+col
+td -> th : t헤더. 가운데정렬 및 굵게
+
+
+
+테이블만들기------------------------------
+             <table border="1" width="600" summary="회원목록테이블">
+                <colgroup>
+                    <col width="80px"/>
+                    <col width="80px"/>
+                    <col width="130px"/>
+                    <col width="150px"/>
+                    <col width="*"/>
+                </colgroup>
+                <caption>회원목록</caption>
+                <thead> <!--테이블의 머릿글-->
+                    <tr>
+                        <th>이미지</th>
+                        <th>번호</th>
+                        <th>이름</th>
+                        <th>연락처</th>
+                        <th>이메일</th>
+                    </tr>
+                </thead>
+                <tbody> <!--테이블의 데이터-->
+                    <tr>
+                        <td><img src="images/daum.png" width="60px"/></td>
+                        <td>1</td>
+                        <td>마루치</td>
+                        <td>010-8425-4154</td>
+                        <td>maruchi4145@naver.com</td>
+                    </tr>
+                </tbody>
+                <tfoot> <!--테이블의 바닥글, 보통 가장 하단에 적음.-->
+                    <tr>
+                        <td colspan="5">출처:한국ICT협회</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+
+폼만들기-------------------------------------------
+
+<!--form태그의 method는 전송방식(get/post)
+                action은 서버의 경로가 들어가야 함
+                각 태그의 id는 현재 문서상에서 해당 id를 가진 태그를 접근하고자 할 때 필요한 속성
+                name속성은 서버로 전송되는 파라미터(서버로 전달되는 값=인자)의 이름이므로 서버에서 값을 받을 때 사용함.    
+            -->
+            <form method="get" action="요청할서버의경로">
+                <!--아래의 레이블은 아이디가 s_id인 태그의 레이블이다.-->
+                <label for="s_id">아이디:</label>
+                <input type="text" id="s_id" name="u_id"/><br/>
+
+                <label for="s_pw">비밀번호:</label>
+                <input type="password" id="s_pw" name="u_pw"/><br/>
+
+                <label for="s_hobby">취미:</label>
+                <input type="checkbox" id="s_hobby" name="u_hobby" value="독서"/>독서 &nbsp;&nbsp;&nbsp;
+                <input type="checkbox" id="s_hobby2" name="u_hobby" value="영화감상"/>영화감상 &nbsp;&nbsp;&nbsp;
+                <input type="checkbox" id="s_hobby3" name="u_hobby" value="음악감상"/>음악감상 &nbsp;&nbsp;&nbsp;
+                <input type="checkbox" id="s_hobby4" name="u_hobby" value="게임"/>게임 &nbsp;&nbsp;&nbsp;
+                <br/>
+
+                <input type="button" value="가입하기"/>
+
+            </form>
+
+
+
+
+
+기타 메모_____________________________________
+
+3주간 수업목표: 웹페이지 제작 (홈피 메인p, 로그인p, 서브p)
+자바 개발자로서 알아야할 태그 공부 및 모양잡기까지 배울 예정
+
+카멜기법:두개의 단어가 붙을 때 첫글자를 대문자로 씀
+
+작업한 파일 브라우저로 : 작업한 폴더에 html파일로 저장됨
+
+
+
+
+

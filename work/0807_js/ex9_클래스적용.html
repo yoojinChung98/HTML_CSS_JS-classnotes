@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: aliceblue;
+        }
+        .show{
+            display: block;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="감추기" id="btn"/>
+
+    <div id="box" class="show">
+        <p>화이팅~!</p>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+
+            let flag = true;
+            // 아이디가 btn인 요소에게 클릭이벤트 적용
+            $("#btn").click(function(){
+
+                //flag의 값이 true일 때는 box에게 show라는 클래스를 삭제하고, hide라는 클래스를 넣어준다.
+                if(flag){
+                    $("#box").removeClass("show");
+                    $("#box").addClass("hide");
+                    $(this).val("보이기");
+                }else{
+                    // flag가 false일 때...
+                    $("#box").removeClass("hide");
+                    $("#box").addClass("show");
+                    $(this).val("감추기");
+                }
+                flag = !flag;  //***************
+
+            });
+        });
+    </script>
+</body>
+</html>

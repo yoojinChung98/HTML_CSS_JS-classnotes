@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #menu{
+            padding: 0;
+            list-style: none;
+            font: bold 25px sans-serif;
+            overflow: hidden;
+        }
+
+        #menu>li{ /* 수평으로 배치되어야 하고, 글의 크기 만큼만
+            영역을 가지는 수평메뉴 지정! 단, 크기조정은 할 수 없는 것이 단점*/
+            display: inline;
+            /* width: 100px; */
+            margin-right: 20px;
+        }
+
+        /* a태그의 글꼴 색상을 검정색으로 하고 , 밑줄을 없애자*/
+        #menu>li>a{
+            color: #000000;
+            text-decoration: none; /* 밑줄 없애기 */
+        }
+
+        #menu>li>a:hover{
+            color: #00bfff;
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <header>
+            <h1>수직메뉴</h1>
+        </header>
+        <ol id="menu">
+            <li id="mail"><a href="">메일</a></li>
+            <li id="cafe"><a href="">카페</a></li>
+            <li id="blog"><a href="">블로그</a></li>
+            <li id="kin"><a href="">지식in</a></li>
+        </ol>
+    </div>
+</body>
+</html>

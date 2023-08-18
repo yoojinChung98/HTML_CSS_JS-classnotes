@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let ar = new Array(10);
+
+        // 1~10까지 초기화(값 할당) 해주는 반복문
+        for(let i=0; i<ar.length; i++){
+            ar[i] = i+1;
+        }
+
+        // ar이라는 배열을 처리하면서 3의 배수를 만나면 반복문을 탈출하는 문장.
+
+        for(let i=0; i<ar.length; i++){
+            document.write(ar[i]+"<br/>")
+            
+            if(ar[i]%3 == 0){
+                break; // 가장 가까운 반복문 탈출
+            }
+        }
+        
+    </script>
+</body>
+</html>

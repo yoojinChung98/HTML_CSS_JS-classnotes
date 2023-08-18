@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #comp{
+            width: 300px;
+            padding: 5px;
+        }
+        #t1{
+            width: 600px;
+            border-collapse: collapse;
+        }
+        #t1 th, #t1 td{
+            padding: 4px;
+            border: 1px solid black;
+        }
+        .w100{
+            width: 80px;
+        }
+        #t1 td:first-child{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="post">
+        <fieldset>
+            <legend>비동기식통신</legend>
+            <label for="comp">제조회사</label>
+            <input type="text" id="comp"/> <!--비동기식이라 name별로 필요없음.-->
+            <button type="button" onclick="exe()">확인</button>
+        </fieldset>
+    </form>
+    <div id="content">
+        <table id="t1">
+            <colgroup>
+                <col width="120px"/>
+                <col width="*"/>
+                <col width="60px"/>
+                <col width="150px"/>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>이미지</th>
+                    <th>제품명</th>
+                    <th>가격</th>
+                    <th>등록일</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+        <script>
+        function exe(){
+            //서버호출 (동기식 표현)
+            // document.forms[0].submit(); // 갔다가 처리하고 그 결과는 html로 와야 함.
+
+            // 사용자가 입력한 제조회사명 가져오기
+            let comp = $("#comp").val();
+
+            if(comp.trim().length > 0 ){
+                //서버호출 (비동기식)
+                $.ajax({  //아약스라고 읽기도... 에이잭스...   // 여러 속성이 들어가므로 {}를 열어줌
+                    url: "https://makeup-api.herokuapp.com/api/v1/products.json",  //"호출하고자_하는_서버경로",
+                    data: "brand="+comp, // {"brand":comp, "type":뮈시기, ... },  // "서버로_보내고자_하는_파라미터(인자)"
+                    type: "get",   //"전송방식(get/post)"
+                    dataType: "json"   // "서버로부터_응답되어오는_자원(return되는_자료형)"
+                
+                }).done(function(data){
+                    //요청에 성공했을 때 수행하는 곳.
+                    //data가 서버로부터 전달되어오는 return값이다.
+                    console.log(data);
+                    let msg = "";
+                    for(let i=0; i<data.length; i++){
+                        msg += "<tr>";
+                        msg += "<td><img src='"+data[i].image_link+"'class='w100'/></td>";
+                        msg += "<td><a href='"+data[i].product_link+"'>"+
+                            data[i].name+
+                            "</a></td>";
+                        msg += "<td>$"+data[i].price+"</td>";
+                        msg += "<td>"+data[i].updated_at+"</td>";
+                        msg += "</tr>";
+                    }
+                    $("#t1>tbody").html(msg);
+                    // document.querySelector("tbody").innerHTML=msg;
+                }).fail(function(err){
+                    //요청시 오류가 발생했을 때 수행하는 곳. (생략가능. 오류가 없을 것이라 생각된다면 안해도 상관ㄴ)
+                });
+            } // if문의 끝 
+        }
+    </script>
+</body>
+</html>

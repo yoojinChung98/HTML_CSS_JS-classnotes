@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.container{
+            border: 1px solid red;
+            width: 600px;
+            display: flex;
+            flex-wrap: nowrap;
+        }
+        div.item{
+            background-color: aquamarine;
+            width: 300px;
+            /* 부모의 nowrap설정으로 너비 300px->200px로 변경됨*/
+        }
+        div.item.flex1{
+            background-color: greenyellow;
+            /* flex-grow: 1; */ /*width 300px이 없어야 함.*/
+            flex-shrink: 1; /* width 300px이 있는 상태에서, 공간이 부족할 때 사이즈를 줄일 수 있는 비율. 1->거의 안줄이겠다.*/
+        }
+        div.flex2{
+            background-color: palevioletred;
+            /* flex-grow: 2; */
+            flex-shrink: 2; /*부모의 너비가 600px에서 500px로 재설정한 후 본인너비가 300px이 있는 상태에서 공가닝 부족할 때 줄일 수 있는 비율.
+                                남은 공간을 1:2:3 비율로 줄여서 자리잡는다.*/
+        }
+        div.flex3{
+            background-color: skyblue;
+            /* flex-grow: 1; */
+            flex-shrink: 3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item flex1">항목1</div>
+        <div class="item flex2">항목2</div>
+        <div class="item flex3">항목3</div>
+    </div>
+</body>
+</html>

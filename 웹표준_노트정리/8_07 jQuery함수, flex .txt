@@ -1,0 +1,166 @@
+8_07
+
+flex
+jQuery에서 제공하는 함수.
+___________________________________________
+
+flex 공부 시에 참고하면 좋을 사이트
+(https://studiomeal.com/archives/197)
+●flex와 속성들
+display flex; /*flex형으로 보여주기
+
+◇container 에 적용하는 속성
+▷display flex;
+▷flex- direction: row; /*item의 진열방향 설정(순서에 영향ㅇ)
+	row(좌->우) row-reverse(우->좌) column(상->하) column-reverse(하->상)
+▷flex-wrap: nowrap; /* 컨테이너가 아이템을 감쌀것인지 말것인지
+	wrap(컨테이너 안에 전부 들어옴) wrap-revers(위로 줄넘김)
+▷flex-flow: row wrap; /*direction과 wrap 동시지정
+▷justfy-content: flex-start; (순서는그대로, 정렬위치만 변경. 좌정렬)
+	flex-end(우정렬) center(가운데정렬) space-between(양끝정렬,사이공백) space-around(가운데항목기준정렬, 사이공백 ->컨테이너 양 끝에 공백이 생길 가능성ㅇ)
+▷align-items: stretch; : 수직상 아이템 정렬(쭉 늘려서 정렬)
+	flex-start(위에 딱붙여 정렬) flex-end(아래에) center(미들) baseline(글자선에 맞추어 상단부터)
+▷align-content: stretch; 행이 여럿일 때 정렬(컨테이너에 맞춰서 늘려서 배치)
+	flex start/ flex-end/ center / space-between/ space-around/ space-evenly
+
+
+
+◇item에 적용하는 속성
+flex-basis: auto/50%/300px/content; //item들의 크기.
+	width와의 차이점은 지정한 크기를 벗어나면 그냥 그대로 냅둠!
+flex(-grow): 1; 어떤 비율로 얼마나 커지도록 놔둘것인가!(flex-basis를 제외한 공백 이외의 부분을 어떤 비율로 나눠줄 것인가!) a b c가 1: 2: 3으로 나눴다면 C가 가장 커짐
+flex-shirnk: 1; 어떤 비율로 basis보다 작아지도록 할것인가(grow와 동일한 개념)
+	0으로 설정하면 해당 객체는 절대 찌그러지지 않음.
+flex: 1  2 auto; : 위의 세 요소 축약형
+	순서대로 grow, shirnk, basis.
+
+__________________________________________
+
+jQuery에서 유용한 함수들
+
+
+
+●.find();	()에 해당하는 자손 요소를 찾아서 선택.
+let ar=$("#box1").find(":radio");
+	//아이디가 box1인 요소 안에서 타입속성의 값이 radio인 녀석들을 모두 찾아서 변수 ar에 (배열로) 저장.
+
+
+●.next()		좌측의 다음 요소(선택)
+$("tr").next().text("내용1");
+
+
+●.prop("속성지정", 값 )		속성들... 속성을 추출하거나 바꾸고 싶을 때는!
+$("btn").prop("checked") = true
+$("btn").prop("checked",this.checked);
+btn에서 checked속성을 해당객체의 checed속성과 같은 값을 넣어라!
+
+
+●.text( / "문자열" );		html의 innerText와 유사
+$("span:out").text("나가");
+-> 타입이 out인 span태그 사이에 나가 를 입력
+var jb = $('h1 ).text();
+-> h1 태그의 요소안의 내용을 jb라는 변수에 담음
+
+
+●.index();	앞에서 선택한 객체의 인덱스번호 반환.
+예시) $("#t1>thead :checkbox").click(function(){
+                let idx = $("#t1> thead :checkbox").index(this);
+이런 느낌으로 클릭하 녀석의 idx값 반환받을 수도 있다!
+
+
+●.addClass("넣고싶은 클래스 이름"); 클래스를 적용해라!
+●.removeClass(""); 클래스를 없애라!!
+
+let flag = true;
+            $("#btn").click(function(){
+         
+                if(flag){
+                    $("div").eq(1).children().addClass("test");
+                    $(this).val("해제");
+                }else{
+                    $("div:first-child").removeClass("test");
+                    $(this).val("적용");
+                }
+                flag = !flag;
+            });
+-> flag에 초기값을 true로 두고
+두번째 div의 자식요소들에게  test라는 클래스를 적용하라! 아니면 없애라
+
+
+★★★★ flag = !flag; ★★★★
+어떤 boolean형 변수의 true false를 변경해주는 문구
+
+
+
+●.each();	jQuery의 반복문 같은 애 (옆의 선택자에 해당되는 요소들을 만날 때마다 괄호를 수행.
+예시> $(".test, span, div").each(function(){  
+                str += $(this).text("hey");		});
+-> 클래스가 test, 태그가 span, div인 요소를 만날 때마다 str += $(this).text("hey"); 반복수행
+
+
+
+●onmouseout(this(커서가막빠져나간곳의객체)) <-> .nomouseover()
+// 영역이 있는 모든 객체에 적용 가능.
+
+
+
+●인덱스 번호로 요소 찾기
+eq(n);	인덱스 번호가 n인 요소만 선택. (인덱스번호 n 인 요소 선택)
+lt(n);	인덱스 번호가 n보다 작은 요소들만 선택.(인덱스번호 0 ~ n-1 요소까지만 선택)
+gt(n);	인덱스 번호가 n보다 큰 요소들만 선택. (인덱스번호 n+1 ~인 요소부터 선택)
+
+
+_______________________________________________
+
+오늘 집에서 할 공부
+Grid
+UI / UX 개념
+dom 트리
+
+
+점심시간에 한글로 변경 연습하기 6번예제
+//상단과 내용이 중복되네? 이 부분 함수로 바꿔서 연습해보면 참 좋을 것 같네!(이따가 연습!!)
++ 한글 영문도 같이 바뀌도록 설정해!
+
+질문___________________________________
+
+1. 오늘도 자유연습: rowIndex라는 함수??는 tr태그에밖에 적용할 수 없나요?
+	예, 안됩니다. td태그는 rowIndex속성이 없구요,  tr태그는 갖고 있습니다.
+
+
+2. nscode에서 클래스가 두개 이상인 요소 간편하게 만들기
+	div.item.flex(항목)*3
+
+
+3. i태그가 뭐임?
+	이탤릭체 태그요... 볼드체 뭐 이런거...
+	em태그가 i태그에 strong 태그 약간 합친거래욥
+
+--------
+4. 8번..jQuery문법과 javascript문법 혼용과 jQuery에서 css선택자 사용하는 것에 대한 질문!
+
+[]는 자바스크립트 문법 아님?  eq() 써야하는거 아님?
+let count 가 자바스크립트문법이라며 근데 어떻게 같은 행에 jQuery가 옴??
+$("div:firstChild")는 왜 안됨? css에서 이렇게 쓰잖아!
+
+	children()을 사용하여 반환된 child 객체는 jQuery객체.
+
+
+
+5. 7번체크박스선택: 왜 하단의 코드는 에러가 뜨는지...ㅜ
+	대입연산자가 들어가서 틀렸었음. (if 조건식 부분에 ==을 써야 함!!)
+
+
+
+6. children. 자바스크립트 문법
+이랑 children()이랑 뭐가 다른거임...? jquery 용함수라는 뜻? children은 자바스크립트에서 사용하는것?
+
+children("em, p")
+자식태그 중 em태그랑 p태그만 고르는 것.
+$("div").children(".selected").css("color", "blue");
+div태그의 자식태그중 클래스가 selected인 태그만 골라서 글꼴색을 파란색으로 바꾸는 것.
+
+
+
+
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for=" v1">값1:</label>
+    <input type="text" id="v1" name="val1"/><br/>
+    <label for=" v2">값2:</label>
+    <input type="number" id="v2" name="val2"/><br/>
+    <button type="button" onclick="exe()">확인</button>
+
+    <script>
+        function exe(){
+            // 아이디가 v1인 요소 그리고 v2인 요소를 검색하자
+            let m1 = document.getElementById("v1");//숫자열이 있어도 문자열로 인식함.
+            let m2 = document.getElementById("v2");//number역시 문자열로 인식됨.
+
+            document.write(parseInt(m1.value)+10);
+            document.write("<br/>");
+
+            let m2_value = parseInt(m2.value);
+            document.write(m2_value+10);
+            document.write("<br/>");
+            document.write(m2_value-10);
+            document.write("<br/>");
+            document.write(m2_value*10);
+            document.write("<br/>");
+            document.write(m2_value/10);
+            document.write("<br/>");
+            document.write(m2_value%10);    //나머지값 연산자
+    
+
+
+        }
+    </script>
+</body>
+</html>

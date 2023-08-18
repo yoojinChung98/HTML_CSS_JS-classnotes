@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #box{
+        width: 400px;
+        height: 300px;
+        border: 1px solid blue;
+        line-height: 300px;
+        text-align: center;
+        color: red;
+        font-size: 80px;
+        font-weight: bold;
+    }
+</style>
+<body>
+    
+    <form method="post">
+        <label for="score">점수</label>
+        <input type="text" id="score" name="u_score"/><br/>
+        <button type="button" id="s_submitScore" onclick="exe()">확인</button>
+
+        <div id="box">
+
+        </div>
+    
+    
+    </form>
+    <script>
+        function exe(){
+            //현재문서에서 아이디가 score인 요소의 값(value)을 얻어내야 함.
+            let sc = document.getElementById("score");
+            let sc_val = sc.value; // score의 값.
+            //let s_val = document.getElementById("score").nodeValue;   나중에 포커스 놓고 할 필요 없다면 바로 이렇게 따와도 ㄱㅊ
+
+            /* 
+                score의 값이 95~ : "A+", 90~94 : "A-", 85~89 : "B+", 80~84 : "B-", 75~79 : "C+", 70~74 : "C-", 60~69 : "D", 이하 "재시"
+            */
+           //if(sc_val != ""){ //sc_val이 화이트스페이스(공백)가 아닐 때!
+                                //But 공백을 입력했을 때는 비교할 수 없다.
+
+           let box = document.getElementById("box");
+
+                //비교연산을 하기 위해 sc_val을 정수로 변환하자!
+            if(sc_val.trim().length > 0){
+                let score = parseInt(sc_val);
+                
+
+                if(score >= 95)
+                    box.innerText = "A+";
+                //else if(score >= 90 && score < 95)
+                else if(score >=90)
+                    box.innerText = "A-";
+                else if(score >= 85)
+                    box.innerText = "B+";
+                else if(score >= 80)
+                    box.innerText = "B-";
+                else if(score >= 75)
+                    box.innerText = "C+";
+                else if(score >= 70)
+                    box.innerText = "C-";
+                else if(score >= 60)
+                    box.innerText = "D";
+                else
+                    box.innerText = "재시";
+
+
+            }
+            else{//점수를 입력하지 않았을 때
+                alert("점수를 입력하셔야 합니다!");
+                sc.value = ""; //점수 입력란에 들어가 있던 값을 변경!
+                sc.focus();
+            }
+        }
+
+        function submitScore(e){
+            if (e.code === 'Enter'){
+                document.getElementById("s_submitScore").click();
+            }
+        }
+    </script>
+</body>
+</html>

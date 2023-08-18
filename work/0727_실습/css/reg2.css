@@ -1,0 +1,164 @@
+@charset "UTF-8";
+@import "reset.css";
+
+#contents{
+    /* border: 1px solid red; */
+    width: 900px;
+    height: auto; /* 안의 내용물들의 높이에 알아서 맞추겠다. */
+    margin: auto;
+}
+
+.guide_txt{
+    color: #777;
+    font-size: 12px;
+    padding-bottom: 7px;
+    position: relative;
+}
+.txt_r{
+    color: #777;
+    font-size: 12px;
+    padding-bottom: 7px;
+    display: inline-block;
+    /* border: 1px solid blue; */
+    width: 116px;
+    position: absolute;
+    right: 0px;
+    padding-left:15px ;
+}
+.req{
+    display: inline-block;
+    width: 12px;
+    height: 8px;
+    background: url(../img/bult.png) no-repeat 4px 1px;
+    text-indent: -9999px;
+}
+.reg_table{
+    border: 1px solid #aaa;
+}
+/************* 테이블 작업 ****************/
+table.table_type{
+    width: 900px;
+    border-collapse: collapse;
+    /* border: 1px solid #ddd; */
+}
+table.table_type th{
+    border: 1px solid #ddd;
+    font-weight: bold;
+    padding: 10px 0 10px 10px;
+    background-color: #efefef;
+    text-align: left;
+    border-left: none;
+}
+table.table_type td{
+    border: 1px solid #ddd;
+    border-right: none;  
+    padding: 10px;
+}
+.join{
+    width: 280px;
+    padding: 3px 6px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.b_bdcheck{
+    width: 58px;
+    height: 24px;
+    background-position: 0 -150px;
+    position: absolute;
+    margin: 0 10px;
+}
+
+/*테이블 안에 테이블은 오류가 난적이 있다고 하심*/
+/* table.address th{
+    border: none;
+    width: 70px;
+    padding: 2px 2px;
+    background-color: transparent;
+    text-align: right;    
+}
+table.address td{
+    border: none;
+    padding: 2px 2px; 
+}
+.fn_address{
+    width: 80px;
+    height: 25px;
+    background-position: -60px -150px;
+}
+table.address .join{
+    width: 550px;
+}
+table.address .fn_addnum{
+    width: 80px;
+} */
+
+
+/* 그냥 하나하나 위치 잡은거  */
+/* td.find_addr{
+    border: 1px solid red;
+    margin-left: 50px;
+}
+.find_addr .psto_num:first-child{
+    width: 80px;
+    margin: 5px 0 0 -3px;
+    background-position: -60px -150px;
+}
+label.addr{
+    display: inline-block;
+    width: 70px;
+    color: #2e2e2e;
+    text-align: right;
+}
+.box_addrnum{
+    width: 190px;
+    margin: 5px 0 5px 85px;
+}
+.box_addr{
+    width: 550px;
+    margin: 5px 0 5px 9px;
+} */
+
+dt{
+    display: inline-block;
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+}
+dd{
+    display: inline-block;
+    width: 190px;
+}
+.post_num{
+    width: 80px;
+    height: 25px;
+    background-position: -58px -150px;
+    margin: 2px 10px;
+    vertical-align: middle;
+}
+.fr{
+    text-align:  right;
+}
+.select_optionS{
+    width: 80px;
+    padding: 1px 6px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin-right: 5px;
+    color: #666;
+}
+div.btn_area{
+    margin-top: 30px;
+    text-align: center;
+}
+div.btn_area span{
+    margin-top: 30px;
+    padding: 3px 0;
+    width: 65px;
+    height: 27px;
+}
+.b_ok{
+    background-position: 0 -110px;
+}
+.b_cancel{
+    background-position: -100px -110px;
+}

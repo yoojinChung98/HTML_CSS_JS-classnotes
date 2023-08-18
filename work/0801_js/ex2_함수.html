@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" onclick="test1()">버튼1</button><br/>
+    <button type="button" onclick="test2()">버튼2</button><br/>
+    <button type="button" onclick="test3(200, 10)">버튼3</button>
+
+
+
+
+
+
+
+    <script>
+
+        let a = 10;
+        function test1(){
+            //현재 화면에 a의 값을 출력하자
+            document.write(a);
+        }
+        function test2(){
+            let b = 30; // 지역변수 b 선언
+            alert("a+b:"+(a+b)); //경고창 보여주기
+        }
+        function test3(n1, n2){ // 11번행에서 클릭할 때 호출되는 함수
+                                // 이때 전달되는 200이 n1에 대입되고, 10은 n2에 대입된다.
+                                // n1, n2는 지역변수.
+            alert(n1+n2+a);
+        }
+
+    </script>
+</body>
+</html>

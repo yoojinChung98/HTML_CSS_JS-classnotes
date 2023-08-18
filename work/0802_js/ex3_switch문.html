@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 500px;
+            height: 160px;
+            border: 1px solid blue;
+            text-align: center;
+            line-height: 160px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <form method="post">
+        <label for="m_car">차종</label>
+        <!-- index는 무조건 첫번째 값이 0 
+            아래의 내용은 콤보상자에서 변경을 할 때마다 exe함수를 호출하는데,
+                이때 선택된 요소의 index값을 인자로 전달-->
+        <select id="m_car" name="car" onchange="exe(this.selectedIndex)">
+            <option>::선택하세요.</option>
+            <option value="a">아우디R8</option>
+            <option value="b">벤틀리</option>
+            <option value="p">포르쉐</option>
+        </select>
+    </form>
+
+    <div id="box"></div>
+
+    <script>
+        let box = document.getElementById("box");
+
+        function exe(idx){
+            // 전달해 오는 index값이 idx에 저장된다.
+            switch(idx){
+                case 1:
+                    box.innerText = "아름다운 여신과 같은 아이";
+                    break;
+                case 3:
+                    box.innerText = "뭔가 화가 잔뜩 나 있는 아이";
+                    break;
+                case 2:
+                    box.innerHTML = "<strong>우아하고 멋진 아이</strong>";
+                    break;
+                case 0:
+                    box.innerText = "";
+            }
+        }
+    </script>    
+</body>
+</html>

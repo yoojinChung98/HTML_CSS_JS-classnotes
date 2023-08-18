@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        let i = 1;
+        while(i<=10){
+            document.write(i+"<br/>");
+
+            if(i%3 == 0)
+                break;
+            i++;
+        }
+
+        document.write("------------------------");
+        document.write("3의 배수는 출력하지 않도록 하자!<br/>");
+        i = 0;  // 11번행에서 선언된 i변수의 값이 while(12행)을 거치며 변수값이 변화되었으므로 초기화.
+        while(i<=10){   //1가 10보다 작거나 같다면 반복문 수행
+            ++i;        //i값 1 증가
+            if(i%3 != 0)    //i를 3으로 나눴을 때 나머지가 0이 아닐 때 if문 수행.
+                continue;   //다음 회차로 이동(while의 조건식23행으로 이동)
+
+            document.write(i+"<br/>")   // 현재문서에 i값과 줄바꿈태그를 문서에 작성.
+            //++i  //여기에 증감식이 있으면 continue;에서 바로 조건식(25)로 가므로 i값의 변화가 멈춰서 따라서 무한반복에 빠짐.
+        }
+
+
+    </script>
+</body>
+</html>

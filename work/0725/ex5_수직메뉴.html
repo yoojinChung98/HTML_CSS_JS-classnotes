@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #menu{ /* id가 menu인 ul태그에 적용 */
+            list-style: none; /* list아이템 앞에 점 삭제 */
+            /* border: 2px solid red; */
+            padding-left: 0px; /* 안쪽 왼쪽 여백 */
+            width: 200px;
+            border-top: 2px solid black;
+
+        }
+
+        #menu>li{
+            border: 2px solid black;
+            height: 60px;
+            border-top: none; /* 위쪽 선만 안보이게 한다. */
+            background-color: #fff1f8;
+        }
+
+        #menu>li>a{
+            /* border: 1px solid pink; */
+            display: block; /* 보여달라는 뜻 + 인라인레벨을 블록레벨로 변경 */
+            height: 100%;
+            text-align: center; /* 수평상의 가운데 */
+            line-height: 60px; /* 퍼센트가 먹지 않음 */
+            text-decoration: none; /* 밑줄 없애기 */
+            font-size: 30px;
+            font-weight: bold;
+            color: rgb(65, 32, 59);
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <h1>수직메뉴</h1>
+        </header>
+        <ul id="menu">
+            <li><a href="">메&nbsp;&nbsp;일</a></li>
+            <li><a href="">카&nbsp;&nbsp;페</a></li>
+            <li><a href="">블로그</a></li>
+            <li><a href="">지식in</a></li>
+        </ul>
+    </div>
+</body>
+</html>

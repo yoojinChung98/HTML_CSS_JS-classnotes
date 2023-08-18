@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #can1{
+            border: 3px dotted black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Canvas연습</h1>
+    <canvas id="can1" width="600" height="300">
+        현재 브라우저에서는 Canvas를 지원하지 않습니다.
+    </canvas>
+
+    <script>
+        window.onload = function(){
+            let mc = document.getElementById("can1");
+            let ctx = mc.getContext("2d");
+
+            if(ctx){
+                let str = "한국ICT협회";
+
+                ctx.fillText(str,20,20);  // fillText(무엇을, x좌표, y좌표);
+
+                ctx.font = "25pt Georgia";
+                ctx.fillText(str, 20, 60);
+
+                ctx.fillStyle = "#00f";
+                ctx.fillText(str, 20, 100);
+
+                ctx.strokeText(str,20,140);
+
+                ctx.font = "36pt Verdana";
+                ctx.fillStyle = "#f00";
+                ctx.fillText(str, 20, 190)
+
+                
+                ctx.fillText(str,20, 250);
+                ctx.strokeStyle = "rgba(180,30,250,0.8)";
+                ctx.strokeText(str, 20, 250);
+                // 그림자효과도 줄 수 있음
+                
+            }
+        }
+    </script>
+</body>
+</html>

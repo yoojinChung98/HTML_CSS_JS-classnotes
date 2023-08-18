@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예제4</title>
+</head>
+<body>
+    <article>
+        <header>
+            <h2>테이블연습1</h2>
+        </header>
+        <p>
+            <table border="1" width="500">
+                <tr>
+                    <td>번호</td>
+                    <td>이름</td>
+                    <td>연락처</td>
+                    <td>이메일</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>마루치</td>
+                    <td>010-8425-4154</td>
+                    <td>maruchi4145@naver.com</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>아라치</td>
+                    <td>010-1243-4154</td>
+                    <td>arachi4145@naver.com</td>
+                </tr>
+            </table>
+        </p>
+        <p>
+            <table border="1" width="500">
+                <tfoot> <!--테이블의 바닥글, 보통 가장 하단에 적음.-->
+                    <tr>
+                        <td colspan="4">출처:한국ICT협회</td>
+                    </tr>
+                </tfoot>
+                <thead> <!--테이블의 머릿글-->
+                    <tr>
+                        <td>번호</td>
+                        <td>이름</td>
+                        <td>연락처</td>
+                        <td>이메일</td>
+                    </tr>
+                </thead>
+                <tbody> <!--테이블의 데이터-->
+                    <tr>
+                        <td>1</td>
+                        <td>마루치</td>
+                        <td>010-8425-4154</td>
+                        <td>maruchi4145@naver.com</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>아라치</td>
+                        <td>010-1243-4154</td>
+                        <td>arachi4145@naver.com</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </p>
+        <p>
+            <table border="1" width="600" summary="회원목록테이블">
+                <colgroup>
+                    <col width="80px"/>
+                    <col width="80px"/>
+                    <col width="130px"/>
+                    <col width="150px"/>
+                    <col width="*"/>
+                </colgroup>
+                <caption>회원목록</caption>
+                <tfoot> <!--테이블의 바닥글, 보통 가장 하단에 적음.-->
+                    <tr>
+                        <td colspan="5">출처:한국ICT협회</td>
+                    </tr>
+                </tfoot>
+                <thead> <!--테이블의 머릿글-->
+                    <tr>
+                        <th>이미지</th>
+                        <th>번호</th>
+                        <th>이름</th>
+                        <th>연락처</th>
+                        <th>이메일</th>
+                    </tr>
+                </thead>
+                <tbody> <!--테이블의 데이터-->
+                    <tr>
+                        <td><img src="images/daum.png" width="60px"/></td>
+                        <td>1</td>
+                        <td>마루치</td>
+                        <td>010-8425-4154</td>
+                        <td>maruchi4145@naver.com</td>
+                    </tr>
+                    <tr>
+                        <td><img src="images/naver.png" width="60px"/></td>
+                        <td>2</td>
+                        <td>아라치</td>
+                        <td>010-1243-4154</td>
+                        <td>arachi4145@naver.com</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </p>
+
+    </article>
+</body>
+</html>

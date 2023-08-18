@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <style>
+        #tabs>div{
+            background-color: #fff;
+        }
+        .w500{
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="contents" class="w500">
+        <div id="tabs">
+            <!-- 누르는 탭들 -->
+            <ul>
+                <li><a href="#t1">첫번째</a></li>
+                <li><a href="#t2">두번째</a></li>
+                <li><a href="#t3">세번째</a></li>
+            </ul>
+
+            <!--각 탭의 내용들-->
+            <div id="t2"> 두번째 탭의 내용입니다. </div>
+            <div id="t1">
+                 첫번째 탭의 내용입니다. 제6호 태풍 '카눈'이 한반도에 상륙하기도 전에 태풍이 추가로 발생했습니다.<br/>
+                 기상청 국가태풍센터는 8일 오전 9시 일본 도쿄 남동쪽 1,500㎞ 부근 해상에서 제7호 태풍 '란'이 발생했다고 밝혔습니다.<br/>
+                 란은 미국에서 제출한 이름으로 마셜군도 주민 언어로 '폭풍'을 의미합니다.<br/>
+                 란은 서진하다가 10일 오전, 북서쪽으로 방향을 틀어 일본 시코쿠 섬을 향해 나아갈 것으로 전망됩니다.<br/>
+            </div>
+            <div id="t3">
+                 세번째 탭의 내용입니다.
+                 방위사업청 산하 국책연구기관이 국방 국산화 과제를 수입산으로 둔갑했다는 폭로가 터지기 전 내부 실무자의 공익 신고를 제대로 규명할 기회조차 날린 것으로 파악됐다.<br/>
+                 자신도 처벌받을 각오로 공익 신고에 나섰지만 '조사 수행에 제한이 있다'며 업체 대표를 감싸는 결과를 내놓는 등 '방산 비리' 의혹의 은폐·묵인 논란을 피할 수 없게 됐다.<br/>
+                 7일 CBS노컷뉴스 취재를 종합하면 전북 전주시 팔복동에 소재한 D업체 전 관계자 A씨는 올해 2월 방위사업청 익명신고시스템에 공익 신고를 접수했다.<br/>
+                 방위사업청 산하 연구기관인 국방과학연구소는 문재인 정부인 지난 2017년부터 4년간 미사일 발사체 추진기관에 사용되는 '리오셀 탄소섬유 직물 개발'에 나섰고, 이 과제를 국내 대기업인 주식회사 한화와 D업체에 맡겼다.
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $(function(){
+            $("#tabs").tabs();
+
+
+        });
+
+    </script>
+</body>
+</html>

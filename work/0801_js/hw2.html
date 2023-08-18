@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #yearsBox{
+            width: 400px;
+            height: 300px;
+            text-align: center;
+            line-height: 300px;
+            font-size: 100px;
+            font-weight: bold;
+            border: 2px solid black;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="get">
+        <label for="years">나이:&nbsp;</label>
+        <input type="text" id="years" name="u_years"/>
+        <button type="button" onclick="exe()">확인</button>
+    </form>
+
+    <div id="yearsBox"></div>
+
+    <script>
+        let yearsBox = document.getElementById("yearsBox");
+
+        function exe(){
+            let years = document.getElementById("years");
+            let v_years = years.value;
+            
+
+            //이부분을 else 로 보내기
+            if(v_years.trim().length > 0){
+                let V_years = parseInt(v_years);
+
+                if(V_years >= 70)
+                    yearsBox.innerText="노년";
+                else if(V_years >= 55)
+                    yearsBox.innerText="장년";
+                else if(V_years >= 40)
+                    yearsBox.innerText="중년";
+                else if(V_years >= 19)
+                    yearsBox.innerText="청년";
+                else if(V_years >= 13)
+                    yearsBox.innerText="청소년";
+                else if(V_years >= 7)
+                    yearsBox.innerText="아동";
+                else
+                    yearsBox.innerText="영유아";
+
+                    
+                // if(V_years <= 6){
+                //     yearsBox.innerText="영유아";
+                // }else if(V_years <= 12){
+                //     yearsBox.innerText="아동";
+                // }else if(V_years <= 19){
+                //     yearsBox.innerText="청소년";
+                // }else if(V_years <= 39){
+                //     yearsBox.innerText="청년";
+                // }else if(V_years <= 54){
+                //     yearsBox.innerText="중년";
+                // }else if(V_years <= 69){
+                //     yearsBox.innerText="장년";
+                // }else
+                //     yearsBox.innerText="노년";
+            }else{
+    
+                    
+                alert("나이를 입력해주세요.");
+                v_years = "";
+                years.focus();
+                return;
+
+            }
+
+        }
+    </script>
+</body>
+</html>

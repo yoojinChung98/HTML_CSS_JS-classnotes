@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="init()">
+    <form>
+        <fieldset>
+            <legend>Progress 연습</legend>
+
+            <label for="s1">Progress:</label>
+            <progress value="0.05" max="1" id="s1" name="s1">
+                브라우저가 progress를 지원하지 않습니다.
+            </progress>
+            <span>5</span>%
+            <!-- span태그 대신 아웃풋으로 하는 것도 좋은 방법! -->
+
+            <button type="submit">보내기</button>
+        </fieldset>
+    </form>
+
+    <script>
+        let inter = null; //인터벌 객체를 저장할 변수. null은 비운다..?
+        //인터벌 객체란 지정한 시간만큼 간격을 두고 지정한 함수를 지속적으로 호출하는 객체.
+        //하단 두 함수에서 사용하려고 inter를 외부에 만들어 둔 것.
+
+        function init(){
+            //0.5초 이후 지정한 함수(pGo())를 단 한번 호출한다.(지속호출은 setInterval)
+            inter = setTimeout("pGo()", 500);
+        }
+        
+        function pGo(){
+            console.log("^^*");
+
+            let pp = document.getElementById("s1");
+            let pspan = document.querySelector("form fieldset span");
+            pp.value += + 0.05;
+            pspan.innerHTML = parseInt(pp.value*100);
+
+            if(pp.value >= 1){
+                // 인터벌 객체 소멸.
+                clearInterval(inter);
+                alert("완료");
+                
+            }
+            setTimeout("pGo()", 500) // 무한반복. 절대 좋은 예는 아님(하지마~!)
+
+        }
+    </script>
+</body>
+</html>

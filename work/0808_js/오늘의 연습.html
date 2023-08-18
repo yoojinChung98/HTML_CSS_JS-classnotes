@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <style>
+        /* div{
+            background-color: #efa;
+        } */
+        #img1{
+            margin-top: 30px;
+        }
+        #box{
+            width: 170px;
+            height: 150px;
+            padding: 10px;
+            border: 1px solid #000;
+            position: absolute;
+            top: 120px;
+            left: 300px;
+            display: none;
+        }
+        #window{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="창!" id="btn"/>
+    <input type="button" value="기본창" id="w_btn"/>
+    <input type="button" value="더?" id="nW_btn"/>
+    <br/>
+    <label for="calend">날짜선택</label>
+    <input type="text" id="calend" name="calend"/>
+    <br/>
+    <div id="tabtab">
+        <ul>
+            <li><a href="#fst_tab">1번</a></li>
+            <li><a href="#snd_tab">2번</a></li>
+            <li><a href="#trd_tab">3번</a></li>
+        </ul>
+        <div id="fst_tab">1번내용</div>
+        <div id="snd_tab">2번내용</div>
+        <div id="trd_tab">3번내용</div>
+    </div> 
+    <img src="asset/images/Step1.png" id="img1"/>
+
+    <div id="box">
+        <header>
+            <h2>제목입니다.</h2>
+        </header>
+        <div class="content">
+            <input type="button" value="닫기" id="close_btn"/>
+        </div>
+    </div>
+    <div id="window">
+        <span>이 창은 기본적으로 <br/> 제공되는 형태입니다.</span>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $(function(){
+            $("#box").draggable();
+            $("#img1").draggable({axis: "x"});
+
+            $("#btn").click(function(){
+                $("#box").css({display: "block", backgroundColor: "#eff"});
+            });
+
+            $("#close_btn").click(function(){
+                $("#box").css("display","none");
+            });
+            
+            $("#w_btn").click(function(){
+                $("#window").dialog({title:"Basic Window", resizable: "false"})
+                $("#window").css("display","block")
+            });
+
+            $("#calend").datepicker({
+                numberOfMonths: [3,1],
+                showAnim: "slideDown"
+            });
+
+            $(":button").button();
+
+            $("#nW_btn").click(function(){
+                //버튼을 누를때마다 제이쿼리창을 새로 만들어낼거야
+                let n_Win = document.createElement("div");
+                $("body").append(n_Win);
+                $(n_Win).dialog();
+                //$("n_Win")이라고 부르면 안불려...! 너가 여기서 변수에 담았으니까 당당하게 써!!
+            });
+            
+
+            //여기는 새로운 창 계속 만들기 부분 교수님이 다시 써준 곳
+            // let count = 0;
+            // $("#nW_btn").click(function(){
+            //     //버튼을 누를때마다 제이쿼리창을 새로 만들어낼거야
+            //     //let n_Win = document.createElement("div");
+            //     let n_Win = "<div id='win"+count+"'>ggg</div>";
+            //     $("body").append(n_Win);
+            //     $("#win"+count).dialog();
+            //         // $()는 변수로는 부를 수 없어욥!!!!
+            //     count++;
+            //         // $("n_Win").dialog({title:"Basic Window", resizable: "false"})
+            // });
+
+            $("#tabtab").tabs();
+
+
+        });
+
+    </script>
+</body>
+</html>

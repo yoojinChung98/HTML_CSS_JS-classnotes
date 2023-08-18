@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #t1{
+            width: 300px;
+            border-collapse: collapse;
+        }
+        #t1 th, #t1 td{
+            border: 1px solid black;
+            padding: 4px;
+        }
+        #t1 caption{
+            text-indent: -9999px;
+            height: 0;
+        }
+        #t1 thead>tr:first-child>td{
+            text-align: right;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>테이블 행추가</h2>
+    <table id="t1">
+        <caption>행추가 테이블</caption>
+        <thead>
+            <tr>
+                <td colspan="3"><input type="button" value="추가" onclick="addRow()"/></td>
+            </tr>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>연락처</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+
+        let idx = 0;
+        function addRow(){
+            // 추가 버튼을 클릭할 때마다 호출하는 곳
+
+            let table = document.getElementById("t1");
+            let tbody = table.children[2];
+
+            // td라는 요소를 3개 만든다.
+            let td1 = document.createElement("td"); // <td></td> 하나 생성.
+            td1.innerText = ++idx;  //<td>1</td>
+
+            let td2 = document.createElement("td");
+            td2.innerText = "마루치";   //<td>마루치</td>
+
+            let td3 = document.createElement("td");
+            td3.innerText = "010-1234-5678";    //<td>010-1234-5678</td>
+
+            //위의 각 td들을 가질 tr요소를 생성.
+            let tr = document.createElement("tr");
+
+            //tr안에 있는 모든 자식요소들의 문자열을 가운데 정렬!
+            tr.style.textAlign = "center";
+            
+            //tr안에 td들을 자식요소로 추가해야 한다.
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);    // <tr> <td>1</td> <td>마루치</td> <td>010-1234-5678</td> </tr> 완료
+
+            tbody.appendChild(tr);  // <tbody>안에 tr 추가.
+        }
+    </script>
+</body>
+</html>

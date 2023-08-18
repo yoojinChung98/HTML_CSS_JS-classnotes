@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #can1{
+            border: 3px dotted black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Canvas연습</h1>
+    <canvas id="can1" width="400" height="300">
+        현재 브라우저에서는 Canvas를 지원하지 않습니다.
+    </canvas>
+
+    <script>
+        window.onload = function(){
+
+            let mc = document.getElementById("can1");
+            let ctx = mc.getContext("2d");
+
+
+            if(ctx){
+
+                ctx.strokeStyle = "#f00";   //선색상
+                ctx.fillStyle = "yellow";   //채우기 색
+                ctx.lineWidth = 10;
+
+                ctx.save(); //지금까지 지정된 ctx의 상태를 저장한다.
+                
+                ctx.fillRect(25,25,100,125);
+                ctx.strokeRect(25,25,100,125);
+
+                ctx.strokeStyle = "green"; 
+                ctx.fillStyle = "blue";   
+                
+                ctx.fillRect(155,25,100,125);
+                ctx.strokeRect(155,25,100,125);
+
+                //ctx.strokeStyle = "#f00";
+                //ctx.fillStyle = "yellow";
+
+                // 앞서 저장된 ctx의 상태를 불러온다.
+                ctx.restore();
+
+                ctx.fillRect(285,25,100,125);
+                ctx.strokeRect(285,25,100,125);
+            }
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포지션 absolute</title>
+    <style>
+        div#wrap{
+            border: 2px solid red;
+            width: 600px;
+            height: 350px;
+            margin: 30px auto;
+            padding: 10px;
+            position: relative;
+            /* 포지션이 없으면 그 안에 있는 div들의 포지션 기준이 창이 된다.*/
+        }
+        div#wrap>div{
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+            position: absolute; /* */
+        }
+        div#box1{
+            background-color: #f00;
+            top: 20px;
+            left: 20px;
+        }
+        div#box2{
+            background-color: #0f0;
+            top: 20px;
+            right: 20px;
+        }
+        div#box3{
+            background-color: #00f;
+            bottom: 20px;
+            left: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="box1"></div>
+        <div id="box2"></div>
+        <div id="box3"></div>
+    </div>
+</body>
+</html>

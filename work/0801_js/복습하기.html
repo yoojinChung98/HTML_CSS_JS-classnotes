@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #square{
+            border: 1px solid black;
+        }
+        #hereAdmission{
+            border: 1px solid black;
+            width: 500px;
+            height: 400px;
+            line-height: 400px;
+            text-align: center;
+            font-size: 100px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="ex1" class="square">
+        <h3>ex1 : 자바스크립트로 선언하고 대입하기</h3>
+    </div>
+
+    <div id="ex2" class="square">
+        <h3>ex2 : 함수 생성하고 인자 넣어보기</h3>
+        <button type="button" onclick="test1()">ex2_a값 경고메시지</button>
+        <button type="button" onclick="test2()">ex2_b값 경고메시지</button>
+        <button type="button" onclick="test3(200,30)">인자를 넣는 합계함수 경고메시지</button>
+    </div>
+
+    <div id="ex3" class="square">
+        <h3>ex3 : 유효성 검사 값이 비어있다면 되돌려보내기</h3>
+        <label for="fill">빈칸을 채워보세요.</label>
+        <input type="text" id="fill" name="u_fill"/><br/>
+        <button type="button" onclick="valid_ck()">완료</button>
+    </div>
+
+    <div id="ex4" class="square">
+        <h3>ex4 : 산술연산자의 종류와 문자열을 숫자로 바꾸기</h3>
+        산술연산자의 종류는 다음과 같습니다.<br/>
+        +  -  *  /  %(나머지)<br/>
+        input을 number로 받아도 문자열로 인식되기 때문에, 숫자로 변경하기 위해서 parseInt()를 사용해야 합니다.<br/>
+        산술연산자의 우선순위는 매우 높습니다.
+    </div>
+
+    <div id="ex5" class="square">
+        <h3>ex5 : 비교연산자와 종류</h3>
+        비교연산자의 종류는 다음과 같으며 기준은 좌변이라고 생각합니다.<br/>
+        크다(>)     작다(<)     크거나같다(>=)     작거나같다(<=)    같다(==)    다르다(!=)
+    </div>
+
+    <div id="ex6" class="square">
+        <h3>ex6 : 대입연산자 </h3>
+        <label for="putCalc">입력하신 숫자에 100을 더해드립니다.</label>
+        <input type="text" id="putCalc" name="u_putCalc"/>
+        <button type="button" onclick="Calc()">입력완료</button>
+        <span id="hereNum" style="border:1px solid #555">결과는? </span>
+    </div>
+
+    <div id="ex7" class="square">
+        <h3>ex7 : 증감연산자: 처리순서 매우 중요</h3>
+        증감연산자의 종류는 ++(1씩 더하기)  --(1씩 빼기) 뿐입니다.<br/>
+        다만! 변수 앞에 올 땐 누구보다 빠르게 처리하지만, 변수 뒤에선 행이 바뀔 때 수행됩니다.<br/>
+        a=3일 때,<br/>println(++a);     // 4, a = 4<br/>println(a++);     // 3, a = 4
+    </div>
+
+    <div id="ex8" class="square">
+        <h3>ex8 : 논리연산자</h3>
+        논리연산자의 종류는 &nbsp;&nbsp;&&(and) &nbsp;&nbsp;||(or)&nbsp;&nbsp;!(Not)&nbsp;&nbsp;3가지가 있다.
+        논리연산자는 boolean타입 자료형이므로 true 혹은 false 값을 갖는다.<br/>
+        따라서 선행 조건의 결과에 따라 후속 조건을 수행하지 않을 수 있다.<br/>
+        &&의 경우, 선행조건의 값이 false라면 어값 false이므로 STOP.<br/>
+        ||의 경우, 선행조건의 값이 true라면 어값 true 이므로 STOP.
+    </div>
+
+    <div id="ex9_10_11" class="square">
+        <h3>ex9 10 11 : 비교문 if, else_if, else </h3>
+        <label for="hTime">몇시에 집에 가시겠어요?(24시간)</label>
+        <input type="number" id="hTime" name="u_hTime"/>
+        <button type="button" onclick="ckTime()">괜찮을까요?&nbsp;8ㅅ8&nbsp;</button>
+        <div id="hereAdmission">
+
+        </div>
+    </div>
+
+
+
+
+    <script>
+        //ex1
+        let a1 = 100;
+        var a2 = 30;
+        a1 = 70;
+        let str = "글뭉치";
+        let a3 = a1 + a2; //a1+a2 우선 수행(산술연산자), a3에 대입(대입연산자)
+        document.getElementById("ex1").innerText=str+a3; // +피연산자에 문자열이 들어오면 연결연산자로 변경!
+
+        //ex2
+        let ex2_a = 10;
+        function test1(){
+            alert(ex2_a);
+        }
+        function test2(){
+            let ex2_b = 30; //b는 지역변수, test2 종료 시 소멸.
+            alert(ex2_b);
+        }
+        function test3(ex2_n1, ex2_n2){
+            alert(ex2_n1 + ex2_n2 + ex2_a);
+        }
+
+        //ex3
+        function valid_ck(){
+            let v_fill = document.getElementById("fill").value;
+            if( v_fill == ""){
+                alert("빈칸이 채워지지 않았습니다. 반드시 채워주세요.");
+                document.getElementById("fill").focus();
+                return;
+            }
+        }
+
+        //ex6
+        function Calc(){
+            let num = document.getElementById("putCalc").value
+            let v_num = parseInt(num);
+            document.getElementById("hereNum").innerText=10+v_num;
+        }
+
+        //ex9 10 11
+        function ckTime(){
+            let time = document.getElementById("hTime").value
+            let v_time = parseInt(time);
+            let hereAdmission = document.getElementById("hereAdmission");
+            
+            if( v_time>=9 && v_time<18){
+                hereAdmission.innerHTML="<span style='color:red font-weight:bold'>안돼</span>";
+            }else if( v_time>=18 && v_time<22){
+                hereAdmission.innerHTML="<span>괜찮군.</span>";
+            }
+            else if( v_time>=22 && v_time <=24 || v_time <= 2){
+                hereAdmission.innerHTML="<span style='color:red font-weight:bold'>아주 좋군</span>";
+            }else if( v_time>=2 && v_time<9){
+                hereAdmission.innerHTML="<span style='color:red font-weight:bold'>가...넝..?</span>";
+            }
+        }
+
+    </script>
+
+</body>
+</html>

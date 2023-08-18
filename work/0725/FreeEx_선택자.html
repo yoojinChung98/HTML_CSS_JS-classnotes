@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자연습</title>
+    <style>
+        table{
+            width: 500px;
+            border: 1px solid black;
+        }
+
+        table#t1{
+            border-collapse: collapse;
+        }
+
+        table#t2{
+            border-spacing: 0px;
+        }
+
+        table td, table th{
+            border: 1px solid black;
+        }
+
+        #t1>thead tr{
+            background-color: antiquewhite;
+        }
+        table tfoot{
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <h1>선택자 연습</h1>
+        </header>
+        <article>
+            <table id="t1" summery="선택자연습테이블">
+                <caption>CSS선택자연습</caption>
+                <colgroup>
+                    <col width="40px"/>
+                    <col width="80px"/>
+                    <col width="1140px"/>
+                    <col width="*"/>
+                </colgroup>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">자료제공: 한국ICT협회</td>
+                    </tr>
+                </tfoot>
+                <thead>
+                    <tr>
+                        <th>순위</th>
+                        <th>언어</th>
+                        <th>라이센스</th>
+                        <th>URL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>자바</td>
+                        <td>MIT</td>
+                        <td>https://www.oracle.com</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>MXL</td>
+                        <td>서울대</td>
+                        <td>https://www.w3.org</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table id="t2" summery="선택자연습테이블">
+                <caption>CSS선택자연습</caption>
+                <colgroup>
+                    <col width="40px"/>
+                    <col width="80px"/>
+                    <col width="1140px"/>
+                    <col width="*"/>
+                </colgroup>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">자료제공: 한국ICT협회</td>
+                    </tr>
+                </tfoot>
+                <thead>
+                    <tr>
+                        <th>순위</th>
+                        <th>언어</th>
+                        <th>라이센스</th>
+                        <th>URL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>자바</td>
+                        <td>MIT</td>
+                        <td>https://www.oracle.com</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>MXL</td>
+                        <td>서울대</td>
+                        <td>https://www.w3.org</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+    </div>
+</body>
+</html>

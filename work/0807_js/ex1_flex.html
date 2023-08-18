@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul.container{
+            list-style: none;
+            padding: 0;
+            border: 1px solid red;
+            width: 80%;
+            margin: auto;
+            /**** flex개념 ****/
+            display: flex;
+            flex-direction: row; /*flex의 기본값 =row 따라서 옆으로 나란히 나열됨.*/
+            flex-wrap: wrap; /* 컨테이너가 좁아질 때 아이템들이 스스로 행을 바꿔서 내려갈 수 있도록 해줌. (반응형만들 때 유용). 기본값 nowrap*/
+            /* justify-content: flex-start;  start가 기본값. flex-end 우정렬, center 가운데정렬*/
+            justify-content: space-around;
+
+        }
+        li.item{
+            width: 50px;
+            height: 50px;
+            background-color: aquamarine;
+            text-align: center;
+            line-height: 50px;
+            flex-grow: 1; /* 자식요소 간에 비율(1=한자리 쓸거야!)*/
+            flex-shrink: auto; /* 공간이 모자랄 때 얼마만큼 줄일꺼야? */
+        }
+    </style>
+</head>
+<body>
+    <ul class="container">
+        <li class="item">항목1</li>
+        <li class="item">항목2</li>
+        <li class="item">항목3</li>
+        <li class="item">항목4</li>
+        <li class="item">항목5</li>
+    </ul>
+</body>
+</html>

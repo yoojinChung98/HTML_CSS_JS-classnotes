@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 400px;
+            height: 300px;
+            border: 1px solid blue;
+            font-size: 100px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 300px;
+            color: rgb(25, 25, 141);
+        }
+    </style>
+</head>
+<body>
+    
+    <form method="post">
+        <label for="score">점수입력: </label>
+        <input type="text" id="score" name="u_score"/><br/>
+        <button type="button" onclick="test()">확인</button>
+
+    </form>
+
+    <div id="box">
+
+    </div>
+
+    <script>
+        //현재문서에서 아이디가 score인 요소의 값(value)을 얻어낸다.
+        function test(){
+            let v1 = document.getElementById("score").value;
+
+        //60 이상인지 아닌지 판별하기 위해 숫자로 바꾸는 작업.
+            let value = parseInt(v1);
+
+        // 제어문 구분.
+        // 1. 비교문 : if문, switch문
+        // 2. 반복문 : for문, while문, do~while문
+
+        // if문의 구성(조건식은 반드시 결과가 ture 아니면 false여야 함.)
+            // if(조건식)
+            //      조건식에 만족 시 수행하는 문장;
+
+            // if(조건식){
+            //      조건식에 만족 시 수행하는 문장1;
+            //      조건식에 만족 시 수행하는 문장2;
+            //   }
+            if( value >= 60 ){
+                //현재 문서에서 아이디가 box인 요소를 검색하여 그 안에 "합격"이라는 문자열 출력
+                document.getElementById("box").innerText="합격";
+            }
+
+            
+        }
+
+    </script>
+</body>
+</html>

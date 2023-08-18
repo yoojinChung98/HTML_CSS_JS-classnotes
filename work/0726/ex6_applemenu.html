@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #header{
+            height: 44px;
+            margin: 0;
+            background-color: #2e2e2e;
+        }
+        #nav{
+            margin: 0;
+            padding: 0;
+            list-style: 0;
+            font: 14px Sans-serif;
+            text-align: center;
+            line-height: 44px;
+        }
+        #nav>li{
+            display: inline;
+            margin-right: 70px;
+        }
+        /* li태그 안에 존재하는 a태그의 글꼴색을 회색으로 & 밑줄 삭제 & 마우스가 올라가면 살짝 어두운색*/
+        #nav>li>a{
+            color: #eee;
+            text-decoration: none;
+        }
+        #nav>li>a:hover{
+            color: #e2e2e2;
+        }
+        #apple{
+            background-image: url(../0727/images/exit.png);
+            width: 48px;
+            position: absolute;
+            top: 1px;
+            background-size: 16px 44px;
+            background-repeat: no-repeat;
+            background-position: center center;
+
+            margin-left: -24px;
+            text-align: center;
+            z-index: 1;
+
+
+            border: 1px solid red;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <header id="header">
+            <ul id="nav">
+                <li><a href="" id="apple">&nbsp;</im></a></li>
+                <li><a href="">Store</a></li>
+                <li><a href="">Mac</a></li>
+                <li><a href="">iPad</a></li>
+                <li><a href="">iPhone</a></li>
+                <li><a href="">Watch</a></li>
+                <li><a href="">TV</a></li>
+                <li><a href="">Music</a></li>
+                <li><a href="">Support</a></li>
+            </ul>
+        </header>
+    </div>
+</body>
+</html>

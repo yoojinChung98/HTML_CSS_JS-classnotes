@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset{
+            margin: 5px;
+            text-align: center;
+        }
+        ul{
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: end;
+            
+        }
+        ul>li{
+            position: relative;
+            display: inline-block;
+            margin: 10px;
+
+            border: 1px solid #888;
+            width: 200px;
+            height: 200px;
+            padding-top: 10px;
+
+        }
+        .img{
+            width: 145px;
+            height: 145px;
+            /* border: 1px solid red; */
+        }
+        span.pName{
+            display: inline-block;
+            width: 90%;
+            margin-top: 5px;
+            font-size: 10pt;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            /* border: 1px solid blue; */
+
+        }
+        span.pPrice{
+            display: block;
+            font-size: 9pt;
+            /* border: 1px solid green; */
+
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <fieldset style="border: 2px solid #888">
+        <form>
+            <select id="search_cri">
+                <option>&nbsp;::검색 기준::&nbsp;</option>
+                <option value="brand">제조회사</option>
+                <option value="product_type">제품타입</option>
+                <option value="price_less_than">최고가격</option>
+            </select>
+            <input type="text" id="s_input"/>
+            <button type="button" onclick="search()">검색</button>
+        </form>
+            <div id="results">
+                <ul>
+                </ul>
+            </div>
+    </fieldset>
+            
+
+    
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+
+
+        function search(){
+
+        let search_cri = document.getElementById("search_cri");
+        let idx_cri = search_cri.selectedIndex;
+        let val_cri = search_cri.options[idx_cri].value;
+        let s_input = document.getElementById("s_input").value;
+        // console.log(idx_cri, val_cri);  //0 "검색기준"
+
+            if(idx_cri != 0){
+                if(s_input.trim().length > 0){
+                    $.ajax({
+                        url: "https://makeup-api.herokuapp.com/api/v1/products.json",
+                        data: val_cri+"="+s_input , 
+                        type: "get",
+                        dataType: "json"
+
+                    }).done(function(data){
+                        //li태그 만들거야
+                        console.log(data);
+                        let msg = ""
+                        for(let i=0; i<data.length; i++){
+                            msg += "<li><a href='"+data[i].product_link+"'>"
+                            msg += "<img src='"+data[i].image_link+"' class='img'/>"
+                            msg += "<span class='pName'>"+data[i].name+"</span>"
+                            msg += "<span class='pPrice'>$"+data[i].price+"</span>"
+                            msg += "</a></li>"
+                            // console.log(msg);
+                        }
+                    $("#results>ul").html(msg);
+
+                    }).fail(function(err){
+                        alert("error");
+                    })
+                }else{
+                    alert("내용을 입력해주세요")
+                    document.getElementById("s_input").focus();
+                    return;
+                }
+            } else{
+                alert("검색 기준을 선택해주세요")
+                search_cri.focus();
+                return;
+            }
+        }
+    </script>
+</body>
+</html>

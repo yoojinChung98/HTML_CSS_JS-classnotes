@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>jQuery함수 활용</h1>
+
+    <div id="box1">
+        <button type="button" id="bt1">한글</button>
+        <button type="button" id="bt2">영문</button>
+        <header>
+            <h1>제목1</h1>
+            <section>
+                <input type="radio" value="public" name="rdo"/><span>공개</span>
+                <input type="radio" value="private" name="rdo"/><span>비공개</span>
+            </section>
+        </header>
+    </div>
+    <div id="box2"></div>
+    <div id="box3"></div>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            // 현재 영역은 현재문서가 준비되면 무조건 수행하는 곳.
+            // let ar = $("#box1 input:radio");
+            let box=$("#box1"); //.find(":radio"); //아이디가 box1인 요소 안에서 타입속성의 값이 radio인 녀석들을 모두 찾아서 변수 ar에 저장한다!
+            let ar = box.find(":radio");
+            
+            // alert(ar.length); //2
+
+            // 마지막 라디오버튼을 미리 선택해놓자.
+            $(ar[ar.length-1]).prop("checked", true);
+
+            // 검색된 radio버튼의 마지막 항목을 미리 선택해두자! (checked라는 속성 지정.)
+            // $(ar[ar.length-1]).next().text("Private");  //ar[1]=비공개input의 다음요소는 비공개span의 text를 Priavate으로 초기화.
+
+
+            //버튼들에 이벤트 추가하기
+            $("#bt1, #bt2").click(function(){
+                // 각 버튼들의 움직임이 달라야 한다. 즉, 영문버튼을 클릭했을 때
+                // 라디오버튼들의 문자열이 영문으로 변경.
+
+
+                // 1.클릭한 버튼의 문자열(text)을 얻어낸다.
+                let txt = $(this).text();
+                if(txt == "영문"){
+                    //영문 버튼을 눌렀을 때
+                    for(let i=0; i<ar.length; i++){
+                        switch(i){
+                            case 0:
+                                $(ar[i]).next().text("Public");
+                                break;
+                            case 1:
+                                $(ar[i]).next().text("Private");
+                                break;
+                        }
+                    }
+                }else{
+                    //한글 버튼을 눌렀을 때
+                    //상단과 내용이 중복되네? 이 부분 함수로 바꿔서 연습해보면 참 좋을 것 같네!(이따가 연습!!)
+                    for(let i=0; i<ar.length; i++){
+                        switch(i){
+                            case 0:
+                                $(ar[i]).next().text("공개");
+                                break;
+                            case 1:
+                                $(ar[i]).next().text("비공개");
+                                break;
+                            }
+                    }
+                }
+            });
+        });
+
+        // //만일 함수로 만든다면
+        
+        // //함수호출하기
+        // ex(ar, txt);
+
+        // //함수 정의하기
+        // function ex(ar, str){
+
+        //     for(let i=0; i<ar.length; i++){
+        //         switch(i){
+        //             case 0:
+        //                 if(str == "영문")
+        //                     $(ar[i]).next().text("Public");
+        //                 else
+        //                     $(ar[i]).next().text("공개");
+        //                 break;
+        //             case 1:
+        //                 if(str == "영문")
+        //                     $(ar[i]).next().text("Private");
+        //                 else
+        //                     $(ar[i]).next().text("비공개");
+        //                 break;
+        //         }
+        //     }
+        // }
+
+    </script>
+</body>
+</html>
